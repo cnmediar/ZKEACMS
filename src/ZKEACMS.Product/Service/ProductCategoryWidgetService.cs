@@ -65,7 +65,10 @@ namespace ZKEACMS.Product.Service
             }
             return widget.ToWidgetViewModelPart(new ProductCategoryWidgetViewModel
             {
-                Categorys = _productCategoryService.Get(m => m.ParentID == currentWidget.ProductCategoryID),
+                Categorys = _productCategoryService.Get(m=>m.Status==1),
+                 BigCategorys   = _productCategoryService.Get(m => m.Status == 1 && m.ParentID == 0),
+
+                // Categorys = _productCategoryService.Get(m => m.ParentID == cate),
                 CurrentCategory = cate
             });
         }

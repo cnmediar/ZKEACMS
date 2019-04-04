@@ -1,12 +1,132 @@
 @model ZKEACMS.Product.ViewModel.ProductCategoryWidgetViewModel
+<style type="text/css">
+    .hamburgermenu {
+        /*background: none repeat scroll 0 0 ;
+        box-shadow: 3px 0 7px rgba(0, 0, 0, 0.55);*/
+        height: 100%;
+        overflow: hidden;     
+    }
 
-<div class="product-category">
-    <div class="list-group">
-        @foreach (var item in Model.Categorys)
+    .Menu {
+        text-align: center;
+        width: 100%;
+    }
+
+        .Menu h3 {
+            cursor: pointer;
+            margin: 0;
+            /*color: #ccc;*/
+            padding: 14px 8px;
+            text-align: left;
+            text-decoration: none;
+        }
+
+            /*.Menu h3:hover {
+                background-color: #2c2c2c;
+                color: #fff;
+            }*/
+
+        .Menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: none;
+            text-align: left;
+            /*background-color: #222;*/
+        }
+
+            .Menu ul li {
+                /*font: 13px/31px "Microsoft YaHei";*/
+                /*height: 31px;*/
+            }
+
+
+        .Menu a {
+            text-decoration: none;
+            /*color: #fff;*/
+        }
+</style>
+<div class="product-category hamburgermenu">
+    <div class="list-group Menu">
+
+        @*<div class="hamburgermenu">
+            <div class="Menu">*@
+        @foreach (var cat in Model.BigCategorys)
         {
-            <a href="@Url.ProductCategoryUrl(item)" class="list-group-item @(item.ID == Model.CurrentCategory ? "active" : "")">
-                @item.Title
+        <h3>
+            <a href="@Url.ProductCategoryUrl(cat)" class="list-group-item @(cat.ID == Model.CurrentCategory ? "active" : "")">
+                @cat.Title
             </a>
+        </h3>
+            <ul>
+                @foreach (var item in Model.Categorys.Where(n => n.ParentID == cat.ID))
+                {
+                    <li>
+                        <a href="@Url.ProductCategoryUrl(item)" class="list-group-item @(item.ID == Model.CurrentCategory ? "active" : "")">
+                            @item.Title
+                        </a>
+                    </li>
+                }
+            </ul>
         }
     </div>
 </div>
+
+@*<script src="http://www.w3school.com.cn/jquery/jquery-1.11.1.min.js">
+    </script>*@
+<script>
+    $(document).ready(function () {
+        $(".Menu h3").click(function () {
+            if ($(this).next("ul").css("display") == "block")
+                $(this).next("ul").slideUp();
+            else {
+                var uls = $(this).parent().children("ul");
+                uls.slideUp();
+                $(this).next("ul").slideDown();
+            }
+        });
+    });
+</script>
+
+@*<div class="hamburgermenu">
+    <div class="Menu">
+        <h3>菜单一</h3>
+        <ul>
+            <li>
+                <a href="javascript:void(0)">子菜单一</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">子菜单二</a>
+            </li>
+        </ul>
+        <h3>菜单二</h3>
+        <ul>
+            <li>
+                <a href="javascript:void(0)">子菜单一</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">子菜单二</a>
+            </li>
+        </ul>
+        <h3>菜单三</h3>
+        <ul>
+            <li>
+                <a href="javascript:void(0)">子菜单一</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">子菜单二</a>
+            </li>
+        </ul>
+        <h3>菜单四</h3>
+        <ul>
+            <li>
+                <a href="javascript:void(0)">子菜单一</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">子菜单二</a>
+            </li>
+        </ul>
+    </div>
+</div>*@
+
+
