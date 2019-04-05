@@ -9,6 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Principal;
 using Easy.RepositoryPattern;
+using EasyFrameWork.Models;
 
 namespace Easy.Modules.User.Models
 {
@@ -44,6 +45,9 @@ namespace Easy.Modules.User.Models
 
         [NotMapped]        
         public virtual List<UserRoleRelation> Roles { get; set; }
+
+        [NotMapped]
+        public virtual List<VocationalTraining> VocationalTrainings { get; set; }
         [NotMapped]
         public override string Title
         {

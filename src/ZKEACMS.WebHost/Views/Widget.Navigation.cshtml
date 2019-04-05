@@ -7,7 +7,61 @@
         return;
     }
 }
-<div class="navigation">
+
+
+<div class="top">
+    <div class="top_box">
+        <ul>
+            <li><a href="">Forget Password？</a></li>
+            <li><a href="">Register</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">Sign In</a></li>
+        </ul>
+    </div>
+</div>
+<div class="herder">
+    <div class="herder_top">
+        <div class="logo"><a href=""><img src="/themes/flyingtop/images/a1.png"></a></div>
+        <div class="serach">
+            <input type="text" name="" id="" value="" />
+            <button>serach</button>
+        </div>
+    </div>
+    <div class="nav">
+        <ul>
+           
+
+
+            @foreach (var item in Model.Navigations)
+            {
+                         
+              
+                    <li class="@(item.Current.IsCurrent ? "on" : "")">
+                        @if (item.Current.Html.IsNullOrWhiteSpace())
+                        {
+                            @Html.SmartLink(Url.PathContent(item.Current.Url), item.Current.Title)
+                        }
+                        else
+                        {
+                            @Html.Raw(item.Current.Html)
+                        }
+                    </li>
+               
+            }
+
+
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+@*<div class="navigation">
     <div class="navbar navbar-default @((Model.Widget.IsTopFix??false)?"navbar-fixed-top":"")" role="navigation">
         <div class="@(Model.Widget.CustomerClass??"container")">
             <div class="navbar-header">
@@ -107,4 +161,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
