@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace ZKEACMS.Product.Service
 {
@@ -17,9 +19,12 @@ namespace ZKEACMS.Product.Service
     {
         private const string ProductCategoryWidgetRelatedPageUrls = "ProductCategoryWidgetRelatedPageUrls";
         private readonly IProductCategoryService _productCategoryService;
-        public ProductCategoryWidgetService(IWidgetBasePartService widgetService, IProductCategoryService productCategoryService, IApplicationContext applicationContext, CMSDbContext dbContext)
+        private readonly IProductService _productService;
+        public ProductCategoryWidgetService(IWidgetBasePartService widgetService, IProductService productService,
+            IProductCategoryService productCategoryService, IApplicationContext applicationContext, CMSDbContext dbContext)
             : base(widgetService, applicationContext, dbContext)
         {
+            _productService = productService;
             _productCategoryService = productCategoryService;
         }
         private void DismissRelatedPageUrls()
@@ -41,10 +46,30 @@ namespace ZKEACMS.Product.Service
         {
             ProductCategoryWidget currentWidget = widget as ProductCategoryWidget;
             int cate = actionContext.RouteData.GetCategory();
+            int bigCate = 0;
             ProductCategory productCategory = null;
+
+            IEnumerable<ProductEntity> products = null;
+
+            Expression<Func<ProductEntity, bool>> filter = null;
+            if (cate != 0)
+            {
+                filter = m => m.IsPublish && m.ProductCategoryID == cate;
+            }
+            else
+            {
+                var ids = _productCategoryService.Get(m => m.ID == currentWidget.ProductCategoryID || m.ParentID == currentWidget.ProductCategoryID).Select(m => m.ID).ToList();
+                filter = m => m.IsPublish && ids.Contains(m.ProductCategoryID);
+            }
+
+            products = _productService.Get().Where(filter).OrderBy(m => m.OrderIndex).ThenByDescending(m => m.ID).ToList();
+
+
             if (cate > 0)
             {
                 productCategory = _productCategoryService.Get(cate);
+
+                bigCate = productCategory.ParentID == 0 ? cate : productCategory.ParentID;
             }
             if (actionContext.RouteData.GetCategoryUrl().IsNullOrEmpty() && productCategory != null)
             {
@@ -65,11 +90,14 @@ namespace ZKEACMS.Product.Service
             }
             return widget.ToWidgetViewModelPart(new ProductCategoryWidgetViewModel
             {
-                Categorys = _productCategoryService.Get(m=>m.Status==1),
-                 BigCategorys   = _productCategoryService.Get(m => m.Status == 1 && m.ParentID == 0),
+                Categorys = _productCategoryService.Get(m => m.Status == 1),
+                BigCategorys = _productCategoryService.Get(m => m.Status == 1 && m.ParentID == 0),
 
                 // Categorys = _productCategoryService.Get(m => m.ParentID == cate),
-                CurrentCategory = cate
+                CurrentCategory = cate,
+                CurrentBigCategory = bigCate,
+                 Products= products
+
             });
         }
 

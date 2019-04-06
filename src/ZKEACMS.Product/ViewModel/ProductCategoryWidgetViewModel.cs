@@ -10,5 +10,8 @@ namespace ZKEACMS.Product.ViewModel
 
         public IEnumerable<ProductCategory> Categorys { get; set; }
         public int CurrentCategory { get; set; }
-    }
+        public int CurrentBigCategory { get; set; }
+
+        public IEnumerable<ProductEntity> Products { get; set; }
+    }      
 }
