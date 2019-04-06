@@ -12,6 +12,9 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+using System.Threading;
 
 namespace ZKEACMS.Product.Service
 {
@@ -20,12 +23,17 @@ namespace ZKEACMS.Product.Service
         private const string ProductCategoryWidgetRelatedPageUrls = "ProductCategoryWidgetRelatedPageUrls";
         private readonly IProductCategoryService _productCategoryService;
         private readonly IProductService _productService;
+
+        private readonly IHostingEnvironment _hostingEnvironment;
+
+     
+
         public ProductCategoryWidgetService(IWidgetBasePartService widgetService, IProductService productService,
-            IProductCategoryService productCategoryService, IApplicationContext applicationContext, CMSDbContext dbContext)
+            IProductCategoryService productCategoryService, IApplicationContext applicationContext, CMSDbContext dbContext, IHostingEnvironment hostingEnvironment)
             : base(widgetService, applicationContext, dbContext)
         {
             _productService = productService;
-            _productCategoryService = productCategoryService;
+            _productCategoryService = productCategoryService; _hostingEnvironment = hostingEnvironment;
         }
         private void DismissRelatedPageUrls()
         {
@@ -44,6 +52,7 @@ namespace ZKEACMS.Product.Service
         }
         public override WidgetViewModelPart Display(WidgetBase widget, ActionContext actionContext)
         {
+            //insertProdut();
             ProductCategoryWidget currentWidget = widget as ProductCategoryWidget;
             int cate = actionContext.RouteData.GetCategory();
             int bigCate = 0;
@@ -55,14 +64,17 @@ namespace ZKEACMS.Product.Service
             if (cate != 0)
             {
                 filter = m => m.IsPublish && m.ProductCategoryID == cate;
+                products = _productService.Get().Where(filter).OrderBy(m => m.OrderIndex).ThenByDescending(m => m.ID).ToList();
             }
             else
             {
-                var ids = _productCategoryService.Get(m => m.ID == currentWidget.ProductCategoryID || m.ParentID == currentWidget.ProductCategoryID).Select(m => m.ID).ToList();
-                filter = m => m.IsPublish && ids.Contains(m.ProductCategoryID);
+             var aa =  _productService.Get().GroupBy(m => m.ProductCategoryID);
+             
+
+                products = _productService.Get().ToList().GroupBy(m=>m.ProductCategoryID).Select(m=>m.FirstOrDefault()).ToList();
             }
 
-            products = _productService.Get().Where(filter).OrderBy(m => m.OrderIndex).ThenByDescending(m => m.ID).ToList();
+            
 
 
             if (cate > 0)
@@ -109,5 +121,84 @@ namespace ZKEACMS.Product.Service
                 return DbContext.Page.Where(p => pages.Contains(p.ID)).Select(m => m.Url.Replace("~/", "/")).Distinct().ToArray();
             });
         }
+
+        public void insertProdut()
+        {
+
+           
+
+
+          string[] d=  Directory.GetDirectories (Path.Combine(_hostingEnvironment.WebRootPath, @"UpLoad\product"));
+
+            foreach (var item in d)
+            {
+                string[] sds = Directory.GetDirectories(item);
+
+                foreach (var sd in sds)
+                {
+                    string[] fs = System.IO.Directory.GetFiles(sd);
+
+                    DirectoryInfo dinfo = new DirectoryInfo(sd);
+                    try
+                    {
+                        var cat = _productCategoryService.GetSingle(n => n.Title == dinfo.Name);
+
+                        if (cat != null)
+                        {
+
+                            foreach (var f in fs)
+                            {
+
+                                var finfo = new FileInfo(f);
+                                string path = finfo.FullName.Substring(finfo.FullName.IndexOf("UpLoad"));
+                                path = path.Replace('\\', '/');
+
+                                int c = _productService.Count(n => n.Title == finfo.Name);
+
+                                if (c == 0)
+                                {
+                                    string tick = DateTime.Now.Ticks.ToString();
+                                    var filepath = Path.Combine(_hostingEnvironment.WebRootPath, @"UpLoad\productImages", tick) + finfo.Extension;
+
+                                    Thread.Sleep(1);
+
+                                    var webpath = filepath.Substring(filepath.IndexOf("UpLoad"));
+                                    webpath = webpath.Replace('\\', '/');
+
+
+                                    File.Copy(finfo.FullName, filepath);
+
+                                    _productService.Add(new ProductEntity
+                                    {
+                                        Title = finfo.Name,
+                                        ProductCategoryID = cat.ID,
+                                        IsPublish = true,
+                                        CreateDate = DateTime.Now,
+                                        Status = 1,
+                                        ImageThumbUrl = webpath,
+                                        ImageUrl = webpath,
+                                        PartNumber = tick
+                                    });
+
+                                }
+
+                            }
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        ;
+                    }
+                 
+                } 
+               
+
+            }       
+
+           
+
+        }
+
     }
 }

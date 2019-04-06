@@ -23,6 +23,22 @@ namespace ZKEACMS
             return helper.Content(path);
         }
 
+        public static string ProductImageContent(this IUrlHelper helper, string path)
+        {
+            if (path.IsNullOrEmpty())
+            {
+                return helper.PathContent("~/images/not-img-available.jpg");
+            }
+            var p= helper.Content(path);
+
+            string url = helper.ActionContext.RouteData.GetPath();
+            url = "/";
+          
+            
+                return $"{url}{(url.EndsWith("/") ? "" : "/")}{p}";
+           
+        }
+
         public static string ValidateCode(this IUrlHelper helper)
         {
             return helper.Action("Code", "Validation", new { module = "Validation" });

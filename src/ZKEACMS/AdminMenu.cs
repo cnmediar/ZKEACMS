@@ -163,14 +163,14 @@ namespace ZKEACMS
                         Order = 6,
                         PermissionKey = PermissionKeys.RobotsSetting
                     },
-                    new AdminMenu
-                    {
-                        Title = "翻译",
-                        Icon = "glyphicon-cog",
-                        Url = "~/admin/Language",
-                        Order = 7,
-                        PermissionKey = PermissionKeys.ManageLanguage
-                    },
+                    //new AdminMenu
+                    //{
+                    //    Title = "翻译",
+                    //    Icon = "glyphicon-cog",
+                    //    Url = "~/admin/Language",
+                    //    Order = 7,
+                    //    PermissionKey = PermissionKeys.ManageLanguage
+                    //},
                     new AdminMenu
                     {
                         Title = "其它设置",

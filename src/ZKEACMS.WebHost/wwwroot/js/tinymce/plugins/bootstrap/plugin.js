@@ -132,7 +132,7 @@ tinymce.PluginManager.add('bootstrap', function (editor) {
 
     function insertAlert(cla) {
         editor.undoManager.transact(function () {
-            editor.selection.setContent(editor.dom.createHTML("div", { "class": cla, role: "alert" }, "这是一则重要的消息,欢迎使用ZKEACMS进行创作"));
+            editor.selection.setContent(editor.dom.createHTML("div", { "class": cla, role: "alert" }, "这是一则重要的消息,欢迎使用进行创作"));
         });
         editor.focus();
         editor.nodeChanged();

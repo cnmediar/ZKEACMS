@@ -33,29 +33,30 @@ namespace ZKEACMS.FormGenerator
 
         public override IEnumerable<AdminMenu> AdminMenu()
         {
-            yield return new AdminMenu
-            {
-                Title = "自定义表单",
-                Children = new List<AdminMenu>
-                {
-                    new AdminMenu
-                    {
-                        Title="表单",
-                        Url="~/Admin/Form",
-                        Icon="glyphicon-list-alt",
-                        PermissionKey=PermissionKeys.ViewForm
-                    },
-                    new AdminMenu
-                    {
-                        Title="表单数据",
-                        Url="~/Admin/FormData",
-                        Icon="glyphicon-record",
-                        PermissionKey=PermissionKeys.ViewFormData
-                    }
-                },
-                Icon = "glyphicon-list-alt",
-                Order = 12
-            };
+            return null;
+            //yield return new AdminMenu
+            //{
+            //    Title = "自定义表单",
+            //    Children = new List<AdminMenu>
+            //    {
+            //        new AdminMenu
+            //        {
+            //            Title="表单",
+            //            Url="~/Admin/Form",
+            //            Icon="glyphicon-list-alt",
+            //            PermissionKey=PermissionKeys.ViewForm
+            //        },
+            //        new AdminMenu
+            //        {
+            //            Title="表单数据",
+            //            Url="~/Admin/FormData",
+            //            Icon="glyphicon-record",
+            //            PermissionKey=PermissionKeys.ViewFormData
+            //        }
+            //    },
+            //    Icon = "glyphicon-list-alt",
+            //    Order = 12
+            //};
         }
 
         protected override void InitScript(Func<string, ResourceHelper> script)

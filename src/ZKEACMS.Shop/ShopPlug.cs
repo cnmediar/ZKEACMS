@@ -51,31 +51,32 @@ namespace ZKEACMS.Shop
 
         public override IEnumerable<AdminMenu> AdminMenu()
         {
-            yield return new AdminMenu
-            {
-                Title = "电子商务",
-                Icon = "glyphicon-shopping-cart",
-                Order = 9,
-                Children = new List<AdminMenu>
-                {
-                    new AdminMenu
-                    {
-                        Title = "订单",
-                        Icon = "glyphicon-shopping-cart",
-                        Url="~/admin/Order",
-                        Order = 1,
-                        PermissionKey = PermissionKeys.ManageOrder
-                    },
-                    new AdminMenu
-                    {
-                        Title = "支付宝集成设置",
-                        Icon = "glyphicon-credit-card",
-                        Url="~/admin/AliPaySetting/Config",
-                        Order = 1,
-                        PermissionKey = PermissionKeys.PaymentConfigManage
-                    }
-                }
-            };
+            return null;
+            //yield return new AdminMenu
+            //{
+            //    //Title = "电子商务",
+            //    //Icon = "glyphicon-shopping-cart",
+            //    //Order = 9,
+            //    //Children = new List<AdminMenu>
+            //    //{
+            //    //    new AdminMenu
+            //    //    {
+            //    //        Title = "订单",
+            //    //        Icon = "glyphicon-shopping-cart",
+            //    //        Url="~/admin/Order",
+            //    //        Order = 1,
+            //    //        PermissionKey = PermissionKeys.ManageOrder
+            //    //    },
+            //    //    new AdminMenu
+            //    //    {
+            //    //        Title = "支付宝集成设置",
+            //    //        Icon = "glyphicon-credit-card",
+            //    //        Url="~/admin/AliPaySetting/Config",
+            //    //        Order = 1,
+            //    //        PermissionKey = PermissionKeys.PaymentConfigManage
+            //    //    }
+            //    //}
+            //};
         }
 
         protected override void InitScript(Func<string, ResourceHelper> script)

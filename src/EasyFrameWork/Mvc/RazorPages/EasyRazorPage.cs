@@ -70,7 +70,7 @@ namespace Easy.Mvc.RazorPages
 
         public LocalizeString L(string content)
         {
-            return new LocalizeString(content, this.ViewContext.HttpContext);
+            return new LocalizeString(content, "en-US", this.ViewContext.HttpContext);
         }
 
         public LocalizeString L(string content, string cultureCode)

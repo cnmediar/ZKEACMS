@@ -1,4 +1,4 @@
-@using ZKEACMS.Common.Models
+﻿@using ZKEACMS.Common.Models
 @inject IAdminMenuProvider adminMenuProvider
 @{
     Style.Reqiured("bootStrap").AtHead();
@@ -24,7 +24,7 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="http://www.zkea.net" target="_blank" class="navbar-brand" title="ZKEASOFT">
+                    <a href="http://www.flyingtop.cn" target="_blank" class="navbar-brand" title="ZKEASOFT">
                         <img src="~/images/logo_zkea_min.png" alt="" style="height: 20px;" />
                     </a>
                 </div>
@@ -36,38 +36,10 @@
                         <li>
                             <a href="~/">@L("查看站点")</a>
                         </li>
-                        <li>
-                            <a href="http://www.zkea.net/zkeacms/videos" target="_blank">@L("演示视频")</a>
-                        </li>
-                        <li>
-                            <a href="http://www.zkea.net/zkeacms/templates" target="_blank">@L("下载板块")</a>
-                        </li>
-                        <li>
-                            <a href="http://www.zkea.net/zkeacms/sites" target="_blank">@L("成品模板")</a>
-                        </li>
-                        <li>
-                            <a href="http://www.zkea.net/zkeacms/theme" target="_blank">@L("下载主题")</a>
-                        </li>
-                        <li>
-                            <a href="http://www.zkea.net/zkeacms/extend" target="_blank">@L("扩展插件")</a>
-                        </li>
-                        <li>
-                            <a href="http://www.zkea.net/zkeacms/document" target="_blank">@L("文档")</a>
-                        </li>
+                
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="http://www.zkea.net/zkeacms/enterprise" target="_blank">
-                                <i class="glyphicon glyphicon-copyright-mark"></i>
-                                @L("企业版")
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.zkea.net/zkeacms/donate" target="_blank">
-                                <i class="glyphicon glyphicon-usd"></i>
-                                @L("赞助")
-                            </a>
-                        </li>
+                    
                         <li>
                             <a href="@Url.Action("Logout", "Account")" target="_self" title="@L("退出")">
                                 <i class="glyphicon glyphicon-off"></i>
