@@ -69,24 +69,24 @@ namespace Easy.Modules.User.Models
             ViewConfig(p => p.PassWord).AsHidden();
             ViewConfig(p => p.PassWordNew).AsTextBox();
             ViewConfig(p => p.UserID).AsTextBox().Required().Order(1).ShowInGrid();
-            ViewConfig(p => p.UserName).AsTextBox().Required().Order(2).ShowInGrid();
+            //ViewConfig(p => p.UserName).AsTextBox().Required().Order(2).ShowInGrid();
             ViewConfig(p => p.Email).AsTextBox().Email();
-            ViewConfig(p => p.Age).AsTextBox().RegularExpression(RegularExpression.Integer);
-            ViewConfig(p => p.LastName).AsTextBox();
-            ViewConfig(p => p.FirstName).AsTextBox();
+            //ViewConfig(p => p.Age).AsTextBox().RegularExpression(RegularExpression.Integer);
+            //ViewConfig(p => p.LastName).AsTextBox();
+            //ViewConfig(p => p.FirstName).AsTextBox();
             ViewConfig(p => p.Birthday).AsTextBox().FormatAsDate();
             ViewConfig(p => p.Birthplace).AsTextBox().MaxLength(200);
             ViewConfig(p => p.Address).AsTextBox().MaxLength(200);
-            ViewConfig(p => p.ZipCode).AsTextBox().RegularExpression(RegularExpression.ZipCode);
-            ViewConfig(p => p.School).AsTextBox().MaxLength(100);
+            //ViewConfig(p => p.ZipCode).AsTextBox().RegularExpression(RegularExpression.ZipCode);
+            //ViewConfig(p => p.School).AsTextBox().MaxLength(100);
             ViewConfig(p => p.LoginIP).AsTextBox().Hide();
             ViewConfig(p => p.Timestamp).AsHidden();
             ViewConfig(p => p.LastLoginDate).AsTextBox().Hide().FormatAsDate();
             ViewConfig(p => p.Sex).AsDropDownList().DataSource(SourceType.Dictionary);
-            ViewConfig(p => p.MaritalStatus).AsDropDownList().DataSource(SourceType.Dictionary);
+            //ViewConfig(p => p.MaritalStatus).AsDropDownList().DataSource(SourceType.Dictionary);
             ViewConfig(p => p.Roles).AsListEditor();
-            ViewConfig(p => p.Description).AsTextArea();
-            ViewConfig(p => p.PhotoUrl).AsFileInput();
+            //ViewConfig(p => p.Description).AsTextArea();
+            //ViewConfig(p => p.PhotoUrl).AsFileInput();
             ViewConfig(p => p.UserTypeCD).AsDropDownList().DataSource(SourceType.Dictionary);
             ViewConfig(p => p.Title).AsHidden();
             ViewConfig(m => m.ApiLoginToken).AsTextBox().ReadOnly().Hide();
@@ -97,6 +97,38 @@ namespace Easy.Modules.User.Models
             ViewConfig(p => p.Name).AsHidden().Ignore();
             ViewConfig(p => p.ResetToken).AsHidden().Ignore();
             ViewConfig(p => p.ResetTokenDate).AsHidden().Ignore();
+
+
+     ViewConfig(p => p.AuditFirm).AsDropDownList().DataSource(SourceType.Dictionary);
+            ViewConfig(p => p.MembershipType).AsDropDownList().DataSource(SourceType.Dictionary);
+            ViewConfig(p => p.BSCI).AsCheckBox().ShowFormclass(false);
+            ViewConfig(p => p.ICS).AsCheckBox().Showclassformcontrol = false;
+            ViewConfig(p => p.Sedex).AsCheckBox().Showclassformcontrol = false;
+            ViewConfig(p => p.ICTI).AsCheckBox().Showclassformcontrol = false;
+            ViewConfig(p => p.RBA).AsCheckBox().Showclassformcontrol = false;
+            ViewConfig(p => p.CTPAT).AsCheckBox().Showclassformcontrol = false;
+
+
+            ViewConfig(p => p.SCS).AsCheckBox().Showclassformcontrol = false;
+            ViewConfig(p => p.SCAN).AsCheckBox().Showclassformcontrol = false;
+            ViewConfig(p => p.GSV).AsCheckBox().Showclassformcontrol = false;
+            ViewConfig(p => p.FCCA).AsCheckBox().Showclassformcontrol = false;
+            ViewConfig(p => p.SQP).AsCheckBox().Showclassformcontrol = false;
+            ViewConfig(p => p.QMS).AsCheckBox().Showclassformcontrol = false;
+            ViewConfig(p => p.GMP).AsCheckBox().Showclassformcontrol = false;
+
+            ViewConfig(p => p.ClientsProgram1).AsTextBox().Classes.Add("formcontrol1");
+            ViewConfig(p => p.ClientsProgram2).AsTextBox().Classes.Add("formcontrol1");
+            ViewConfig(p => p.ClientsProgram3).AsTextBox().Classes.Add("formcontrol1");
+
+            ViewConfig(p => p.Workexperience).AsTextArea();
+            ViewConfig(p => p.ListTypeofIndustryExperience).AsTextArea();
+
+            ViewConfig(p => p.IDNumber).AsTextBox().ReadOnly();
+
+            ViewConfig(p => p.School).AsTextBox().ReadOnly();
+
+
         }
     }
 }

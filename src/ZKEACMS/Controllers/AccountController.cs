@@ -18,6 +18,8 @@ using Microsoft.AspNetCore.DataProtection;
 using ZKEACMS.Account;
 using Microsoft.Extensions.Logging;
 using Easy.Mvc.Extend;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace ZKEACMS.Controllers
 {
@@ -92,11 +94,15 @@ namespace ZKEACMS.Controllers
             if (_applicationContextAccessor.Current.CurrentCustomer.UserID == user.UserID)
             {
                 user.UserTypeCD = (int)UserType.Customer;
-                var newPhoto = Request.SaveImage();
+                var newPhoto = Request.SaveFile();
+
+
                 if (newPhoto.IsNotNullAndWhiteSpace())
                 {
                     user.PhotoUrl = newPhoto;
                 }
+                
+
                 try
                 {
                     _userService.Update(user);
@@ -171,12 +177,26 @@ namespace ZKEACMS.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult SignUp(UserEntity user, string ReturnUrl)
         {
-            if (user.UserName.IsNotNullAndWhiteSpace() && user.PassWord.IsNotNullAndWhiteSpace() && user.Email.IsNotNullAndWhiteSpace())
+            if ( user.Email.IsNotNullAndWhiteSpace())
             {
                 try
                 {
+                    //调用---------------   
+                    string str = GenerateRandom(6);
+
+
+
+                    user.UserID = (_userService.Count(n=>n.UserID.Length>0)+ 60000001).ToString();
+                    user.PassWord = str;
+                    user.Status = (int)RecordStatus.InActive;
                     user.UserTypeCD = (int)UserType.Customer;
                     _userService.Add(user);
+
+
+                    _notifyService.NewPassword(user, str);
+
+                    _notifyService.HaveNewUser(user);
+
                 }
                 catch (Exception ex)
                 {
@@ -188,6 +208,38 @@ namespace ZKEACMS.Controllers
             }
             return RedirectToAction("SignUpSuccess", new { ReturnUrl });
         }
+        private static char[] constant =
+     {
+        'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+        'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
+      };
+        public static string GenerateRandom(int Length)
+        {
+            System.Text.StringBuilder newRandom = new System.Text.StringBuilder(52);
+            Random rd = new Random();
+            for (int i = 0; i < Length; i++)
+            {
+                newRandom.Append(constant[rd.Next(52)]);
+            }
+            return newRandom.ToString();
+        }
+
+       
+
+
+        public JsonResult UploadFile()
+        {
+
+            var newPhoto = Request.SaveFile();
+          
+            var o = new { path = newPhoto};
+
+
+            return Json(o);
+        }
+
+
+
         public ActionResult SignUpSuccess()
         {
             return View();

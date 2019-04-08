@@ -6,11 +6,23 @@ namespace Easy.ViewPort.Descriptor
 {
     public class CheckBoxDescriptor : BaseDescriptor<CheckBoxDescriptor>
     {
+
+     
+
         public CheckBoxDescriptor(Type modelType, string property)
             : base(modelType, property)
         {
             this.TagType = HTMLEnumerate.HTMLTagTypes.CheckBox;
             this.TemplateName = "CheckBox";
+
+            
+        }
+
+        public CheckBoxDescriptor ShowFormclass(bool showclass)
+        {
+            this.Showclassformcontrol = showclass;
+         
+            return this;
         }
     }
 }

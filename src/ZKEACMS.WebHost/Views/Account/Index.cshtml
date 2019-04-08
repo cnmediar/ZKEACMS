@@ -2,6 +2,7 @@
     ViewBag.Title = L("个人中心");
     Layout = Layouts.CustomerCenter;
 }
+@*<link href="~/themes/flyingtop/css/style.css" rel="stylesheet" />*@
 <div class="panel panel-default user-info">
     <div class="panel-heading clearfix">
         <div class="pull-left">@L("基本信息")</div>
@@ -10,6 +11,435 @@
         </div>
     </div>
     <div class="panel-body">
+
+        @if (ApplicationContext.CurrentCustomer.MembershipType == "Auditing Company"
+|| ApplicationContext.CurrentCustomer.MembershipType == "Certificate Body"
+|| ApplicationContext.CurrentCustomer.MembershipType == "Testing & Calibration"
+|| ApplicationContext.CurrentCustomer.MembershipType == "Consultant"
+|| ApplicationContext.CurrentCustomer.MembershipType == "Others"
+)
+        {
+
+            <p>
+                <label>Company Name English</label>
+                @ApplicationContext.CurrentCustomer.CompanyNameEnglish
+            </p>
+            <p>
+                <label>Company Name Local</label>
+                @ApplicationContext.CurrentCustomer.CompanyNameLocal
+            </p>
+            <p>
+                <label>Address English</label>
+                @ApplicationContext.CurrentCustomer.AddressEnglish
+            </p>
+            <p>
+                <label>Address Local</label>
+                @ApplicationContext.CurrentCustomer.AddressLocal
+            </p>
+            <p>
+                <label>Business License Number</label>
+                @ApplicationContext.CurrentCustomer.BusinessLicenseNumber
+            </p>
+            <p>
+                <label>Year of Facility Established</label>
+                @ApplicationContext.CurrentCustomer.YearofFacilityEstablished
+            </p>
+            <p>
+                <label>Contact Person ‘s Name/ Title</label>
+                @ApplicationContext.CurrentCustomer.ContactPerson
+            </p>
+            <p>
+                <label>Telephone Number</label>
+                @ApplicationContext.CurrentCustomer.TelephoneNumber
+            </p>
+            <p>
+                <label>Mobile Number</label>
+                @ApplicationContext.CurrentCustomer.MobilePhone
+            </p>
+            <p>
+                <label>E-mail address</label>
+                @ApplicationContext.CurrentCustomer.Email
+            </p>
+            <p>
+                <label>Main Language of employees</label>
+                @ApplicationContext.CurrentCustomer.MainLanguageofemployees
+            </p>
+            <p>
+                <label>Main services</label>
+                @ApplicationContext.CurrentCustomer.Mainservices
+            </p>
+        }
+
+        @if (ApplicationContext.CurrentCustomer.MembershipType == "Auditor")
+        {
+
+
+            <p>
+                <label>Local Name</label>
+                @ApplicationContext.CurrentCustomer.LocalName
+            </p>
+            <p>
+                <label>English Name</label>
+                @ApplicationContext.CurrentCustomer.EnglishName
+            </p>
+
+            <p>
+                <label>Gender</label>
+                @ApplicationContext.CurrentCustomer.Gender
+            </p>
+
+
+            <p>
+                <label>Marriage</label>
+                @ApplicationContext.CurrentCustomer.Marriage
+            </p>
+            <p>
+                <label>Photo</label>
+                @ApplicationContext.CurrentCustomer.Photo
+            </p>
+            <p>
+                <label>Audit</label>
+                @ApplicationContext.CurrentCustomer.AuditFirm
+            </p>
+            <p>
+                <label>Job Title</label>
+                @ApplicationContext.CurrentCustomer.JobTitle
+            </p>
+            <p>
+                <label>Email Address</label>
+                @ApplicationContext.CurrentCustomer.Email
+            </p>
+            <p>
+                <label>Mobile Number</label>
+                @ApplicationContext.CurrentCustomer.MobilePhone
+            </p>
+            <p>
+                <label>Home Address</label>
+                @ApplicationContext.CurrentCustomer.Address
+            </p>
+            <p>
+                <label>City</label>
+                @ApplicationContext.CurrentCustomer.City
+            </p>
+            <p>
+                <label>Country</label>
+                @ApplicationContext.CurrentCustomer.Country
+            </p>
+            <p>
+                <label>IDNumber</label>
+                @ApplicationContext.CurrentCustomer.IDNumber
+            </p>
+
+            <h2>List Auditing Experience</h2>
+
+
+
+
+
+
+            <p>
+                <label>CSR</label>
+                @ApplicationContext.CurrentCustomer.GMP
+            </p>
+            <p>
+                <label>QMS</label>
+                @ApplicationContext.CurrentCustomer.GMP
+            </p>
+            <p>
+                <label>Security</label>
+                @ApplicationContext.CurrentCustomer.GMP
+            </p>
+            <p>
+                <label>System Certification</label>
+                @ApplicationContext.CurrentCustomer.SystemCertification
+            </p>
+            <p>
+                <label>Others</label>
+                @ApplicationContext.CurrentCustomer.Others
+            </p>
+
+            <p>
+                <label>List Type of Industry Experience</label>
+                @ApplicationContext.CurrentCustomer.Workexperience
+            </p>
+
+            <h2>Education Background</h2>
+            <p>
+                <label> Level of Education(List Specific Course Level(s), Major and Year of Graduation)</label>
+                @ApplicationContext.CurrentCustomer.LevelofEducation
+            </p>
+            <p>
+                <label>Year of Graduation</label>
+                @ApplicationContext.CurrentCustomer.YearofGraduation
+            </p>
+
+
+
+
+            <h2>Language</h2>
+
+
+            <p>
+                <label> List Written Language(s) of Auditor</label>
+                @ApplicationContext.CurrentCustomer.ListWrittenLanguageofAuditor
+            </p>
+
+            <p>
+                <label>        Level of Proficiency with this Written Language(s)</label>
+                @ApplicationContext.CurrentCustomer.LevelofProficiencywiththisWritten
+            </p>
+
+
+            <p>
+                <label>
+                    List of Language(s) Spoken by Auditor
+                </label>
+                @ApplicationContext.CurrentCustomer.ListofLanguageSpokenbyAuditor
+            </p>
+
+
+            <p>
+                <label>List Auditor's Special Skills </label>
+                @ApplicationContext.CurrentCustomer.ListAuditorsSpecialSkills
+            </p>
+
+
+            <p>
+                <label>Work experience</label>
+                @ApplicationContext.CurrentCustomer.Workexperience
+            </p>
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+        @if (ApplicationContext.CurrentCustomer.MembershipType == "Trader")
+        {
+            <p>
+                <label>Company Name English</label>
+                @ApplicationContext.CurrentCustomer.CompanyNameEnglish
+            </p>
+            <p>
+                <label>Company Name Local</label>
+                @ApplicationContext.CurrentCustomer.CompanyNameLocal
+            </p>
+            <p>
+                <label>Address English</label>
+                @ApplicationContext.CurrentCustomer.AddressEnglish
+            </p>
+            <p>
+                <label>Address Local</label>
+                @ApplicationContext.CurrentCustomer.AddressLocal
+            </p>
+            <p>
+                <label>Business License Number</label>
+                @ApplicationContext.CurrentCustomer.BusinessLicenseNumber
+            </p>
+            <p>
+                <label>Year of Facility Established</label>
+                @ApplicationContext.CurrentCustomer.YearofFacilityEstablished
+            </p>
+
+            <p>
+                <label>   Outside(Pleas include Front Entrance & Name of Company)</label>
+                @ApplicationContext.CurrentCustomer.Outside
+            </p>
+            <p>
+                <label>Showroom or Main products</label>
+                @ApplicationContext.CurrentCustomer.ShowroomorMainproducts
+            </p>
+
+
+
+            <p>
+                <label>Contact Person ‘s Name/ Title</label>
+                @ApplicationContext.CurrentCustomer.ContactPerson
+            </p>
+            <p>
+                <label>Telephone Number</label>
+                @ApplicationContext.CurrentCustomer.TelephoneNumber
+            </p>
+            <p>
+                <label>Mobile Number</label>
+                @ApplicationContext.CurrentCustomer.MobilePhone
+            </p>
+            <p>
+                <label>E-mail address</label>
+                @ApplicationContext.CurrentCustomer.Email
+            </p>
+            <p>
+                <label>Main Language of employees</label>
+                @ApplicationContext.CurrentCustomer.MainLanguageofemployees
+            </p>
+            <p>
+                <label>Employees</label>
+                @ApplicationContext.CurrentCustomer.Employees
+            </p>
+
+        }
+
+        @if (ApplicationContext.CurrentCustomer.MembershipType == "Factory")
+        {
+
+            <p>
+                <label>Company Name English</label>
+                @ApplicationContext.CurrentCustomer.CompanyNameEnglish
+            </p>
+            <p>
+                <label>Company Name Local</label>
+                @ApplicationContext.CurrentCustomer.CompanyNameLocal
+            </p>
+            <p>
+                <label>Address English</label>
+                @ApplicationContext.CurrentCustomer.AddressEnglish
+            </p>
+            <p>
+                <label>Address Local</label>
+                @ApplicationContext.CurrentCustomer.AddressLocal
+            </p>
+            <p>
+                <label>Business License Number</label>
+                @ApplicationContext.CurrentCustomer.BusinessLicenseNumber
+            </p>
+            <p>
+                <label>Year of Facility Established</label>
+                @ApplicationContext.CurrentCustomer.YearofFacilityEstablished
+            </p>
+
+            <p>
+                <label>   Outside(Pleas include Front Entrance & Name of Company)</label>
+                @ApplicationContext.CurrentCustomer.Outside
+            </p>
+
+
+            <p>
+                <label>
+                    Production Areas (Please include all key production areas)
+                </label>
+                @ApplicationContext.CurrentCustomer.ProductionAreas
+            </p>
+
+            <p>
+                <label>Showroom or Main products</label>
+                @ApplicationContext.CurrentCustomer.ShowroomorMainproducts
+            </p>
+
+
+
+            <p>
+                <label>Contact Person ‘s Name/ Title</label>
+                @ApplicationContext.CurrentCustomer.ContactPerson
+            </p>
+            <p>
+                <label>Telephone Number</label>
+                @ApplicationContext.CurrentCustomer.TelephoneNumber
+            </p>
+            <p>
+                <label>Mobile Number</label>
+                @ApplicationContext.CurrentCustomer.MobilePhone
+            </p>
+            <p>
+                <label>E-mail address</label>
+                @ApplicationContext.CurrentCustomer.Email
+            </p>
+
+            <p>
+                <label>  Products by Category</label>
+                @ApplicationContext.CurrentCustomer.ProductsbyCategory
+            </p> <p>
+                <label>Specific Product(s)</label>
+                @ApplicationContext.CurrentCustomer.SpecificProduct
+            </p>
+
+
+
+
+
+
+            <p>
+                <label>Main Language of employees</label>
+                @ApplicationContext.CurrentCustomer.MainLanguageofemployees
+            </p>
+            <p>
+                <label>Employees</label>
+                Production Workers:  @ApplicationContext.CurrentCustomer.ProductionWorkers <br />
+                Management Staff:  @ApplicationContext.CurrentCustomer.ManagementStaff <br />
+                Male:  @ApplicationContext.CurrentCustomer.Male <br />
+                Female:@ApplicationContext.CurrentCustomer.Female
+
+            </p>
+
+
+
+        }
+        @if (ApplicationContext.CurrentCustomer.MembershipType == "Buyer")
+        {
+            <p>
+                <label>Company Name English</label>
+                @ApplicationContext.CurrentCustomer.CompanyNameEnglish
+            </p>
+            <p>
+                <label>Company Name Local</label>
+                @ApplicationContext.CurrentCustomer.CompanyNameLocal
+            </p>
+            <p>
+                <label>Address English</label>
+                @ApplicationContext.CurrentCustomer.AddressEnglish
+            </p>
+            <p>
+                <label>Address Local</label>
+                @ApplicationContext.CurrentCustomer.AddressLocal
+            </p>
+            <p>
+                <label>Business License Number</label>
+                @ApplicationContext.CurrentCustomer.BusinessLicenseNumber
+            </p>
+            <p>
+                <label>Year of Facility Established</label>
+                @ApplicationContext.CurrentCustomer.YearofFacilityEstablished
+            </p>
+            <p>
+                <label>Contact Person ‘s Name/ Title</label>
+                @ApplicationContext.CurrentCustomer.ContactPerson
+            </p>
+            <p>
+                <label>Telephone Number</label>
+                @ApplicationContext.CurrentCustomer.TelephoneNumber
+            </p>
+            <p>
+                <label>Mobile Number</label>
+                @ApplicationContext.CurrentCustomer.MobilePhone
+            </p>
+            <p>
+                <label>E-mail address</label>
+                @ApplicationContext.CurrentCustomer.Email
+            </p>
+
+            <p>
+                <label>  Products by Category</label>
+                @ApplicationContext.CurrentCustomer.ProductsbyCategory
+            </p> <p>
+                <label>Specific Product(s)</label>
+                @ApplicationContext.CurrentCustomer.SpecificProduct
+            </p>
+
+            <p>
+                <label>Main Language of employees</label>
+                @ApplicationContext.CurrentCustomer.MainLanguageofemployees
+            </p>
+            <p>
+                <label>Employees</label>
+                @ApplicationContext.CurrentCustomer.Employees
+            </p>
+        }
         <p>
             <label>@L("姓名")</label>
             @ApplicationContext.CurrentCustomer.UserName
@@ -41,6 +471,9 @@
         <p>
             <label>@L("邮政编码")</label>
             @ApplicationContext.CurrentCustomer.ZipCode
+        </p>    <p>
+            <label>ClientsProgram1</label>
+            @ApplicationContext.CurrentCustomer.ClientsProgram1
         </p>
     </div>
 </div>

@@ -19,6 +19,7 @@ namespace Easy.ViewPort.Descriptor
 {
     public abstract class BaseDescriptor
     {
+        public bool Showclassformcontrol { get; set; }
 
         public BaseDescriptor(Type modelType, string property)
         {
@@ -32,6 +33,9 @@ namespace Easy.ViewPort.Descriptor
             this.IsShowForEdit = true;
             this.IsShowForDisplay = true;
             SearchOperator = Query.Operators.Equal;
+
+            this.Showclassformcontrol = true;
+
         }
         #region Private
 
@@ -138,7 +142,7 @@ namespace Easy.ViewPort.Descriptor
         {
             Dictionary<string, object> result = new Dictionary<string, object>();
 
-            if (!Classes.Contains("form-control"))
+            if (!Classes.Contains("form-control")&& Showclassformcontrol)
             {
                 Classes.Add("form-control");
                 if (IsRequired)

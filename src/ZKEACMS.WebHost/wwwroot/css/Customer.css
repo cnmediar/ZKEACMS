@@ -195,9 +195,16 @@ body {
     font-weight: normal;
     color: #808080;
     display: inline-block;
-    width: 80px;
+    width: 180px;
     text-align: right;
     margin-right: 10px;
+}
+.panel-body h2 {
+    font-size: 20px;
+    text-align: center;
+    background: url(../images/a15.png) no-repeat center center;
+    color: #88c337;
+    line-height: 62px;
 }
 
 @media screen and (max-width:425px) {

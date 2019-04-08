@@ -11,5 +11,8 @@ namespace ZKEACMS.Notification
     public interface INotifyService
     {
         void ResetPassword(UserEntity user);
+
+        void HaveNewUser(UserEntity user);
+        void NewPassword(UserEntity user, string password);
     }
 }

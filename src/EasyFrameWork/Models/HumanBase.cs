@@ -8,18 +8,18 @@ namespace Easy.Models
         /// <summary>
         /// 姓
         /// </summary>
-        public string LastName { get; set; }
-        /// <summary>
-        /// 名
-        /// </summary>
-        public string FirstName { get; set; }
-        /// <summary>
-        /// 昵称
-        /// </summary>
-        public string NickName { get; set; }
-        /// <summary>
-        /// 英文名
-        /// </summary>
+        //public string LastName { get; set; }
+        ///// <summary>
+        ///// 名
+        ///// </summary>
+        //public string FirstName { get; set; }
+        ///// <summary>
+        ///// 昵称
+        ///// </summary>
+        //public string NickName { get; set; }
+        ///// <summary>
+        ///// 英文名
+        ///// </summary>
         public string EnglishName { get; set; }
         /// <summary>
         /// 年龄
@@ -44,7 +44,7 @@ namespace Easy.Models
         /// <summary>
         /// 邮编
         /// </summary>
-        public string ZipCode { get; set; }
+        //public string ZipCode { get; set; }
         /// <summary>
         /// 学校
         /// </summary>
@@ -60,7 +60,7 @@ namespace Easy.Models
         /// <summary>
         /// 职业
         /// </summary>
-        public string Profession { get; set; }
+        //public string Profession { get; set; }
         /// <summary>
         /// 婚姻状况
         /// </summary>
@@ -68,11 +68,11 @@ namespace Easy.Models
         /// <summary>
         /// 爱好
         /// </summary>
-        public string Hobby { get; set; }
+        //public string Hobby { get; set; }
         /// <summary>
         /// QQ
         /// </summary>
-        public string QQ { get; set; }
+        //public string QQ { get; set; }
 
         public string Email { get; set; }
 
@@ -91,7 +91,7 @@ namespace Easy.Models
 
 
         public string LocalName { get; set; }
-     
+
         public string Gender { get; set; }
         public string Marriage { get; set; }
         public string Photo { get; set; }
@@ -111,26 +111,30 @@ namespace Easy.Models
         public string Female { get; set; }
         public string TotalFacilityFloorSize { get; set; }
 
+        public string Country { get; set; }
+        public string City { get; set; }
+        public string IDNumber { get; set; }
+        public bool BSCI { get; set; }
+        public bool ICS { get; set; }
+        public bool Sedex { get; set; }
+        public bool  ICTI { get; set; }
+        public bool RBA { get; set; }
+        public bool CTPAT { get; set; }
+        public bool SCS { get; set; }
+        public bool SCAN { get; set; }
+        public bool GSV { get; set; }
+        public bool FCCA { get; set; }
+        public bool SQP { get; set; }
+        public bool QMS { get; set; }
+        public bool GMP { get; set; }
+        public string ClientsProgram1 { get; set; }
+        public string ClientsProgram2 { get; set; }
+        public string ClientsProgram3 { get; set; }
+        public string SystemCertification { get; set; }
+        public string Others { get; set; }
 
-        public string BSCI { get; set; }
-        public string ICS { get; set; }
-        public string Sedex { get; set; }
-        public string ICTI { get; set; }
-        public string RBA { get; set; }
-        public string CTPAT	 { get; set; }
-    public string SCS { get; set; }
-    public string SCAN { get; set; }
-    public string GSV { get; set; }
-    public string FCCA { get; set; }
-    public string SQP { get; set; }
-    public string QMS { get; set; }
-    public string GMP { get; set; }
-    public string ClientsProgram1 { get; set; }
-    public string ClientsProgram2 { get; set; }
-    public string ClientsProgram3 { get; set; }
-    public string SystemCertification { get; set; }
-    public string Others { get; set; }
-
+       
+  public string ListTypeofIndustryExperience { get; set; }
 
         public string Workexperience { get; set; }
         public string ListWrittenLanguageofAuditor { get; set; }
@@ -139,6 +143,8 @@ namespace Easy.Models
         public string ListAuditorsSpecialSkills { get; set; }
         public string LevelofEducation { get; set; }
         public string YearofGraduation { get; set; }
+
+        public string MembershipType { get; set; }
 
 
 

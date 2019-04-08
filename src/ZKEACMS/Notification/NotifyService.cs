@@ -37,5 +37,35 @@ namespace ZKEACMS.Notification
                 TemplatePath = "~/EmailTemplates/ResetPassword.cshtml"
             });
         }
+
+        public void NewPassword(UserEntity user,string password)
+        {
+           
+            _notificationManager.Send(new RazorEmailNotice
+            {
+                Subject = "New Password",
+                To = new string[] { user.Email },
+                Model = new ResetPasswordViewModel
+                {
+                    Link = password
+                },
+                TemplatePath = "~/EmailTemplates/NewPassword.cshtml"
+            });
+        }
+        public void HaveNewUser(UserEntity user)
+        {
+
+            _notificationManager.Send(new RazorEmailNotice
+            {
+                Subject = "Have New User",
+                To = new string[] { "compliance@asianlinks.co.uk" },
+                Model = new ResetPasswordViewModel
+                {
+                    Link = user.Email
+                },
+                TemplatePath = "~/EmailTemplates/HaveNewUser.cshtml"
+            });
+        }
+        
     }
 }

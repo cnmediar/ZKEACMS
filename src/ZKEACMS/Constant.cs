@@ -20,6 +20,8 @@ namespace ZKEACMS
         public const string PopUp = "~/Views/Shared/_PopUpLayout.cshtml";
         public const string ClientPopUp = "~/Views/Shared/_PopUpClientLayout.cshtml";
         public const string CustomerCenter = "~/Views/Shared/_CustomerCenterLayout.cshtml";
+      public const string   Account = "~/Views/Shared/_Account.cshtml";
+
     }
 
     public class ViewDataKeys

@@ -2,6 +2,52 @@
 @{
     Script.Reqiured("validate").AtFoot();
 }
+
+<style>
+
+
+    input.form-control {
+        width: 378px;
+        padding-left: 20px;
+        line-height: 38px;
+        height: 38px;
+        font-size: 18px;
+        color: #666;
+        vertical-align: middle;
+    }
+
+    input.formcontrol1 {
+        width: 178px;
+        display: inline;
+    }
+
+
+    select.form-control {
+        width: 378px;
+        padding-left: 20px;
+        line-height: 38px;
+        height: 38px;
+        font-size: 18px;
+        color: #666;
+        vertical-align: middle;
+    }
+
+    .form-group label {
+        display: inline-block;
+        padding-right: 15px;
+        font-size: 18px;
+        color: #333;
+        font-weight: 100;
+    }
+</style>
+
+<link href="~/themes/flyingtop/css/swiper-3.4.2.min.css" rel="stylesheet" />
+<link href="~/themes/flyingtop/css/style.css" rel="stylesheet" />
+
+
+
+<script src="~/themes/flyingtop/js/jquery-1.12.4.min.js"></script>
+<script src="~/themes/flyingtop/js/swiper-3.4.2.min.js"></script>
 <div class="panel panel-default">
     <div class="panel-heading">
         @L("编辑")
@@ -13,16 +59,712 @@
                 @ViewBag.Errormessage
             </div>
         }
-        <form method="post" action="@Url.Action("Edit")" enctype="multipart/form-data">
-            @Html.EditorForModel()
-            <div class="toolBar">
-                @if (Authorizer.Authorize(PermissionKeys.ManageUser))
+        @*<form method="post" action="@Url.Action("Edit")" enctype="multipart/form-data">
+                @Html.EditorForModel()
+
+
+                <div class="toolBar">
+                    @if (Authorizer.Authorize(PermissionKeys.ManageUser))
+                    {
+                        <input type="submit" class="btn btn-primary" value="@L("保存")" data-value="@ActionType.Create" />
+                    }
+                    <input type="button" class="btn btn-default cancel" value="@L("取消")" />
+                </div>
+            </form>*@
+
+            <div class="scwb">
+
+                @using (Html.BeginForm())
+                {@Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.UserID)
+                @Html.HiddenFor(m => m.PassWord)
+                @Html.HiddenFor(m => m.ApiLoginToken)
+                @Html.HiddenFor(m => m.LastLoginDate)
+                @Html.HiddenFor(m => m.LoginIP)
+                @Html.HiddenFor(m => m.PhotoUrl)
+                @Html.HiddenFor(m => m.Timestamp)          
+                @Html.HiddenFor(m => m.Age)
+             
+        
+       
+            
+            
+            
+
+                @Html.AntiForgeryToken()
+
+
+                <div class="panel-body">
+                    <div class="form-horizontal">
+
+                        <div class="form-group  Auditor Auditing Buyer Trader Factory">
+                            <label for="Status" class="col-sm-4 control-label"> Status</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.Status)
+                                @Html.ValidationMessageFor(m => m.Status)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group Auditor Auditing Buyer Trader Factory">
+                            <label for="Email " class="col-sm-4 control-label">@L("邮箱")</label>
+                            <div class="col-sm-8">
+
+
+                                <input type="email"
+                                       placeholder="@L("输入您常使用的邮箱地址")"
+                                       id="Email"
+                                       name="Email"
+                                       class="form-control"
+                                       data-val="true"
+                                       data-val-required="@L("登录邮箱不能为空")"
+                                       data-val-length="@L("邮箱的长度应小于200")"
+                                       data-val-length-max="200"
+                                       data-val-regex-pattern="@(Easy.Constant.RegularExpression.Email)"
+                                       data-val-regex="@L("输入的邮件格式不正确")"
+                                       value="@Model.Email" />
+                                @Html.ValidationMessageFor(m => m.Email)
+                            </div>
+                        </div>
+                        <div class="form-group Auditor Auditing Buyer Trader Factory">
+                            <label for="MembershipType  " class="col-sm-4 control-label ">Membership Type</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.MembershipType)
+                                @Html.ValidationMessageFor(m => m.MembershipType)
+                            </div>
+                        </div>
+
+                        @*<div class="form-group">
+                    <label for="UserName" class="col-sm-4 control-label">@L("姓名")</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.UserName)
+                        @Html.ValidationMessageFor(m => m.UserName)
+                    </div>
+                </div>*@
+
+                        @*<div class="form-group">
+                    <label for="Telephone" class="col-sm-4 control-label">@L("头像")</label>
+                    <div class="col-sm-8">
+                        <input type="file" name="file" class="form-control" accept="image/*" />
+                    </div>
+                </div>*@
+                        @*<div class="form-group">
+                    <label for="Telephone" class="col-sm-4 control-label">@L("电话")</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.Telephone)
+                        @Html.ValidationMessageFor(m => m.Telephone)
+                    </div>
+                </div>*@
+
+                        <div class="form-group Auditing Buyer Trader Factory">
+                            <label for="CompanyNameEnglish" class="col-sm-4 control-label">CompanyName English</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.CompanyNameEnglish)
+                                @Html.ValidationMessageFor(m => m.CompanyNameEnglish)
+                            </div>
+                        </div>
+                        <div class="form-group Auditing Buyer Trader Factory">
+                            <label for="CompanyNameLocal" class="col-sm-4 control-label">CompanyName Local</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.CompanyNameLocal)
+                                @Html.ValidationMessageFor(m => m.CompanyNameLocal)
+                            </div>
+                        </div>
+                        <div class="form-group Auditing Buyer Trader Factory">
+                            <label for="AddressEnglish" class="col-sm-4 control-label">Address English</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.AddressEnglish)
+                                @Html.ValidationMessageFor(m => m.AddressEnglish)
+                            </div>
+                        </div>
+                        <div class="form-group Auditing Buyer Trader Factory">
+                            <label for="AddressLocal" class="col-sm-4 control-label">Address Local</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.AddressLocal)
+                                @Html.ValidationMessageFor(m => m.AddressLocal)
+                            </div>
+                        </div>
+                        <div class="form-group Auditing Buyer Trader Factory">
+                            <label for="BusinessLicenseNumber" class="col-sm-4 control-label">Business LicenseNumber</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.BusinessLicenseNumber)
+                                @Html.ValidationMessageFor(m => m.BusinessLicenseNumber)
+                            </div>
+                        </div>
+                        <div class="form-group Auditing Buyer Trader Factory">
+                            <label for="YearofFacilityEstablished" class="col-sm-4 control-label">Year of Facility Established</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.YearofFacilityEstablished)
+                                @Html.ValidationMessageFor(m => m.YearofFacilityEstablished)
+                            </div>
+                        </div>
+                        <div class="form-group Auditing Buyer Trader Factory">
+                            <label for="ContactPerson" class="col-sm-4 control-label">Contact Person ‘s Name/Title</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.ContactPerson)
+                                @Html.ValidationMessageFor(m => m.ContactPerson)
+                            </div>
+                        </div>
+                        <div class="form-group Auditing Buyer Trader Factory">
+                            <label for="TelephoneNumber" class="col-sm-4 control-label">Telephone Number</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.TelephoneNumber)
+                                @Html.ValidationMessageFor(m => m.TelephoneNumber)
+                            </div>
+                        </div>
+                        <div class="form-group Auditing Auditor Buyer Trader Factory">
+                            <label for="MobilePhone" class="col-sm-4 control-label">Mobile Phone</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.MobilePhone)
+                                @Html.ValidationMessageFor(m => m.MobilePhone)
+                            </div>
+                        </div>
+
+                        <div class="form-group Auditing Buyer Trader Factory">
+                            <label for="MainLanguageofemployees" class="col-sm-4 control-label">Main Language of employees</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.MainLanguageofemployees)
+                                @Html.ValidationMessageFor(m => m.MainLanguageofemployees)
+                            </div>
+                        </div>
+                        <div class="form-group Auditing">
+                            <label for="Mainservices" class="col-sm-4 control-label">Main services</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.Mainservices)
+                                @Html.ValidationMessageFor(m => m.Mainservices)
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="LocalName" class="col-sm-4 control-label">Local Name</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.LocalName)
+                                @Html.ValidationMessageFor(m => m.LocalName)
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="EnglishName" class="col-sm-4 control-label">English  Name</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.EnglishName)
+                                @Html.ValidationMessageFor(m => m.EnglishName)
+                            </div>
+                        </div>
+
+                        <div class="form-group Auditor">
+                            <label for="Sex" class="col-sm-4 control-label">Gender</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.Sex)
+                                @Html.ValidationMessageFor(m => m.Sex)
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="Marriage" class="col-sm-4 control-label">Marriage</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.Marriage)
+                                @Html.ValidationMessageFor(m => m.Marriage)
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="AuditFirm" class="col-sm-4 control-label">Audit</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.AuditFirm)
+                                @Html.ValidationMessageFor(m => m.AuditFirm)
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="JobTitle" class="col-sm-4 control-label">Job Title</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.JobTitle)
+                                @Html.ValidationMessageFor(m => m.JobTitle)
+                            </div>
+                        </div>
+                        <div class="form-group Buyer Trader Factory">
+                            <label for="ProductsbyCategory" class="col-sm-4 control-label">Products by Category</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.ProductsbyCategory)
+                                @Html.ValidationMessageFor(m => m.ProductsbyCategory)
+                            </div>
+                        </div>
+                        <div class="form-group Buyer Trader Factory">
+                            <label for="SpecificProduct" class="col-sm-4 control-label">Specific Product</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.SpecificProduct)
+                                @Html.ValidationMessageFor(m => m.SpecificProduct)
+                            </div>
+                        </div>
+                        <div class="form-group Buyer Trader">
+                            <label for="Employees" class="col-sm-4 control-label">Employees</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.Employees)
+                                @Html.ValidationMessageFor(m => m.Employees)
+                            </div>
+                        </div>
+                        <div class="form-group Factory">
+                            <label for="Outside" class="col-sm-4 control-label">Outside (Pleas include Front Entrance & Name of Company)</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.Outside)
+                                @Html.ValidationMessageFor(m => m.Outside)
+                            </div>
+                        </div>
+                        <div class="form-group Factory">
+                            <label for="ShowroomorMainproducts" class="col-sm-4 control-label">Showroomor Main products</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.ShowroomorMainproducts)
+                                @Html.ValidationMessageFor(m => m.ShowroomorMainproducts)
+                            </div>
+                        </div>
+                        <div class="form-group Factory">
+                            <label for="ProductionAreas" class="col-sm-4 control-label">Production Areas</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.ProductionAreas)
+                                @Html.ValidationMessageFor(m => m.ProductionAreas)
+                            </div>
+                        </div>
+                        <div class="form-group Factory">
+                            <label for="ProductionWorkers" class="col-sm-4 control-label">Production Workers</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.ProductionWorkers)
+                                @Html.ValidationMessageFor(m => m.ProductionWorkers)
+                            </div>
+                        </div>
+                        <div class="form-group Factory">
+                            <label for="ManagementStaff" class="col-sm-4 control-label">Management Staff</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.ManagementStaff)
+                                @Html.ValidationMessageFor(m => m.ManagementStaff)
+                            </div>
+                        </div>
+                        <div class="form-group Factory">
+                            <label for="Male" class="col-sm-4 control-label">Male</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.Male)
+                                @Html.ValidationMessageFor(m => m.Male)
+                            </div>
+                        </div>
+                        <div class="form-group Factory">
+                            <label for="Female" class="col-sm-4 control-label">Female</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.Female)
+                                @Html.ValidationMessageFor(m => m.Female)
+                            </div>
+                        </div>
+                        <div class="form-group Factory">
+                            <label for="TotalFacilityFloorSize" class="col-sm-4 control-label">Total Facility Floor Size</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.TotalFacilityFloorSize)
+                                @Html.ValidationMessageFor(m => m.TotalFacilityFloorSize)
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="Country" class="col-sm-4 control-label">Country</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.Country)
+                                @Html.ValidationMessageFor(m => m.Country)
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="City" class="col-sm-4 control-label">City</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.City)
+                                @Html.ValidationMessageFor(m => m.City)
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="IDNumber" class="col-sm-4 control-label">IDNumber</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.IDNumber)
+                                @Html.ValidationMessageFor(m => m.IDNumber)
+                            </div>
+                        </div>
+
+                        <div class="sctp form-group Auditor">
+                            <div id="preview2">
+                                <img id="imghead2" border="0" src="~/themes/flyingtop/images/a38.png" width="115" height="115" onClick="$('#preview2Img').click();">
+                            </div>
+                            <input type="file" onChange="preview2Image(this)" style="display: none;" id="preview2Img">
+                            <input type="button" name="button2" id="button2" value="Upload" class="btn3" />
+                        </div>
+
+
+                        <div class="xxlb_tit Auditor">
+                            <h2>List Auditing Experience</h2>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="BSCI" class="col-sm-4 control-label">CSR</label>
+                            <div class="col-sm-8">
+                                BSCI    @Html.EditorFor(m => m.BSCI)
+                                ICS @Html.EditorFor(m => m.ICS)
+                                Sedex @Html.EditorFor(m => m.Sedex)
+                                ICTI @Html.EditorFor(m => m.ICTI)
+                                RBA  @Html.EditorFor(m => m.RBA)
+                                Client's Program
+
+                                @Html.EditorFor(m => m.ClientsProgram1)
+
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="CTPAT" class="col-sm-4 control-label">Security</label>
+                            <div class="col-sm-8">
+                                CTPAT   @Html.EditorFor(m => m.CTPAT)
+                                SCS @Html.EditorFor(m => m.SCS)
+                                SCAN  @Html.EditorFor(m => m.SCAN)
+                                GSV @Html.EditorFor(m => m.GSV)
+
+                                Client's Program
+
+                                @Html.EditorFor(m => m.ClientsProgram2)
+
+
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="FCCA" class="col-sm-4 control-label">QMS</label>
+                            <div class="col-sm-8">
+                                FCCA @Html.EditorFor(m => m.FCCA)
+                                SQP @Html.EditorFor(m => m.SQP)
+                                QMS @Html.EditorFor(m => m.QMS)
+                                GMP @Html.EditorFor(m => m.GMP)
+
+
+                                Client's Program  @Html.EditorFor(m => m.ClientsProgram3)
+
+
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="SystemCertification" class="col-sm-4 control-label">System Certification</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.SystemCertification)
+                                @Html.ValidationMessageFor(m => m.SystemCertification)
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="Others" class="col-sm-4 control-label">Others</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.Others)
+                                @Html.ValidationMessageFor(m => m.Others)
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="ListTypeofIndustryExperience" class="col-sm-4 control-label">List Type of Industry Experience</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.ListTypeofIndustryExperience)
+                                @Html.ValidationMessageFor(m => m.ListTypeofIndustryExperience)
+                            </div>
+                        </div>
+                        <div class="xxlb_tit Auditor">
+                            <h2> Language</h2>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="ListWrittenLanguageofAuditor" class="col-sm-4 control-label">List Written Language(s) of Auditor</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.ListWrittenLanguageofAuditor)
+                                @Html.ValidationMessageFor(m => m.ListWrittenLanguageofAuditor)
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="LevelofProficiencywiththisWritten" class="col-sm-4 control-label">Level of Proficiency with this Written Language(s)</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.LevelofProficiencywiththisWritten)
+                                @Html.ValidationMessageFor(m => m.LevelofProficiencywiththisWritten)
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="ListofLanguageSpokenbyAuditor" class="col-sm-4 control-label">List of Language(s) Spoken by Auditor  </label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.ListofLanguageSpokenbyAuditor)
+                                @Html.ValidationMessageFor(m => m.ListofLanguageSpokenbyAuditor)
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="ListAuditorsSpecialSkills" class="col-sm-4 control-label">List Auditor's Special Skills </label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.ListAuditorsSpecialSkills)
+                                @Html.ValidationMessageFor(m => m.ListAuditorsSpecialSkills)
+                            </div>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="Workexperience" class="col-sm-4 control-label">Workexperience</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.Workexperience)
+                                @Html.ValidationMessageFor(m => m.Workexperience)
+                            </div>
+                        </div>
+                        <div class="xxlb_tit Auditor">
+                            <h2>Vocational Training</h2>
+                        </div>
+
+                        <div class="form-group  Auditor ">
+                            <label for="Birthday" class="col-sm-4 control-label">Date</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.Birthday)
+                                @Html.ValidationMessageFor(m => m.Birthday)
+                            </div>
+                        </div>
+                        <div class="form-group  Auditor ">
+                            <label for="Birthplace" class="col-sm-4 control-label">Training body</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.Birthplace)
+                                @Html.ValidationMessageFor(m => m.Birthplace)
+                            </div>
+                        </div>
+
+                        <div class="form-group  Auditor ">
+                            <label for="School" class="col-sm-4 control-label">Certificate</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.School)
+
+                            </div>
+                        </div>
+
+                        <div class="sctp form-group Auditor">
+
+                            <div id="preview1">
+                                <img id="imghead1" border="0" src="~/themes/flyingtop/images/a38.png" width="115" height="115" onClick="$('#preview1Img').click();">
+                            </div>
+                            @*<form id="uploadForm1" action="Upload" method="post" enctype="multipart/form-data">*@
+                            <input type="file" onChange="preview1Image(this)" style="display: none;" id="preview1Img" name="preview1Img">
+                            <input type="button" name="" id="button1" value="Upload" class="btn3" />
+                            @*</form>*@
+                        </div>
+
+
+
+
+                        <div class="xxlb_tit Auditor">
+                            <h2>Education Background</h2>
+                        </div>
+                        <div class="form-group Auditor">
+                            <label for="LevelofEducation" class="col-sm-4 control-label">Level of Education(List Specific Course Level(s), Major and Year of Graduation)</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.LevelofEducation)
+                                @Html.ValidationMessageFor(m => m.LevelofEducation)
+                            </div>
+                        </div>
+                        <div class="form-group  Auditor ">
+                            <label for="YearofGraduation" class="col-sm-4 control-label">Year of Graduation</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.YearofGraduation)
+                                @Html.ValidationMessageFor(m => m.YearofGraduation)
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="form-group  Auditor Auditing Buyer Trader Factory">
+
+                            <div class="col-sm-8">
+
+
+                                <input type="submit" class="btn4" name="" id="" value="Submit" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+                @if (ViewBag.Errormessage != null)
                 {
-                    <input type="submit" class="btn btn-primary" value="@L("保存")" data-value="@ActionType.Create" />
+                    <div class="text-center alert alert-danger">
+                        @ViewBag.Errormessage
+                    </div>
                 }
-                <input type="button" class="btn btn-default cancel" value="@L("取消")" />
+            }
             </div>
-        </form>
+
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function () {
+                $('#MembershipType').change(function () {
+
+                    var p1 = $(this).children('option:selected').val();//这就是selected的值
+                    $(".form-group").hide();
+                    $(".xxlb_tit").hide();
+                    console.log(p1);
+
+                    if (p1 == "Auditing Company")
+                        $(".Auditing").show();
+                    if (p1 == "Certificate Body")
+                        $(".Auditing").show();
+                    if (p1 == "Testing & Calibration")
+                        $(".Auditing").show();
+                    if (p1 == "Consultant")
+                        $(".Auditing").show();
+                    if (p1 == "Others")
+                        $(".Auditing").show();
+
+                    if (p1 == "Auditor")
+                        $(".Auditor").show();
+                    if (p1 == "Buyer")
+                        $(".Buyer").show();
+                    if (p1 == "Trader")
+                        $(".Trader").show();
+                    if (p1 == "Factory")
+                        $(".Factory").show();
+                });
+
+
+                $("#MembershipType").trigger("change");
+
+
+
+                $("#button2").click(function () {
+                    var files = $('#preview2Img').prop('files');
+                    var data = new FormData();
+                    data.append('preview2Img', files[0]);
+                    $.ajax({
+                        type: "POST",
+                        data: data,
+                        url: "/Account/UploadFile",
+                        contentType: false,
+                        processData: false,
+                    }).success(function (data) {
+                        console.log(data);
+                        $("#IDNumber").val(data.path);
+
+                    }).error(function (data) {
+                        console.log(data);
+                    });
+
+                });
+
+                $("#button1").click(function () {
+                    var files = $('#preview1Img').prop('files');
+                    var data = new FormData();
+                    data.append('preview1Img', files[0]);
+                    $.ajax({
+                        type: "POST",
+                        data: data,
+                        url: "/Account/UploadFile",
+                        contentType: false,
+                        processData: false,
+                    }).success(function (data) {
+                        console.log(data);
+                        $("#School").val(data.path);
+
+                    }).error(function (data) {
+                        console.log(data);
+                    });
+
+                });
+            })
+        </script>
+
+
+
+        <script>
+            var swiper = new Swiper('.banner .swiper-container');
+        </script>
+        <script>
+            //图片上传预览    IE是用了滤镜。
+            function preview1Image(file) {
+                var MAXWIDTH = 115;
+                var MAXHEIGHT = 115;
+                var div = document.getElementById('preview1');
+                if (file.files && file.files[0]) {
+                    div.innerHTML = '<img id=imghead1 onclick=$("#preview1Img").click()>';
+                    var img = document.getElementById('imghead1');
+                    img.onload = function () {
+                        var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                        img.width = rect.width;
+                        img.height = rect.height;
+                        //                 img.style.marginLeft = rect.left+'px';
+                        img.style.marginTop = rect.top + 'px';
+                    }
+                    var reader = new FileReader();
+                    reader.onload = function (evt) { img.src = evt.target.result; }
+                    reader.readAsDataURL(file.files[0]);
+                }
+                else //兼容IE
+                {
+                    var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+                    file.select();
+                    var src = document.selection.createRange().text;
+                    div.innerHTML = '<img id=imghead1>';
+                    var img = document.getElementById('imghead1');
+                    img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+                    var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                    status = ('rect:' + rect.top + ',' + rect.left + ',' + rect.width + ',' + rect.height);
+                    div.innerHTML = "<div id=divhead style='width:" + rect.width + "px;height:" + rect.height + "px;margin-top:" + rect.top + "px;" + sFilter + src + "\"'></div>";
+                }
+            }
+            function clacImgZoomParam(maxWidth, maxHeight, width, height) {
+                var param = { top: 0, left: 0, width: width, height: height };
+                if (width > maxWidth || height > maxHeight) {
+                    rateWidth = width / maxWidth;
+                    rateHeight = height / maxHeight;
+
+                    if (rateWidth > rateHeight) {
+                        param.width = maxWidth;
+                        param.height = Math.round(height / rateWidth);
+                    } else {
+                        param.width = Math.round(width / rateHeight);
+                        param.height = maxHeight;
+                    }
+                }
+                param.left = Math.round((maxWidth - param.width) / 2);
+                param.top = Math.round((maxHeight - param.height) / 2);
+                return param;
+            }
+        </script>
+        <script>
+            //图片上传预览    IE是用了滤镜。
+            function preview2Image(file) {
+                var MAXWIDTH = 115;
+                var MAXHEIGHT = 115;
+                var div = document.getElementById('preview2');
+                if (file.files && file.files[0]) {
+                    div.innerHTML = '<img id=imghead2 onclick=$("#preview2Img").click()>';
+                    var img = document.getElementById('imghead2');
+                    img.onload = function () {
+                        var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                        img.width = rect.width;
+                        img.height = rect.height;
+                        //                 img.style.marginLeft = rect.left+'px';
+                        img.style.marginTop = rect.top + 'px';
+                    }
+                    var reader = new FileReader();
+                    reader.onload = function (evt) { img.src = evt.target.result; }
+                    reader.readAsDataURL(file.files[0]);
+                }
+                else //兼容IE
+                {
+                    var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+                    file.select();
+                    var src = document.selection.createRange().text;
+                    div.innerHTML = '<img id=imghead2>';
+                    var img = document.getElementById('imghead2');
+                    img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+                    var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                    status = ('rect:' + rect.top + ',' + rect.left + ',' + rect.width + ',' + rect.height);
+                    div.innerHTML = "<div id=divhead style='width:" + rect.width + "px;height:" + rect.height + "px;margin-top:" + rect.top + "px;" + sFilter + src + "\"'></div>";
+                }
+            }
+            function clacImgZoomParam(maxWidth, maxHeight, width, height) {
+                var param = { top: 0, left: 0, width: width, height: height };
+                if (width > maxWidth || height > maxHeight) {
+                    rateWidth = width / maxWidth;
+                    rateHeight = height / maxHeight;
+
+                    if (rateWidth > rateHeight) {
+                        param.width = maxWidth;
+                        param.height = Math.round(height / rateWidth);
+                    } else {
+                        param.width = Math.round(width / rateHeight);
+                        param.height = maxHeight;
+                    }
+                }
+                param.left = Math.round((maxWidth - param.width) / 2);
+                param.top = Math.round((maxHeight - param.height) / 2);
+                return param;
+            }
+        </script>
+
+
     </div>
 </div>
 @using (Script.AtFoot())
