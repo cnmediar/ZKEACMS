@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 body{ margin:0px; padding:0px; font-size:12px;font-family:"微软雅黑","黑体";color:#898989;line-height:1; background:#FFF; min-width: 1200px;}
 ul,li,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,ol,form,input{ margin:0px; padding:0px;}
@@ -81,8 +81,8 @@ em,i { font-style: normal; }
 /*==apply_online==*/
 .bdsr{width:1200px; margin: 0 auto; padding-bottom: 157px;}
 .banner1{background: url(../images/banner1.png) no-repeat center center; height: 420px;}
-.bdsr_tot ul{text-align: center; padding: 73px 0 37px 0;}
-.bdsr_tot li{display: inline-block;*display: inline; padding: 0 16px;}
+.bdsr_tot ul{text-align: center; padding: 30px 0 30px 0;}
+.bdsr_tot li{display: inline-block;*display: inline; padding: 0 16px;   }
 .bdsr_tot a{display: inline-block;*display: inline;width:240px; height: 58px; text-align: center;background: #f3f3f3; border: 1px solid #dadddd; font-size: 16px;}
 .bdsr_tot span{display: inline-block; *display: inline; padding-top: 11px;}
 .bdsr_tot .hover1 a{background: #88c337; border: 1px solid #88c337; color: #fff;}
@@ -170,7 +170,7 @@ em,i { font-style: normal; }
 .seic_right_a img{width:327px; height: 220px;}
 
 /*==Member==*/
-.scwb{border-top: 2px solid #ec6023; padding-top: 80px;}
+.scwb{border-top: 2px solid #ec6023; padding-top: 30px;}
 .scwb_nr{width:1200px; margin: 0 auto;}
 .scwb_nr li{padding-bottom: 20px; line-height: 40px;overflow: hidden;}
 .scwb_nr span{vertical-align: top;float:left;text-align: right;width:440px; padding-right: 18px; font-size: 18px; color: #333;}

@@ -1,0 +1,527 @@
+﻿@model Easy.Models.ApplyOnline
+@{
+    ViewBag.Title = ZKEACMS.Version.CurrentVersion + " " + ZKEACMS.Version.Rank;
+    Layout = Layouts.Account;
+    Style.Reqiured("Customer").AtHead();
+    Script.Reqiured("validate").AtFoot();
+    var returnUrl = ViewBag.ReturnUrl ?? ViewContext.HttpContext.Request.Query["ReturnUrl"];
+}
+
+
+@section Mycss{
+
+    <style>
+
+
+        input.form-control {
+            width: 378px;
+            padding-left: 20px;
+            line-height: 38px;
+            height: 38px;
+            font-size: 18px;
+            color: #666;
+            vertical-align: middle;
+        }
+
+        input.formcontrol1 {
+            width: 178px;
+            display: inline;
+        }
+
+
+        select.form-control {
+            width: 378px;
+            padding-left: 20px;
+            line-height: 38px;
+            height: 38px;
+            font-size: 18px;
+            color: #666;
+            vertical-align: middle;
+        }
+
+        .form-group label {
+            display: inline-block;
+            padding-right: 15px;
+            font-size: 18px;
+            color: #333;
+            font-weight: 100;
+        }
+    </style>
+}
+
+ 
+
+@using (Html.BeginForm())
+{
+    <input type="hidden" name="ReturnUrl" value="@returnUrl" />
+    @Html.AntiForgeryToken()
+    <input type="hidden" id="ApplyType" name="ApplyType" readonly="readonly" class="wby1" />
+    <div class="bdsr_tot">
+        <ul style="vertical-align: top; ">
+
+            <li id="li1">
+                <a href="#">
+                    <span>Information    of  Applican  <span>   <span /> <br /></span>
+                </a>
+            </li>
+            <li id="li2">
+                <a href="#">
+                    <span>Information of Vendor (If applicable)      </span>
+                </a>
+            </li>
+            <li class="hover1" id="li3">
+                <a href="#">
+                    <span>Details of Physical Facility  to be assessed           </span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="panel-body">
+        <div class="form-horizontal">
+
+            <div id="Userdiv">
+                @if (ViewBag.User != null)
+                {
+                    var user = ViewBag.User as Easy.Modules.User.Models.UserEntity;
+                    <div class="form-group Auditor Auditing Buyer Trader Factory">
+                        <label class="col-sm-4 control-label">Email</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly="readonly" class="wby1" value="@user.Email" />
+                        </div>
+                    </div>
+                    <div class="form-group Auditor Auditing Buyer Trader Factory">
+                        <label for="Email " class="col-sm-4 control-label">Company Name English</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="@user.CompanyNameEnglish" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="CompanyNameLocal" class="col-sm-4 control-label">Company Name Local </label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="@user.CompanyNameLocal" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="AddressEnglish" class="col-sm-4 control-label">Address English </label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="@user.AddressEnglish" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="AddressLocal" class="col-sm-4 control-label">Address Local </label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="@user.AddressLocal" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="BusinessLicenseNumber" class="col-sm-4 control-label">Business License Number </label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="@user.BusinessLicenseNumber" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="YearofFacilityEstablished" class="col-sm-4 control-label"> Year of Facility Established</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="@user.YearofFacilityEstablished" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ContactPerson" class="col-sm-4 control-label"> ContactPerson</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="@user.ContactPerson" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="TelephoneNumber" class="col-sm-4 control-label"> Telephone Number</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="@user.TelephoneNumber" />
+                        </div>
+                    </div>
+
+                    <div class="form-group Auditing Buyer Trader Factory">
+                        <label for="ContactPerson" class="col-sm-4 control-label">Contact Person ‘s Name/Title</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly="readonly" class="wby1" value="@user.ContactPerson" />
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group Auditing Buyer Trader Factory">
+                        <label for="YearofFacilityEstablished" class="col-sm-4 control-label">Year of Facility Established</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly="readonly" class="wby1" value="@user.YearofFacilityEstablished" />
+
+                        </div>
+                    </div>
+
+                    <div class="form-group Auditing Buyer Trader Factory">
+                        <label for="MainLanguageofemployees" class="col-sm-4 control-label">Main Language of employees</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="@user.MainLanguageofemployees" />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group Buyer Trader Factory">
+                        <label for="ProductsbyCategory" class="col-sm-4 control-label">Products by Category</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly="readonly" class="wby1" value="@user.ProductsbyCategory" />
+                        </div>
+                    </div>
+                    <div class="form-group Buyer Trader Factory">
+                        <label for="SpecificProduct" class="col-sm-4 control-label">Specific Product</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="@user.SpecificProduct" />
+                        </div>
+                    </div>
+
+                    <div class="xxlb_tit Auditor">
+                        <h2> Employees</h2>
+                    </div>
+                    <div class="form-group Factory">
+                        <label for="ProductionWorkers" class="col-sm-4 control-label">Production Workers</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="@user.ProductionWorkers" />
+                        </div>
+                    </div>
+                    <div class="form-group Factory">
+                        <label for="ManagementStaff" class="col-sm-4 control-label">Management Staff</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="@user.ManagementStaff" />
+                        </div>
+                    </div>
+                    <div class="form-group Factory">
+                        <label for="Male" class="col-sm-4 control-label">Male</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="@user.Male" />
+                        </div>
+                    </div>
+                    <div class="form-group Factory">
+                        <label for="Female" class="col-sm-4 control-label">Female</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="@user.Female" />
+                        </div>
+                    </div>
+                    <div class="form-group Factory">
+                        <label for="TotalFacilityFloorSize" class="col-sm-4 control-label">Total Facility Floor Size</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="@user.TotalFacilityFloorSize" />
+                        </div>
+                    </div>
+
+
+
+
+                }
+            </div>
+            <div id="Vendordiv">
+
+                <div class="form-group Auditor Auditing Buyer Trader Factory">
+                    <label for="Email " class="col-sm-4 control-label">@L("邮箱")</label>
+                    <div class="col-sm-8">
+
+
+                        <input type="email"
+                               placeholder="@L("输入您常使用的邮箱地址")"
+                               id="Email"
+                               name="Email"
+                               class="form-control"
+                               data-val="true"
+                               data-val-required="@L("登录邮箱不能为空")"
+                               data-val-length="@L("邮箱的长度应小于200")"
+                               data-val-length-max="200"
+                               data-val-regex-pattern="@(Easy.Constant.RegularExpression.Email)"
+                               data-val-regex="@L("输入的邮件格式不正确")"
+                               value="" />
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </div>
+                </div>
+
+
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="CompanyNameEnglish" class="col-sm-4 control-label">CompanyName English</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.CompanyNameEnglish)
+                        @Html.ValidationMessageFor(m => m.CompanyNameEnglish)
+                    </div>
+                </div>
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="CompanyNameLocal" class="col-sm-4 control-label">CompanyName Local</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.CompanyNameLocal)
+                        @Html.ValidationMessageFor(m => m.CompanyNameLocal)
+                    </div>
+                </div>
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="AddressEnglish" class="col-sm-4 control-label">Address English</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.AddressEnglish)
+                        @Html.ValidationMessageFor(m => m.AddressEnglish)
+                    </div>
+                </div>
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="AddressLocal" class="col-sm-4 control-label">Address Local</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.AddressLocal)
+                        @Html.ValidationMessageFor(m => m.AddressLocal)
+                    </div>
+                </div>
+
+
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="ContactPerson" class="col-sm-4 control-label">Contact Person ‘s Name/Title</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.ContactPerson)
+                        @Html.ValidationMessageFor(m => m.ContactPerson)
+                    </div>
+                </div>
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="TelephoneNumber" class="col-sm-4 control-label">Telephone Number</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.TelephoneNumber)
+                        @Html.ValidationMessageFor(m => m.TelephoneNumber)
+                    </div>
+                </div>
+            </div>
+            <div id="Factorydiv">
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="YearofFacilityEstablished" class="col-sm-4 control-label">Year of Facility Established</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.YearofFacilityEstablished)
+                        @Html.ValidationMessageFor(m => m.YearofFacilityEstablished)
+                    </div>
+                </div>
+
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="MainLanguageofemployees" class="col-sm-4 control-label">Main Language of employees</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.MainLanguageofemployees)
+                        @Html.ValidationMessageFor(m => m.MainLanguageofemployees)
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="form-group Buyer Trader Factory">
+                    <label for="ProductsbyCategory" class="col-sm-4 control-label">Products by Category</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.ProductsbyCategory)
+                        @Html.ValidationMessageFor(m => m.ProductsbyCategory)
+                    </div>
+                </div>
+                <div class="form-group Buyer Trader Factory">
+                    <label for="SpecificProduct" class="col-sm-4 control-label">Specific Product</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.SpecificProduct)
+                        @Html.ValidationMessageFor(m => m.SpecificProduct)
+                    </div>
+                </div>
+
+                <div class="xxlb_tit Auditor">
+                    <h2> Employees</h2>
+                </div>
+
+
+                <div class="form-group Factory">
+                    <label for="ProductionWorkers" class="col-sm-4 control-label">Production Workers</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.ProductionWorkers)
+                        @Html.ValidationMessageFor(m => m.ProductionWorkers)
+                    </div>
+                </div>
+                <div class="form-group Factory">
+                    <label for="ManagementStaff" class="col-sm-4 control-label">Management Staff</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.ManagementStaff)
+                        @Html.ValidationMessageFor(m => m.ManagementStaff)
+                    </div>
+                </div>
+                <div class="form-group Factory">
+                    <label for="Male" class="col-sm-4 control-label">Male</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.Male)
+                        @Html.ValidationMessageFor(m => m.Male)
+                    </div>
+                </div>
+                <div class="form-group Factory">
+                    <label for="Female" class="col-sm-4 control-label">Female</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.Female)
+                        @Html.ValidationMessageFor(m => m.Female)
+                    </div>
+                </div>
+                <div class="form-group Factory">
+                    <label for="TotalFacilityFloorSize" class="col-sm-4 control-label">Total Facility Floor Size</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.TotalFacilityFloorSize)
+                        @Html.ValidationMessageFor(m => m.TotalFacilityFloorSize)
+                    </div>
+                </div>
+
+            </div>
+            <div class="xxlb_tit ">
+                <h2>  Service Standard</h2>
+            </div>
+
+            <div class="form-group ">
+                <label for="ServiceStandard" class="col-sm-4 control-label">Service Standard</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.ServiceStandard)
+                    @Html.ValidationMessageFor(m => m.ServiceStandard)
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="ClientProgram" class="col-sm-4 control-label">
+                    Client Program (please specify client                    name and standard)
+                </label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.ClientProgram)
+                    @Html.ValidationMessageFor(m => m.ClientProgram)
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="ServiceRequest" class="col-sm-4 control-label">Service Request</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.ServiceRequest)
+                    @Html.ValidationMessageFor(m => m.ServiceRequest)
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="AuditType" class="col-sm-4 control-label">Audit Type</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.AuditType)
+                    @Html.ValidationMessageFor(m => m.AuditType)
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="AuditMethod" class="col-sm-4 control-label">Audit Method</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.AuditMethod)
+                    @Html.ValidationMessageFor(m => m.AuditMethod)
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="" class="col-sm-4 control-label">Desired Audit date</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.DesiredAuditdate)
+                    @Html.ValidationMessageFor(m => m.DesiredAuditdate)
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="form-group  Auditor Auditing Buyer Trader Factory">
+
+                <div class="col-sm-8">
+
+
+                    <input type="submit" class="btn4" name="" id="" value="Submit" />
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    @if (ViewBag.Errormessage != null)
+    {
+        <div class="text-center alert alert-danger">
+            @ViewBag.Errormessage
+        </div>
+    }
+}
+
+
+
+
+
+@*<script>
+    var swiper = new Swiper('.banner .swiper-container');
+</script>*@
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        //$('#DesiredAuditdate').datetimepicker('setStartDate', '2012-01-01');
+        $("#li1").click(function () {
+
+            $("li").removeClass("hover1");
+
+            $("#li1").addClass("hover1");
+
+            $("#Userdiv").show();
+            $("#Vendordiv").hide();
+            $("#Factorydiv").hide();
+
+            $("#ApplyType").val("Information    of  Applican");
+
+        });
+
+        $("#li2").click(function () {
+
+            $("li").removeClass("hover1");
+            $("#li2").addClass("hover1");
+
+            $("#Userdiv").hide();
+            $("#Vendordiv").show();
+            $("#Factorydiv").hide();
+            $("#ApplyType").val("Information of Vendor (If applicable)");
+        });
+
+        $("#li3").click(function () {
+
+            $("li").removeClass("hover1");
+
+            $("#li3").addClass("hover1");
+
+            $("#Userdiv").hide();
+            $("#Vendordiv").show();
+            $("#Factorydiv").show();
+            $("#ApplyType").val("Details of Physical Facility  to be assessed");
+        });
+
+
+
+
+
+        $("#li3").trigger("click");
+
+
+
+
+
+
+    })
+</script>
+

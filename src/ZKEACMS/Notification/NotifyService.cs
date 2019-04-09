@@ -9,6 +9,7 @@ using Easy.Notification;
 using Microsoft.AspNetCore.Http;
 using ZKEACMS.Notification.ViewModels;
 using Microsoft.AspNetCore.DataProtection;
+using Easy.Models;
 
 namespace ZKEACMS.Notification
 {
@@ -66,6 +67,18 @@ namespace ZKEACMS.Notification
                 TemplatePath = "~/EmailTemplates/HaveNewUser.cshtml"
             });
         }
-        
+
+        public void ApplyOnline(ApplyOnline apply)
+        {
+
+            _notificationManager.Send(new RazorEmailNotice
+            {
+                Subject = "Apply Online",
+                To = new string[] { "compliance@asianlinks.co.uk",apply.Email },
+                Model = apply,
+                TemplatePath = "~/EmailTemplates/ApplyOnline.cshtml"
+            });
+        }
+
     }
 }

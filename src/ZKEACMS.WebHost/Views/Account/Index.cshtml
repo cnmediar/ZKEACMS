@@ -6,9 +6,9 @@
 <div class="panel panel-default user-info">
     <div class="panel-heading clearfix">
         <div class="pull-left">@L("基本信息")</div>
-        <div class="pull-right">
+        @*<div class="pull-right">
             <a href="@Url.Action("Edit","Account")">@L("编辑")</a>
-        </div>
+        </div>*@
     </div>
     <div class="panel-body">
 
@@ -456,22 +456,13 @@
             <label>@L("手机")</label>
             @ApplicationContext.CurrentCustomer.MobilePhone
         </p>
-        <p>
-            <label>@L("QQ")</label>
-            @ApplicationContext.CurrentCustomer.QQ
-        </p>
-        <p>
-            <label>@L("爱好")</label>
-            @ApplicationContext.CurrentCustomer.Hobby
-        </p>
+      
+      
         <p>
             <label>@L("收货地址")</label>
             @ApplicationContext.CurrentCustomer.Address
         </p>
-        <p>
-            <label>@L("邮政编码")</label>
-            @ApplicationContext.CurrentCustomer.ZipCode
-        </p>    <p>
+         <p>
             <label>ClientsProgram1</label>
             @ApplicationContext.CurrentCustomer.ClientsProgram1
         </p>

@@ -16,6 +16,7 @@ namespace Easy.Cache
         T Get(string key, string region);
         T GetOrAdd(string key, string region, Func<string, string, T> valueFactory);
         T GetOrAdd(string key, Func<string, T> valueFactory);
+        T AddOrUpdate(string key, T value, Func<T, T> valueFactory);
         T GetOrAdd(string key, string region, T value);
         T GetOrAdd(string key, T value);
         void Remove(string key);

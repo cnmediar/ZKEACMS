@@ -13,6 +13,10 @@ namespace Easy.Cache
         {
             _cacheManager = cacheManager;
         }
+        public T AddOrUpdate(string key, T value, Func<T, T> valueFactory)
+        {
+            return _cacheManager.AddOrUpdate(key, value, valueFactory);
+        }
 
         public bool Add(string key, T value)
         {
@@ -23,6 +27,10 @@ namespace Easy.Cache
         {
             return _cacheManager.Add(key, value, region);
         }
+        //public bool Add(string key, T value, string region)
+        //{
+        //    return _cacheManager.Add(key, value, region);
+        //}
 
         public bool Exists(string key)
         {

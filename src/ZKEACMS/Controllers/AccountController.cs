@@ -1,25 +1,24 @@
-/* http://www.zkea.net/ 
- * Copyright 2017 ZKEASOFT 
- * http://www.zkea.net/licenses */
 
+
+using CacheManager.Core;
+using Easy.Cache;
 using Easy.Constant;
 using Easy.Extend;
+using Easy.Models;
 using Easy.Modules.User.Models;
 using Easy.Modules.User.Service;
 using Easy.Mvc.Authorize;
-using ZKEACMS.Notification;
+using Easy.Mvc.Extend;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
+ 
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.DataProtection;
 using ZKEACMS.Account;
-using Microsoft.Extensions.Logging;
-using Easy.Mvc.Extend;
-using System.Security.Cryptography;
-using System.Text;
+using ZKEACMS.Notification;
 
 namespace ZKEACMS.Controllers
 {
@@ -35,14 +34,18 @@ namespace ZKEACMS.Controllers
             INotifyService notifyService,
             IDataProtectionProvider dataProtectionProvider,
             ILogger<AccountController> logger,
-            IApplicationContextAccessor applicationContextAccessor)
+            IApplicationContextAccessor applicationContextAccessor,
+            Easy.Cache.ICacheManager<int> cacheManager)
         {
             _userService = userService;
             _notifyService = notifyService;
             _dataProtectionProvider = dataProtectionProvider;
             _applicationContextAccessor = applicationContextAccessor;
-            _logger = logger;
+            _logger = logger;  _cacheManager = cacheManager;
         }
+
+        private readonly Easy.Cache.ICacheManager<int> _cacheManager;
+ 
         #region Admin
         public ActionResult Login()
         {
@@ -224,7 +227,96 @@ namespace ZKEACMS.Controllers
             return newRandom.ToString();
         }
 
-       
+        public ActionResult ApplyOnline()
+        {
+
+            ViewBag.User = _applicationContextAccessor.Current.CurrentCustomer;
+
+
+            return View();
+        }
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult ApplyOnline(ApplyOnline apply, string ReturnUrl)
+        {
+            if (apply.ApplyType.IsNotNullAndWhiteSpace())
+            {
+                try
+                {
+                    //调用---------------   
+                    string str = GenerateRandom(6);
+
+                    string month = DateTime.Now.Month.ToString();
+                    string date = DateTime.Now.ToString("yyyyMMdd");
+                   if ( DateTime.Now.Month==12) month="C";
+                    if (DateTime.Now.Month == 11) month = "B";
+                    if (DateTime.Now.Month == 10) month = "A";
+
+
+                   
+
+
+                    //var item = new CacheItem<object>(key, value, ExpirationMode.Absolute, TimeSpan.FromMinutes(TimeOut_Minutes));
+                    //cache.Manager.Put(item);
+                    int no = 0;
+
+                    if (_cacheManager.Exists(date))
+                    {
+                        no = _cacheManager.Get(date);
+                        no += 1;
+
+                        _cacheManager.AddOrUpdate(date,no, v => no);
+
+                    }
+                    else
+                    {
+                        no += 1;
+                       _cacheManager.Add(date, no);
+                    }
+                    apply.Id = $"AL" + DateTime.Now.Year.ToString().Substring(2) + month + DateTime.Now.ToString("dd")+no.ToString();
+
+
+                    if (apply.ApplyType == "Information    of  Applican")
+                    {
+
+                        var user = _applicationContextAccessor.Current.CurrentCustomer;
+
+                        apply.Email = user.Email;
+                        apply.CompanyNameEnglish = user.CompanyNameEnglish;
+                        apply.CompanyNameLocal = user.CompanyNameLocal;
+                        apply.AddressEnglish = user.AddressEnglish;
+                        apply.AddressLocal = user.AddressLocal;
+                        apply.BusinessLicenseNumber = user.BusinessLicenseNumber;
+                        apply.YearofFacilityEstablished = user.YearofFacilityEstablished;
+                        apply.ContactPerson = user.ContactPerson;
+                        apply.TelephoneNumber = user.TelephoneNumber;
+                        apply.MainLanguageofemployees = user.MainLanguageofemployees;
+                        apply.ProductsbyCategory = user.ProductsbyCategory;
+                        apply.SpecificProduct = user.SpecificProduct;
+                        apply.ProductionWorkers = user.ProductionWorkers;
+                        apply.ManagementStaff = user.ManagementStaff;
+                        apply.Male = user.Male;
+                        apply.Female = user.Female;
+                        apply.TotalFacilityFloorSize = user.TotalFacilityFloorSize;                                                       
+                  
+                    }
+
+
+                
+
+                    _notifyService.ApplyOnline(apply);
+                  
+
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Errormessage = ex.Message;
+                    ViewBag.ReturnUrl = ReturnUrl;
+                    return View(apply);
+                }
+
+            }
+              return View("ApplyOnlinesSuccess", new { ReturnUrl });
+        }
 
 
         public JsonResult UploadFile()

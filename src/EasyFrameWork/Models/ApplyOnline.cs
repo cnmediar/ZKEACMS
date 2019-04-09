@@ -1,11 +1,19 @@
-﻿using System;
+﻿using Easy.Constant;
+using Easy.MetaData;
+using Easy.RepositoryPattern;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EasyFrameWork.Models
+namespace Easy.Models
 {
-   public class ApplyOnline
+    //[DataTable("ApplyOnline")]
+    public class ApplyOnline
     {
+        public string Id { get; set; }
+        public string ApplyType { get; set; }
+
+        public string Email { get; set; }
         public string CompanyNameEnglish { get; set; }
         public string CompanyNameLocal { get; set; }
         public string AddressEnglish { get; set; }
@@ -28,5 +36,26 @@ namespace EasyFrameWork.Models
         public string Male { get; set; }
         public string Female { get; set; }
         public string TotalFacilityFloorSize { get; set; }
+
+         public string ServiceStandard { get; set; }
+         public string ClientProgram { get; set; }
+         public string ServiceRequest { get; set; }
+          public string AuditType { get; set; }
+          public string AuditMethod { get; set; }
+          public DateTime DesiredAuditdate { get; set; }
+    }
+
+    class ApplyOnlineMetaData : ViewMetaData<ApplyOnline>
+    {
+        protected override void ViewConfigure()
+        {           
+        ViewConfig(p => p.CompanyNameEnglish).AsTextBox();
+        ViewConfig(p => p.Email).AsTextBox().Email();           
+            ViewConfig(p => p.DesiredAuditdate).AsTextBox().FormatAsDate();
+            ViewConfig(p => p.ServiceStandard).AsDropDownList().DataSource(SourceType.Dictionary);      
+            ViewConfig(p => p.AuditType).AsDropDownList().DataSource(SourceType.Dictionary);           
+            ViewConfig(p => p.AuditMethod).AsDropDownList().DataSource(SourceType.Dictionary);      
+                       
+        }
     }
 }

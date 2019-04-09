@@ -6,6 +6,7 @@ using Easy.Encrypt;
 using Easy.Extend;
 using Easy.Logging;
 using Easy.MetaData;
+using Easy.Models;
 using Easy.Modules.DataDictionary;
 using Easy.Modules.MutiLanguage;
 using Easy.Modules.Role;
@@ -97,7 +98,7 @@ namespace Easy
             services.ConfigureMetaData<Permission, PermissionMetaData>();
             services.ConfigureMetaData<RoleEntity, RoleMetaData>();
             services.ConfigureMetaData<UserRoleRelation, UserRoleRelationMetaData>();
-
+            services.ConfigureMetaData< ApplyOnline,  ApplyOnlineMetaData> ();
 
             services.Configure<CDNOption>(configuration.GetSection("CDN"));
             services.Configure<CultureOption>(configuration.GetSection("Culture"));

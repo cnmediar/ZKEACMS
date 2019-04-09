@@ -124,6 +124,7 @@ namespace ZKEACMS
             services.ConfigureCache<IEnumerable<ZoneEntity>>();
             services.ConfigureCache<IEnumerable<LayoutHtml>>();
             services.ConfigureCache<ConcurrentDictionary<string, object>>();
+            services.ConfigureCache<int>();
 
             services.ConfigureMetaData<ArticleEntity, ArticleEntityMeta>();
             services.ConfigureMetaData<ArticleType, ArtycleTypeMetaData>();
