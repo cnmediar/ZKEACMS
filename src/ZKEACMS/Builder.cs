@@ -47,6 +47,7 @@ using ZKEACMS.Options;
 using ZKEACMS.PackageManger;
 using ZKEACMS.Page;
 using ZKEACMS.Product.Models;
+using ZKEACMS.Report;
 using ZKEACMS.Route;
 using ZKEACMS.Setting;
 using ZKEACMS.SMTP;
@@ -77,6 +78,8 @@ namespace ZKEACMS
             services.TryAddScoped<IApplicationContextAccessor, ApplicationContextAccessor>();
             services.TryAddScoped<IApplicationContext, CMSApplicationContext>();
             services.TryAddSingleton<IRouteProvider, RouteProvider>();
+
+            services.AddTransient<IReportServer, ReportServer>();
 
             services.AddTransient<IRouteDataProvider, PaginationRouteDataProvider>();
             services.AddTransient<IRouteDataProvider, PostIdRouteDataProvider>();

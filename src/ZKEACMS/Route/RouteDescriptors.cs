@@ -49,6 +49,14 @@ namespace ZKEACMS
                 Defaults = new { controller = "Account", action = "Index"},
                 Priority = 11
              }
+             ,
+             new RouteDescriptor
+             {
+                RouteName = "Report",
+                Template = "Report/{action}",
+                Defaults = new { controller = "Report", action = "Index"},
+                Priority = 11
+             }
         };
     }
 }

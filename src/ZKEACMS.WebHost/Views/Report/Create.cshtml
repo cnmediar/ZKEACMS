@@ -1,0 +1,451 @@
+﻿@model EasyFrameWork.Models.AuditReportEntity
+@{
+    ViewBag.Title = ZKEACMS.Version.CurrentVersion + " " + ZKEACMS.Version.Rank;
+    Layout = Layouts.Account;
+    Style.Reqiured("Customer").AtHead();
+    Script.Reqiured("validate").AtFoot();
+    var returnUrl = ViewBag.ReturnUrl ?? ViewContext.HttpContext.Request.Query["ReturnUrl"];
+}
+@section Mycss{
+
+    <style>
+
+
+        input.form-control {
+            width: 378px;
+            padding-left: 20px;
+            line-height: 38px;
+            height: 38px;
+            font-size: 18px;
+            color: #666;
+            vertical-align: middle;
+        }
+
+        input.formcontrol1 {
+            width: 178px;
+            display: inline;
+        }
+
+
+        select.form-control {
+            width: 378px;
+            padding-left: 20px;
+            line-height: 38px;
+            height: 38px;
+            font-size: 18px;
+            color: #666;
+            vertical-align: middle;
+        }
+
+        .form-group label {
+            display: inline-block;
+            padding-right: 15px;
+            font-size: 18px;
+            color: #333;
+            font-weight: 100;
+        }
+    </style>
+}
+
+
+@using (Html.BeginForm())
+{
+    <input type="hidden" name="ReturnUrl" value="@returnUrl" />
+    @Html.AntiForgeryToken()
+
+
+    <div class="panel-body">
+        <div class="form-horizontal">
+
+            <div class="xxlb_tit ">
+                <h2>  Service Standard</h2>
+            </div>
+
+            <div class="form-group ">
+                <label for="FactoryName" class="col-sm-4 control-label">FactoryName</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.FactoryName)
+                    @Html.ValidationMessageFor(m => m.FactoryName)
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="FactoryAdd" class="col-sm-4 control-label">
+                    Factory Add
+                </label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.FactoryAdd)
+                    @Html.ValidationMessageFor(m => m.FactoryAdd)
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="AuditStandard" class="col-sm-4 control-label">Audit Standard  </label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.AuditStandard)
+                    @Html.ValidationMessageFor(m => m.AuditStandard)
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="AuditMethod" class="col-sm-4 control-label">Audit Method</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.AuditMethod)
+                    @Html.ValidationMessageFor(m => m.AuditMethod)
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="AuditType" class="col-sm-4 control-label">Audit Type</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.AuditType)
+                    @Html.ValidationMessageFor(m => m.AuditType)
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <label for="AuditDate" class="col-sm-4 control-label">Audit Date</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.AuditDate)
+                    @Html.ValidationMessageFor(m => m.AuditDate)
+                </div>
+            </div>
+
+
+
+            <div class="form-group Auditing Buyer Trader Factory">
+                <label for="LengthofAudit" class="col-sm-4 control-label">Length of Audit (Days)</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.LengthofAudit)
+                    @Html.ValidationMessageFor(m => m.LengthofAudit)
+                </div>
+            </div>
+            <div class="form-group Auditing Buyer Trader Factory">
+                <label for="AuditBrief" class="col-sm-4 control-label">Audit Brief </label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.AuditBrief)
+                    @Html.ValidationMessageFor(m => m.AuditBrief)
+                </div>
+            </div>
+            <div class="form-group Auditing Buyer Trader Factory">
+                <label for="Product" class="col-sm-4 control-label">Product</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.Product)
+                    @Html.ValidationMessageFor(m => m.Product)
+                </div>
+            </div>
+            <div class="form-group Auditing Buyer Trader Factory">
+                <label for="AuditCompany" class="col-sm-4 control-label">Audit Company</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.AuditCompany)
+                    @Html.ValidationMessageFor(m => m.AuditCompany)
+                </div>
+            </div>
+            <div class="form-group Auditing Buyer Trader Factory">
+                <label for="AuditorName" class="col-sm-4 control-label">Auditor Name</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.AuditorName)
+                    @Html.ValidationMessageFor(m => m.AuditorName)
+                </div>
+            </div>         
+            <div class="form-group Auditing Buyer Trader Factory">
+                <label for="AuditorExperience" class="col-sm-4 control-label">Auditor Experience</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.AuditorExperience)
+                    @Html.ValidationMessageFor(m => m.AuditorExperience)
+                </div>
+            </div>
+            <div class="form-group Auditing Buyer Trader Factory">
+                <label for="AuditorQualification" class="col-sm-4 control-label">Auditor Qualification</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.AuditorQualification)
+                    @Html.ValidationMessageFor(m => m.AuditorQualification)
+                </div>
+            </div>
+            <div class="form-group Auditing Auditor Buyer Trader Factory">
+                <label for="Finding" class="col-sm-4 control-label">Finding</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.Finding)
+                    @Html.ValidationMessageFor(m => m.Finding)
+                </div>
+            </div>
+
+            <div class="form-group Auditing Buyer Trader Factory">
+                <label for="Standard" class="col-sm-4 control-label">Standard</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.Standard)
+                    @Html.ValidationMessageFor(m => m.Standard)
+                </div>
+            </div>
+            <div class="form-group Auditing">
+                <label for="NonComplianceDescription" class="col-sm-4 control-label">Non Compliance Description</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.NonComplianceDescription)
+                    @Html.ValidationMessageFor(m => m.NonComplianceDescription)
+                </div>
+            </div>
+            <div class="form-group Auditor">
+                <label for="Grade" class="col-sm-4 control-label">Grade</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.Grade)
+                    @Html.ValidationMessageFor(m => m.Grade)
+                </div>
+            </div>
+            <div class="form-group Auditor">
+                <label for="ImmediateAction" class="col-sm-4 control-label">Immediate Action  </label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.ImmediateAction)
+                    @Html.ValidationMessageFor(m => m.ImmediateAction)
+                </div>
+            </div>
+
+            <div class="form-group Auditor">
+                <label for="RootCause" class="col-sm-4 control-label">Root Cause</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.RootCause)
+                    @Html.ValidationMessageFor(m => m.RootCause)
+                </div>
+            </div>
+            <div class="form-group Auditor">
+                <label for="PreventiveAction" class="col-sm-4 control-label">Preventive Action</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.PreventiveAction)
+                    @Html.ValidationMessageFor(m => m.PreventiveAction)
+                </div>
+            </div>
+            <div class="form-group Auditor">
+                <label for="PoliciesProcedures" class="col-sm-4 control-label">Policies &Procedures</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.PoliciesProcedures)
+                    @Html.ValidationMessageFor(m => m.PoliciesProcedures)
+                </div>
+            </div>
+            <div class="form-group Auditor">
+                <label for="Communication" class="col-sm-4 control-label">Communication</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.Communication)
+                    @Html.ValidationMessageFor(m => m.Communication)
+                </div>
+            </div>
+            <div class="form-group Buyer Trader Factory">
+                <label for="TrainingSkills" class="col-sm-4 control-label">Training & Skills</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.TrainingSkills)
+                    @Html.ValidationMessageFor(m => m.TrainingSkills)
+                </div>
+            </div>
+            <div class="form-group Buyer Trader Factory">
+                <label for="MonitoringTracking" class="col-sm-4 control-label">Monitoring & Tracking</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.MonitoringTracking)
+                    @Html.ValidationMessageFor(m => m.MonitoringTracking)
+                </div>
+            </div>
+            <div class="form-group Buyer Trader">
+                <label for="GovernanceEnforcemen" class="col-sm-4 control-label">Governance & Enforcemen</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.GovernanceEnforcemen)
+                    @Html.ValidationMessageFor(m => m.GovernanceEnforcemen)
+                </div>
+            </div>
+            <div class="form-group Factory">
+                <label for="PlannedCompletionDate" class="col-sm-4 control-label">Planned Completion Date</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.PlannedCompletionDate)
+                    @Html.ValidationMessageFor(m => m.PlannedCompletionDate)
+                </div>
+            </div>
+            <div class="form-group Factory">
+                <label for="ResponderComments" class="col-sm-4 control-label">Responder Comments</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.ResponderComments)
+                    @Html.ValidationMessageFor(m => m.ResponderComments)
+                </div>
+            </div>
+            <div class="form-group Factory">
+                <label for="Evidence" class="col-sm-4 control-label">Evidence</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.Evidence)
+                    @Html.ValidationMessageFor(m => m.Evidence)
+                </div>
+            </div>
+           
+
+            <div class="form-group Auditor">
+                <label id="IDNumber" class="col-sm-4 control-label"></label>               
+             
+            </div>
+
+            <div class="sctp form-group Auditor">
+                <div id="preview2">
+                    <img id="imghead2" border="0" src="~/themes/flyingtop/images/a38.png" width="115" height="115" onClick="$('#preview2Img').click();">
+                </div>
+                <input type="file" onChange="preview2Image(this)" style="display: none;" id="preview2Img">
+                <input type="button" name="button2" id="button2" value="Upload" class="btn3" />
+            </div>
+
+
+           
+
+
+
+
+            <div class="form-group  Auditor Auditing Buyer Trader Factory">
+
+                <div class="col-sm-8">
+
+
+                    <input type="submit" class="btn4" name="" id="" value="Submit" />
+                </div>
+            </div>
+        </div>
+
+    
+    </div>
+
+
+
+    @if (ViewBag.Errormessage != null)
+    {
+        <div class="text-center alert alert-danger">
+            @ViewBag.Errormessage
+        </div>
+    }
+}
+
+
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+       
+
+
+
+        $("#button2").click(function () {
+            var files = $('#preview2Img').prop('files');
+            var data = new FormData();
+            data.append('preview2Img', files[0]);
+            $.ajax({
+                type: "POST",
+                data: data,
+                url: "/Account/UploadFile",
+                contentType: false,
+                processData: false,
+            }).success(function (data) {
+                console.log(data);
+                $("#IDNumber").text(data.path);
+
+            }).error(function (data) {
+                console.log(data);
+            });
+
+        });
+
+       
+    })
+</script>
+
+
+
+<script>
+    var swiper = new Swiper('.banner .swiper-container');
+</script>
+<script>
+    //图片上传预览    IE是用了滤镜。
+    function preview1Image(file) {
+        var MAXWIDTH = 115;
+        var MAXHEIGHT = 115;
+        var div = document.getElementById('preview1');
+        if (file.files && file.files[0]) {
+            div.innerHTML = '<img id=imghead1 onclick=$("#preview1Img").click()>';
+            var img = document.getElementById('imghead1');
+            img.onload = function () {
+                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                img.width = rect.width;
+                img.height = rect.height;
+                //                 img.style.marginLeft = rect.left+'px';
+                img.style.marginTop = rect.top + 'px';
+            }
+            var reader = new FileReader();
+            reader.onload = function (evt) { img.src = evt.target.result; }
+            reader.readAsDataURL(file.files[0]);
+        }
+        else //兼容IE
+        {
+            var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+            file.select();
+            var src = document.selection.createRange().text;
+            div.innerHTML = '<img id=imghead1>';
+            var img = document.getElementById('imghead1');
+            img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+            var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+            status = ('rect:' + rect.top + ',' + rect.left + ',' + rect.width + ',' + rect.height);
+            div.innerHTML = "<div id=divhead style='width:" + rect.width + "px;height:" + rect.height + "px;margin-top:" + rect.top + "px;" + sFilter + src + "\"'></div>";
+        }
+    }
+    function clacImgZoomParam(maxWidth, maxHeight, width, height) {
+        var param = { top: 0, left: 0, width: width, height: height };
+        if (width > maxWidth || height > maxHeight) {
+            rateWidth = width / maxWidth;
+            rateHeight = height / maxHeight;
+
+            if (rateWidth > rateHeight) {
+                param.width = maxWidth;
+                param.height = Math.round(height / rateWidth);
+            } else {
+                param.width = Math.round(width / rateHeight);
+                param.height = maxHeight;
+            }
+        }
+        param.left = Math.round((maxWidth - param.width) / 2);
+        param.top = Math.round((maxHeight - param.height) / 2);
+        return param;
+    }
+</script>
+<script>
+    //图片上传预览    IE是用了滤镜。
+    function preview2Image(file) {
+        var MAXWIDTH = 115;
+        var MAXHEIGHT = 115;
+        var div = document.getElementById('preview2');
+        if (file.files && file.files[0]) {
+            div.innerHTML = '<img id=imghead2 onclick=$("#preview2Img").click()>';
+            var img = document.getElementById('imghead2');
+            img.onload = function () {
+                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                img.width = rect.width;
+                img.height = rect.height;
+                //                 img.style.marginLeft = rect.left+'px';
+                img.style.marginTop = rect.top + 'px';
+            }
+            var reader = new FileReader();
+            reader.onload = function (evt) { img.src = evt.target.result; }
+            reader.readAsDataURL(file.files[0]);
+        }
+        else //兼容IE
+        {
+            var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+            file.select();
+            var src = document.selection.createRange().text;
+            div.innerHTML = '<img id=imghead2>';
+            var img = document.getElementById('imghead2');
+            img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+            var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+            status = ('rect:' + rect.top + ',' + rect.left + ',' + rect.width + ',' + rect.height);
+            div.innerHTML = "<div id=divhead style='width:" + rect.width + "px;height:" + rect.height + "px;margin-top:" + rect.top + "px;" + sFilter + src + "\"'></div>";
+        }
+    }
+    function clacImgZoomParam(maxWidth, maxHeight, width, height) {
+        var param = { top: 0, left: 0, width: width, height: height };
+        if (width > maxWidth || height > maxHeight) {
+            rateWidth = width / maxWidth;
+            rateHeight = height / maxHeight;
+
+            if (rateWidth > rateHeight) {
+                param.width = maxWidth;
+                param.height = Math.round(height / rateWidth);
+            } else {
+                param.width = Math.round(width / rateHeight);
+                param.height = maxHeight;
+            }
+        }
+        param.left = Math.round((maxWidth - param.width) / 2);
+        param.top = Math.round((maxHeight - param.height) / 2);
+        return param;
+    }
+</script>
