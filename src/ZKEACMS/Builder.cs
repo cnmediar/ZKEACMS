@@ -8,6 +8,7 @@
 
 using Easy;
 using Easy.Extend;
+using Easy.Models;
 using Easy.Mvc.Authorize;
 using Easy.Mvc.DataAnnotations;
 using Easy.Mvc.Plugin;
@@ -50,6 +51,7 @@ using ZKEACMS.Product.Models;
 using ZKEACMS.Report;
 using ZKEACMS.Route;
 using ZKEACMS.Setting;
+using ZKEACMS.Shop;
 using ZKEACMS.SMTP;
 using ZKEACMS.Theme;
 using ZKEACMS.Widget;
@@ -100,6 +102,9 @@ namespace ZKEACMS
             services.TryAddTransient<IExtendFieldService, ExtendFieldService>();
             services.TryAddTransient<INotifyService, NotifyService>();
             services.AddTransient<IUserCenterLinksProvider, UserCenterLinksProvider>();
+
+   services.AddTransient<IUserCenterLinksProvider, ShopCenterLinksProvider>();
+
             services.TryAddScoped<ILayoutService, LayoutService>();
             services.TryAddScoped<ILayoutHtmlService, LayoutHtmlService>();
             services.TryAddTransient<IMediaService, MediaService>();
@@ -157,6 +162,8 @@ namespace ZKEACMS
             services.ConfigureMetaData<Rule.RuleItem, Rule.RuleItemMetaData>();
             services.ConfigureMetaData<SmtpSetting, SmtpSettingMetaData>();
             services.ConfigureMetaData<Robots, RobotsMetaData>();
+
+  
 
             services.Configure<NavigationWidget>(option =>
             {

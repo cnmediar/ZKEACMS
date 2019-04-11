@@ -100,6 +100,8 @@ namespace Easy
             services.ConfigureMetaData<UserRoleRelation, UserRoleRelationMetaData>();
             services.ConfigureMetaData< ApplyOnline,  ApplyOnlineMetaData> ();
 
+            services.ConfigureMetaData<AuditReportEntity, AuditReportEntityMetaData>();
+
             services.Configure<CDNOption>(configuration.GetSection("CDN"));
             services.Configure<CultureOption>(configuration.GetSection("Culture"));
 

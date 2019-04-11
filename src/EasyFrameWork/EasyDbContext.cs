@@ -2,6 +2,7 @@
  * Copyright (c) ZKEASOFT. All rights reserved. 
  * http://www.zkea.net/licenses */
 using System.Collections.Generic;
+using Easy.Models;
 using Easy.Modules.DataDictionary;
 using Easy.Modules.MutiLanguage;
 using Easy.Modules.Role;
@@ -23,5 +24,7 @@ namespace Easy
         internal DbSet<RoleEntity> Roles { get; set; }
         internal DbSet<UserRoleRelation> UserRoleRelation { get; set; }
         internal DbSet<UserEntity> Users { get; set; }
+
+        internal DbSet<AuditReportEntity> AuditReport { get; set; }
     }
 }

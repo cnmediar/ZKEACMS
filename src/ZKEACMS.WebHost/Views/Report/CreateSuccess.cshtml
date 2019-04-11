@@ -1,0 +1,54 @@
+﻿@model Easy.Models.AuditReportEntity
+@{
+    ViewBag.Title = ZKEACMS.Version.CurrentVersion + " " + ZKEACMS.Version.Rank;
+    Layout = Layouts.Account;
+    Style.Reqiured("Customer").AtHead();
+    Script.Reqiured("validate").AtFoot();
+    var returnUrl = ViewBag.ReturnUrl ?? ViewContext.HttpContext.Request.Query["ReturnUrl"];
+}
+@section Mycss{
+
+    <style>
+
+
+        input.form-control {
+            width: 378px;
+            padding-left: 20px;
+            line-height: 38px;
+            height: 38px;
+            font-size: 18px;
+            color: #666;
+            vertical-align: middle;
+        }
+
+        input.formcontrol1 {
+            width: 178px;
+            display: inline;
+        }
+
+
+        select.form-control {
+            width: 378px;
+            padding-left: 20px;
+            line-height: 38px;
+            height: 38px;
+            font-size: 18px;
+            color: #666;
+            vertical-align: middle;
+        }
+
+        .form-group label {
+            display: inline-block;
+            padding-right: 15px;
+            font-size: 18px;
+            color: #333;
+            font-weight: 100;
+        }
+
+        select[multiple] {
+            height: 100px;
+        }
+    </style>
+}
+
+Create Success

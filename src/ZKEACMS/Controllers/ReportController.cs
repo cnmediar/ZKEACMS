@@ -1,48 +1,65 @@
 ﻿using Easy;
 using Easy.Constant;
+using Easy.Models;
 using Easy.Modules.User.Models;
 using Easy.Modules.User.Service;
 using Easy.Mvc.Authorize;
 using Easy.Mvc.Controllers;
 using EasyFrameWork.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using ZKEACMS.Report;
+using ZKEACMS.Shop.ViewModel;
 
 namespace ZKEACMS.Controllers
 {
-    [DefaultAuthorize]
+    [CustomerAuthorize]
     public class ReportController : BasicController<AuditReportEntity, int, IReportServer>
     {
         private IApplicationContextAccessor _applicationContextAccessor;
         private ILocalize _localize;
-        public ReportController(IReportServer userService, IApplicationContextAccessor applicationContextAccessor, ILocalize localize)
+
+        private IReportServer _userService;
+        public ReportController(IReportServer userService, IApplicationContextAccessor applicationContextAccessor, ILocalize localize
+            )
             : base(userService)
         {
             _applicationContextAccessor = applicationContextAccessor;
             _localize = localize;
+            _userService = userService;
         }
 
-        [DefaultAuthorize(Policy = PermissionKeys.ViewReport)]
+       
         public override IActionResult Index()
         {
+            int Id = 0;
+            ReportListViewModel viewModel = new ReportListViewModel();
+            Pagin pagin = new Pagin { PageIndex = Id, OrderByDescending = "CreateDate" };
+            viewModel.Reports = _userService.Get(m => m.UserId == _applicationContextAccessor.Current.CurrentCustomer.UserID, pagin);
+            viewModel.Pagin = pagin;
+            viewModel.Pagin.BaseUrlFormat = "~/MyOrder/Index/{0}";
+            return View(viewModel);
+
             return base.Index();
         }
-        [DefaultAuthorize(Policy = PermissionKeys.ManageReport)]
+     
         public override IActionResult Create()
         {
             return base.Create();
         }
-        [HttpPost, DefaultAuthorize(Policy = PermissionKeys.ManageReport)]
+  
         public override IActionResult Create(AuditReportEntity entity)
         {
+          entity.UserId = _applicationContextAccessor.Current.CurrentCustomer.UserID;
+            var result = Service.Add(entity);
+       
+            
 
-            Service.Publish(entity);
-
-            var result = base.Create(entity);
-            return result;
+           // var result = base.Create(entity);
+            return     View("CreateSuccess"); 
         }
         [DefaultAuthorize(Policy = PermissionKeys.ManageReport)]
         public override IActionResult Edit(int Id)
@@ -67,10 +84,13 @@ namespace ZKEACMS.Controllers
         {
             return base.GetList(query);
         }
-        [DefaultAuthorize(Policy = PermissionKeys.ManageReport)]
-        public override IActionResult Delete(int id)
+    
+        public  IActionResult Remove(int id)
         {
-            return base.Delete(id);
+            _userService.Remove(id);
+
+
+            return RedirectToAction("Index");
         }
     }
 }
