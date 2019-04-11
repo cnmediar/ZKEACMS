@@ -1,0 +1,44 @@
+@using ZKEACMS.Shop.ViewModel
+@model ReportListViewModel
+@{
+    Layout = Layouts.Account;
+    ViewBag.Title = "Report";
+}
+
+
+<div class="sear">
+    <div class="searbox">
+        <ul>
+            @using (Html.BeginForm())
+            {
+                <li><span style="width:85px; display: inline-block; *display: inline;width:85px; text-align: right">Keyword</span>
+            <input type="text" class="wby3" name="Keyword"  value=" @Model.Keyword"/></li>
+                <li><span style="width:85px; display: inline-block; *display: inline;width:85px; text-align: right">Product</span>
+            <input type="text" class="wby4" name="Product"    value=" @Model.Product"/><span>
+                    Audit Standard</span>
+            <input type="text" class="wby4"  name="AuditStandard"   value=" @Model.AuditStandard"/><span>Address</span>
+            <input type="text" class="wby4" style="margin: 0;" name="Address"    value=" @Model.Address"/></li>
+                <li>
+            <input type="submit" name="" id="" value="Search" class="btn2" /></li>
+            }
+        
+        </ul>
+    </div>
+</div>
+<div class="gzllb">
+    <ul>
+        @foreach (var item in Model.Reports)
+        {
+            <li>
+                <h2>@item.Product</h2>
+                <p>@item.CreateDate.ToString()</p>
+
+                <a asp-controller="Report" asp-action="downloadFile" asp-route-id="@item.id">Download</a>
+            </li>
+
+        }
+
+
+
+    </ul>
+</div>

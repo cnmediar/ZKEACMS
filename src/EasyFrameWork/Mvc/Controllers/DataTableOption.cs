@@ -18,7 +18,7 @@ namespace Easy.Mvc.Controllers
         public ColumnOption[] Columns { get; set; }
         public OrderOption[] Order { get; set; }
         public int Start { get; set; }
-        public int Length { get; set; }
+        public int Length { get; set; } = 100;
         public SearchOption Search { get; set; }
         public Expression<Func<T, bool>> AsExpression<T>() where T : class
         {

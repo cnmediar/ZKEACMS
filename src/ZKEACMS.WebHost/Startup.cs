@@ -33,6 +33,9 @@ namespace ZKEACMS.WebHost
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IHttpContextAccessor httpContextAccessor)
         {
+            app.UseStaticFiles();
+       
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

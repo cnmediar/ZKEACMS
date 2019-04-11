@@ -131,7 +131,7 @@ em,i { font-style: normal; }
 .current{background-color: #88c337;background-image: url(../images/a31.png);background-repeat: no-repeat;background-position: 370px center;}
 .tao1{height: 95px;}
 /*==search==*/
-.sear{background: #f5f5f5; border-top:2px solid #ec6023 ;border-bottom: 1px solid #e8e8e8; padding: 60px 0 32px 0;}
+.sear{background: #f5f5f5; border-bottom: 1px solid #e8e8e8; padding: 60px 0 32px 0;}
 .searbox{margin: 0 auto; width:860px;}
 .searbox li{padding-bottom: 20px;}
 .searbox span{font-size: 20px; color: #333; padding-right: 10px;}

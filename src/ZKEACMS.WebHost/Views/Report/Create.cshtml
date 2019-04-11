@@ -338,7 +338,7 @@
             <div class="form-group Auditor">
                 <label id="IDNumber" class="col-sm-4 control-label"></label>
                 <input type="hidden" id="Title" name="Title"></input>
-                @Html.HiddenFor(m => m.Title)
+                @Html.HiddenFor(m => m.FilePath)
          
             </div>
 
@@ -409,7 +409,7 @@
                 processData: false,
             }).success(function (data) {
                 console.log(data);
-                $("#IDNumber").text(data.path);
+                $("#FilePath").text(data.path);
                 $("#Title").val(data.path);
             }).error(function (data) {
                 console.log(data);

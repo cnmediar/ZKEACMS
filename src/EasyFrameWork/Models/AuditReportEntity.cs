@@ -50,6 +50,7 @@ namespace Easy.Models
         public string AllowGroupDown { get; set; }
         public string AllowUserDown { get; set; }
 
+    public string FilePath { get; set; }
 
  
 
