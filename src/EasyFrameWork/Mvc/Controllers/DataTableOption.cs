@@ -15,7 +15,8 @@ namespace Easy.Mvc.Controllers
     public class DataTableOption
     {
         public int Draw { get; set; }
-        public ColumnOption[] Columns { get; set; }
+        public ColumnOption[] Columns { get; set; } = new ColumnOption[] { };
+
         public OrderOption[] Order { get; set; }
         public int Start { get; set; }
         public int Length { get; set; } = 100;

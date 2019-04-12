@@ -70,8 +70,8 @@ namespace ZKEACMS
             new PermissionDescriptor { Module="设置",Title="邮件服务器设置",Key=SMTPSetting,Description="邮箱服务器设置" },
             new PermissionDescriptor { Module="设置",Title="Robots.txt设置",Key=RobotsSetting,Description="Robots.txt设置" },
 
-            new PermissionDescriptor { Module="报告",Title="Robots.txt设置",Key=ManageReport,Description="管理报告" },
-            new PermissionDescriptor { Module="报告",Title="Robots.txt设置",Key=ViewReport,Description="查看报告" }
+            new PermissionDescriptor { Module="报告",Title="管理报告",Key=ManageReport,Description="管理报告" },
+            new PermissionDescriptor { Module="报告",Title="查看报告",Key=ViewReport,Description="查看报告" }
         };
         public static void Configure(AuthorizationOptions options)
         {

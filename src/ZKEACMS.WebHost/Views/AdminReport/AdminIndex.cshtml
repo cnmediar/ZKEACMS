@@ -1,0 +1,18 @@
+@using Easy.Models
+@model AuditReportEntity
+@{
+    Style.Reqiured("dataTable").AtHead();
+    Script.Reqiured("dataTable").AtFoot();
+
+    Script.Reqiured("datepicker").AtFoot();
+    Style.Reqiured("datepicker").AtHead();
+
+}
+
+@if (Authorizer.Authorize(ZKEACMS.PermissionKeys.ViewReport))
+{
+    <div id="toolBar">
+        <a href="@Url.Action("Create")" class="btn btn-primary btn-sm">@L("新建")</a>
+    </div>
+}
+<grid delete-able="Authorizer.Authorize(ZKEACMS.PermissionKeys.ViewReport)" edit-able="Authorizer.Authorize(ZKEACMS.PermissionKeys.ManageReport)"></grid>

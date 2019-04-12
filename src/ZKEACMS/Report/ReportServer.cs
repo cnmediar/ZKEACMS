@@ -28,7 +28,9 @@ namespace ZKEACMS.Report
 
         public void Publish(AuditReportEntity report)
         {
-            throw new NotImplementedException();
+
+            this.Update(report);
+
         }
     }
 }

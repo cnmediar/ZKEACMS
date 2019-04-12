@@ -29,6 +29,16 @@ namespace ZKEACMS
                 Url = "~/admin",
                 Order = 0
             },
+
+            new AdminMenu
+            {
+                Title = "report",
+                Icon = "glyphicon-th-list",
+                Order = 1,
+                Url = "~/admin/AdminReport/Index",
+                PermissionKey = PermissionKeys.ViewReport
+
+            },
             new AdminMenu
             {
                 Title = "布局",
