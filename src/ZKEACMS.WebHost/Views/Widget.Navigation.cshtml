@@ -13,9 +13,36 @@
     <div class="top_box">
         <ul>
             <li><a href="/Account/Forgotten?ReturnUrl=%2FAccount">Forget Password？</a></li>
-            <li><a href="/Account/SignUp?ReturnUrl=%2FAccount">Register</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-            <li><a href="/Account/SignIn?ReturnUrl=%2FAccount">Sign In</a></li>
-        </ul>
+
+            @if (User.Identity.IsAuthenticated || ApplicationContext.CurrentCustomer != null)
+            {
+            <li>
+                <a href="/Account/">  @User.Identity.Name @ApplicationContext.CurrentCustomer.UserID</a>
+</li>
+
+
+            <li>
+                <a target="_self" href="@Url.Action("SignOut","Account")" title="Logout">
+                    <i class="glyphicon glyphicon-off"></i> Logout
+                </a>
+             
+            </li>
+                    }
+                    else
+                    {
+       
+                <li><a href="/Account/SignUp?ReturnUrl=%2FAccount">Register</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+                <li><a href="/Account/SignIn?ReturnUrl=%2Account">Sign In</a></li>
+                }
+
+
+
+
+
+
+
+
+            </ul>
     </div>
 </div>
 <div class="herder">
