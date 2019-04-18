@@ -17,7 +17,14 @@
             @if (User.Identity.IsAuthenticated || ApplicationContext.CurrentCustomer != null)
             {
             <li>
-                <a href="/Account/">  @User.Identity.Name @ApplicationContext.CurrentCustomer.UserID</a>
+                <a href="/Account/"> 
+                
+                
+                @User.Identity.Name
+                
+                @(ApplicationContext.CurrentCustomer==null?"":ApplicationContext.CurrentCustomer.UserID)
+                
+                </a>
 </li>
 
 
@@ -49,8 +56,11 @@
     <div class="herder_top">
         <div class="logo"><a href=""><img src="/themes/flyingtop/images/a1.png"></a></div>
         <div class="serach">
-            <input type="text" name="" id="" value="" />
-            <button>serach</button>
+
+            <form action="/report/search" method="post">
+                <input type="text" name="Keyword" id="Keyword" value="" />
+                <button type="submit">search</button>
+            </form>
         </div>
     </div>
     <div class="nav">

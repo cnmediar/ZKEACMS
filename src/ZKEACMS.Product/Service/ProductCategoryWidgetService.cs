@@ -61,7 +61,15 @@ namespace ZKEACMS.Product.Service
             IEnumerable<ProductEntity> products = null;
 
             Expression<Func<ProductEntity, bool>> filter = null;
-            if (cate != 0)
+
+            if (cate <=13&&cate>0)
+            {
+              var pcats=  _productCategoryService.Get().Where(n=>n.ParentID== cate).Select(n => n.ID).ToList();
+
+                filter = m => m.IsPublish && pcats.Contains( m.ProductCategoryID);
+                products = _productService.Get().Where(filter).OrderBy(m => m.OrderIndex).ThenByDescending(m => m.ID).ToList();
+            }
+            else    if (cate != 0)
             {
                 filter = m => m.IsPublish && m.ProductCategoryID == cate;
                 products = _productService.Get().Where(filter).OrderBy(m => m.OrderIndex).ThenByDescending(m => m.ID).ToList();

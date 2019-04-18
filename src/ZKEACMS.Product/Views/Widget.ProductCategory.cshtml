@@ -16,7 +16,12 @@
                 @foreach (var cat in Model.BigCategorys)
                 {
                  
-                    <h3 class="Collapsing   @(cat.ID == Model.CurrentBigCategory ? "current" : "") "><i><img src="/themes/flyingtop/images/@cat.Description" /></i> @cat.Title</h3>
+                <h3 class="Collapsing   @(cat.ID == Model.CurrentBigCategory ? "current" : "") ">
+                    <i><img src="/themes/flyingtop/images/@cat.Description" /></i>
+                    <a href="@Url.ProductCategoryUrl(cat)">
+                        @cat.Title
+                    </a>
+                </h3>
                     <div class="coll_body  " style=" @(cat.ID == Model.CurrentBigCategory? "display:block;" : "") ">
                         <ul>
 

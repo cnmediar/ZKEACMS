@@ -21,26 +21,26 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    @Html.LabelFor(m => m.Title)
-                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "输入您的名字" })
+                    Title
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Your name" })
                     @Html.ValidationMessageFor(m => m.Title)
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    @Html.LabelFor(m => m.Email)
-                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "输入您的邮箱地址" })
+                    @*@Html.LabelFor(m => m.Email)*@ Email
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Your Email" })
                     @Html.ValidationMessageFor(m => m.Email)
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    @Html.LabelFor(m => m.PostMessage)
-                    @Html.TextAreaFor(m => m.PostMessage, new { @class = "form-control", rows = "10", placeholder = "请留言..." })
+                    @*@Html.LabelFor(m => m.PostMessage)*@ Post  Message
+                    @Html.TextAreaFor(m => m.PostMessage, new { @class = "form-control", rows = "10", placeholder = "Message..." })
                     @Html.ValidationMessageFor(m => m.PostMessage)
                 </div>
             </div>
         </div>
-        <input type="submit" value="@L("提交留言")" class="btn btn-default" />
+        <input type="submit" value="Post Message" class="btn btn-default" />
     }
 </div>

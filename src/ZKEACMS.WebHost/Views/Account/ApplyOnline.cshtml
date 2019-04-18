@@ -86,7 +86,7 @@
                 {
                     var user = ViewBag.User as Easy.Modules.User.Models.UserEntity;
                     <div class="form-group Auditor Auditing Buyer Trader Factory">
-                        <label class="col-sm-4 control-label">Email</label>
+                        <label class="col-sm-4 control-label">Email Address</label>
                         <div class="col-sm-8">
                             <input type="text" readonly="readonly" class="wby1" value="@user.Email" />
                         </div>
@@ -236,7 +236,7 @@
             <div id="Vendordiv">
 
                 <div class="form-group Auditor Auditing Buyer Trader Factory">
-                    <label for="Email " class="col-sm-4 control-label">@L("邮箱")</label>
+                    <label for="Email " class="col-sm-4 control-label">Email Address</label>
                     <div class="col-sm-8">
 
 
@@ -258,14 +258,14 @@
 
 
                 <div class="form-group Auditing Buyer Trader Factory">
-                    <label for="CompanyNameEnglish" class="col-sm-4 control-label">CompanyName English</label>
+                    <label for="CompanyNameEnglish" class="col-sm-4 control-label">Company Name English</label>
                     <div class="col-sm-8">
                         @Html.EditorFor(m => m.CompanyNameEnglish)
                         @Html.ValidationMessageFor(m => m.CompanyNameEnglish)
                     </div>
                 </div>
                 <div class="form-group Auditing Buyer Trader Factory">
-                    <label for="CompanyNameLocal" class="col-sm-4 control-label">CompanyName Local</label>
+                    <label for="CompanyNameLocal" class="col-sm-4 control-label">Company Name Local</label>
                     <div class="col-sm-8">
                         @Html.EditorFor(m => m.CompanyNameLocal)
                         @Html.ValidationMessageFor(m => m.CompanyNameLocal)
@@ -380,9 +380,9 @@
                 </div>
 
             </div>
-            <div class="xxlb_tit ">
+            @*<div class="xxlb_tit ">
                 <h2>  Service Standard</h2>
-            </div>
+            </div>*@
 
             <div class="form-group ">
                 <label for="ServiceStandard" class="col-sm-4 control-label">Service Standard</label>

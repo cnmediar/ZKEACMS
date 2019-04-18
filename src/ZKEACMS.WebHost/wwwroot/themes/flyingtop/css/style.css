@@ -27,7 +27,15 @@ em,i { font-style: normal; }
 .herder_top{ overflow: hidden;}
 .herder_top .logo{ float: left;}
 .herder_top .serach{ float: right; width: 300px; height: 40px; border-radius:3px; float: right; overflow: hidden; border: 1px solid #ed692f; margin-top: 30px;}
-.herder_top .serach input{ float: left; height: 100%; display: block; border: none; width: 240px; text-indent: 38px; background: url(../images/a6.png) 9px center no-repeat;}
+    .herder_top .serach input {
+        float: left;
+        height: 40px;
+        display: block;
+        border: none;
+        width: 240px;
+        text-indent: 38px;
+        background: url(../images/a6.png) 9px center no-repeat;
+    }
 .herder_top .serach button{ width: 60px; float: right; height: 100%; line-height: 40px; text-align: center; border: none; outline: none; background: #ed692f; color: #fff;}
 
 .nav{ width: 100%; overflow:hidden;}
@@ -57,13 +65,13 @@ em,i { font-style: normal; }
 .work h2{ height: 160px; text-align: center; font-weight: bold; font-size: 30px; line-height: 160px; color: #000;}
 .work .list1{ text-align: center;}
 .work .list1 li{ display: inline-block; width: 240px; height: 240px; border-radius:50%; background: #ec6023; margin: 0 70px; transition: 0.5s;}
-.work .list1 li .icon{ width: 100%; height: 140px; position: relative;}
+.work .list1 li .icon{ width: 100%; height: 110px; position: relative;}
 .work .list1 li .icon img{ position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
-.work .list1 li p{ width: 160px; color: #fff; font-size: 10px; line-height: 22px; margin: 0 auto; text-align: center;}
+.work .list1 li p{ width: 160px; color: #fff; font-size: 14px; line-height: 22px; margin: 0 auto; text-align: center;}
 .work .list1 li:hover{ transform: translateY(-10px); box-shadow: 0 10px 10px rgba(0,0,0,0.3);}
 
 
-.work .list2{ width: 1200px; margin: 0 auto; overflow: hidden;}
+.work .list2{ width: 1200px; margin: 0 auto;  padding-bottom:10px; overflow: hidden;}
 .work .list2 li{ width: 25%; float:left;}
 .work .list2 li .icon{ width: 200px; height: 200px; margin: 0 auto; border-radius:50%; border: 1px solid #90c744; position: relative; margin-bottom: 40px;}
 .work .list2 li .icon img{ position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); transition: 0.5s;}
