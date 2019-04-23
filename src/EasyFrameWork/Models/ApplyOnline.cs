@@ -13,6 +13,25 @@ namespace Easy.Models
         public string Id { get; set; }
         public string ApplyType { get; set; }
 
+       public string Payer { get; set; }
+        public string UserId { get; set; }
+
+        public IUser User { get; set; }
+
+        #region Information of Vendor (If applicable)
+        public string VendorEmail { get; set; }
+        public string VendorCompanyNameEnglish { get; set; }
+        public string VendorCompanyNameLocal { get; set; }
+        public string VendorAddressEnglish { get; set; }
+        public string VendorAddressLocal { get; set; }
+      
+        public string VendorContactPerson { get; set; }
+        public string VendorTelephoneNumber { get; set; }
+
+        #endregion
+
+
+        #region Details of Physical Facility to be assessed
         public string Email { get; set; }
         public string CompanyNameEnglish { get; set; }
         public string CompanyNameLocal { get; set; }
@@ -36,8 +55,8 @@ namespace Easy.Models
         public string Male { get; set; }
         public string Female { get; set; }
         public string TotalFacilityFloorSize { get; set; }
-
-         public string ServiceStandard { get; set; }
+        #endregion
+        public string ServiceStandard { get; set; }
          public string ClientProgram { get; set; }
          public string ServiceRequest { get; set; }
           public string AuditType { get; set; }
@@ -54,8 +73,9 @@ namespace Easy.Models
             ViewConfig(p => p.DesiredAuditdate).AsTextBox().FormatAsDate();
             ViewConfig(p => p.ServiceStandard).AsDropDownList().DataSource(SourceType.Dictionary);      
             ViewConfig(p => p.AuditType).AsDropDownList().DataSource(SourceType.Dictionary);           
-            ViewConfig(p => p.AuditMethod).AsDropDownList().DataSource(SourceType.Dictionary);      
-                       
+            ViewConfig(p => p.AuditMethod).AsDropDownList().DataSource(SourceType.Dictionary);
+            ViewConfig(p => p.Payer).AsDropDownList().DataSource(SourceType.Dictionary);
+
         }
     }
 }

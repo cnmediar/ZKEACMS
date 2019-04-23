@@ -227,6 +227,8 @@ namespace ZKEACMS.Controllers
             return newRandom.ToString();
         }
 
+
+        //[CustomerAuthorize]
         public ActionResult ApplyOnline()
         {
 
@@ -238,8 +240,7 @@ namespace ZKEACMS.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult ApplyOnline(ApplyOnline apply, string ReturnUrl)
         {
-            if (apply.ApplyType.IsNotNullAndWhiteSpace())
-            {
+           
                 try
                 {
                     //调用---------------   
@@ -274,31 +275,32 @@ namespace ZKEACMS.Controllers
                     }
                     apply.Id = $"AL" + DateTime.Now.Year.ToString().Substring(2) + month + DateTime.Now.ToString("dd")+no.ToString();
 
+                    apply.User = _applicationContextAccessor.Current.CurrentCustomer;
 
-                    if (apply.ApplyType == "Information    of  Applican")
-                    {
+                    //if (apply.ApplyType == "Information    of  Applican")
+                    //{
 
-                        var user = _applicationContextAccessor.Current.CurrentCustomer;
+                    //    var user = _applicationContextAccessor.Current.CurrentCustomer;
 
-                        apply.Email = user.Email;
-                        apply.CompanyNameEnglish = user.CompanyNameEnglish;
-                        apply.CompanyNameLocal = user.CompanyNameLocal;
-                        apply.AddressEnglish = user.AddressEnglish;
-                        apply.AddressLocal = user.AddressLocal;
-                        apply.BusinessLicenseNumber = user.BusinessLicenseNumber;
-                        apply.YearofFacilityEstablished = user.YearofFacilityEstablished;
-                        apply.ContactPerson = user.ContactPerson;
-                        apply.TelephoneNumber = user.TelephoneNumber;
-                        apply.MainLanguageofemployees = user.MainLanguageofemployees;
-                        apply.ProductsbyCategory = user.ProductsbyCategory;
-                        apply.SpecificProduct = user.SpecificProduct;
-                        apply.ProductionWorkers = user.ProductionWorkers;
-                        apply.ManagementStaff = user.ManagementStaff;
-                        apply.Male = user.Male;
-                        apply.Female = user.Female;
-                        apply.TotalFacilityFloorSize = user.TotalFacilityFloorSize;                                                       
+                    //    apply.Email = user.Email;
+                    //    apply.CompanyNameEnglish = user.CompanyNameEnglish;
+                    //    apply.CompanyNameLocal = user.CompanyNameLocal;
+                    //    apply.AddressEnglish = user.AddressEnglish;
+                    //    apply.AddressLocal = user.AddressLocal;
+                    //    apply.BusinessLicenseNumber = user.BusinessLicenseNumber;
+                    //    apply.YearofFacilityEstablished = user.YearofFacilityEstablished;
+                    //    apply.ContactPerson = user.ContactPerson;
+                    //    apply.TelephoneNumber = user.TelephoneNumber;
+                    //    apply.MainLanguageofemployees = user.MainLanguageofemployees;
+                    //    apply.ProductsbyCategory = user.ProductsbyCategory;
+                    //    apply.SpecificProduct = user.SpecificProduct;
+                    //    apply.ProductionWorkers = user.ProductionWorkers;
+                    //    apply.ManagementStaff = user.ManagementStaff;
+                    //    apply.Male = user.Male;
+                    //    apply.Female = user.Female;
+                    //    apply.TotalFacilityFloorSize = user.TotalFacilityFloorSize;                                                       
                   
-                    }
+                    //}
 
 
                 
@@ -314,7 +316,7 @@ namespace ZKEACMS.Controllers
                     return View(apply);
                 }
 
-            }
+          
               return View("ApplyOnlinesSuccess", new { ReturnUrl });
         }
 

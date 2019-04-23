@@ -49,14 +49,14 @@
     </style>
 }
 
- 
+
 
 @using (Html.BeginForm())
 {
     <input type="hidden" name="ReturnUrl" value="@returnUrl" />
     @Html.AntiForgeryToken()
     <input type="hidden" id="ApplyType" name="ApplyType" readonly="readonly" class="wby1" />
-    <div class="bdsr_tot">
+    @*<div class="bdsr_tot">
         <ul style="vertical-align: top; ">
 
             <li id="li1">
@@ -76,12 +76,25 @@
             </li>
 
         </ul>
+    </div>*@
+
+
+    <div class="form-group ">
+        <label for="Payer" class="col-sm-4 control-label">Payer</label>
+        <div class="col-sm-8">
+            @Html.EditorFor(m => m.Payer)
+            @Html.ValidationMessageFor(m => m.Payer)
+        </div>
     </div>
 
     <div class="panel-body">
         <div class="form-horizontal">
 
             <div id="Userdiv">
+
+                <div class="xxlb_tit ">
+                    <h2>  Information of Applicant</h2>
+                </div>
                 @if (ViewBag.User != null)
                 {
                     var user = ViewBag.User as Easy.Modules.User.Models.UserEntity;
@@ -134,13 +147,7 @@
                             <input type="text" readonly="readonly" class="wby1" value="@user.YearofFacilityEstablished" />
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="ContactPerson" class="col-sm-4 control-label"> ContactPerson</label>
-                        <div class="col-sm-8">
-
-                            <input type="text" readonly="readonly" class="wby1" value="@user.ContactPerson" />
-                        </div>
-                    </div>
+            
                     <div class="form-group">
                         <label for="TelephoneNumber" class="col-sm-4 control-label"> Telephone Number</label>
                         <div class="col-sm-8">
@@ -158,15 +165,9 @@
 
 
 
-                    <div class="form-group Auditing Buyer Trader Factory">
-                        <label for="YearofFacilityEstablished" class="col-sm-4 control-label">Year of Facility Established</label>
-                        <div class="col-sm-8">
-                            <input type="text" readonly="readonly" class="wby1" value="@user.YearofFacilityEstablished" />
+               
 
-                        </div>
-                    </div>
-
-                    <div class="form-group Auditing Buyer Trader Factory">
+                    @*<div class="form-group Auditing Buyer Trader Factory">
                         <label for="MainLanguageofemployees" class="col-sm-4 control-label">Main Language of employees</label>
                         <div class="col-sm-8">
 
@@ -187,9 +188,9 @@
 
                             <input type="text" readonly="readonly" class="wby1" value="@user.SpecificProduct" />
                         </div>
-                    </div>
+                    </div>*@
 
-                    <div class="xxlb_tit Auditor">
+                    @*<div class="xxlb_tit Auditor">
                         <h2> Employees</h2>
                     </div>
                     <div class="form-group Factory">
@@ -226,13 +227,21 @@
 
                             <input type="text" readonly="readonly" class="wby1" value="@user.TotalFacilityFloorSize" />
                         </div>
-                    </div>
+                    </div>*@
 
 
 
 
                 }
             </div>
+
+            <div class="xxlb_tit ">
+                <h2>  Information of Vendor (If applicable)</h2>
+            </div>
+
+
+
+
             <div id="Vendordiv">
 
                 <div class="form-group Auditor Auditing Buyer Trader Factory">
@@ -242,8 +251,8 @@
 
                         <input type="email"
                                placeholder="@L("输入您常使用的邮箱地址")"
-                               id="Email"
-                               name="Email"
+                               id="VendorEmail"
+                               name="VendorEmail"
                                class="form-control"
                                data-val="true"
                                data-val-required="@L("登录邮箱不能为空")"
@@ -252,7 +261,7 @@
                                data-val-regex-pattern="@(Easy.Constant.RegularExpression.Email)"
                                data-val-regex="@L("输入的邮件格式不正确")"
                                value="" />
-                        @Html.ValidationMessageFor(m => m.Email)
+                        @Html.ValidationMessageFor(m => m.VendorEmail)
                     </div>
                 </div>
 
@@ -260,48 +269,123 @@
                 <div class="form-group Auditing Buyer Trader Factory">
                     <label for="CompanyNameEnglish" class="col-sm-4 control-label">Company Name English</label>
                     <div class="col-sm-8">
-                        @Html.EditorFor(m => m.CompanyNameEnglish)
-                        @Html.ValidationMessageFor(m => m.CompanyNameEnglish)
+                        @Html.EditorFor(m => m.VendorCompanyNameEnglish)
+                        @Html.ValidationMessageFor(m => m.VendorCompanyNameEnglish)
                     </div>
                 </div>
                 <div class="form-group Auditing Buyer Trader Factory">
-                    <label for="CompanyNameLocal" class="col-sm-4 control-label">Company Name Local</label>
+                    <label for="VendorCompanyNameLocal" class="col-sm-4 control-label">Company Name Local</label>
                     <div class="col-sm-8">
-                        @Html.EditorFor(m => m.CompanyNameLocal)
-                        @Html.ValidationMessageFor(m => m.CompanyNameLocal)
+                        @Html.EditorFor(m => m.VendorCompanyNameLocal)
+                        @Html.ValidationMessageFor(m => m.VendorCompanyNameLocal)
                     </div>
                 </div>
                 <div class="form-group Auditing Buyer Trader Factory">
-                    <label for="AddressEnglish" class="col-sm-4 control-label">Address English</label>
+                    <label for="VendorAddressEnglish" class="col-sm-4 control-label">Address English</label>
                     <div class="col-sm-8">
-                        @Html.EditorFor(m => m.AddressEnglish)
-                        @Html.ValidationMessageFor(m => m.AddressEnglish)
+                        @Html.EditorFor(m => m.VendorAddressEnglish)
+                        @Html.ValidationMessageFor(m => m.VendorAddressEnglish)
                     </div>
                 </div>
                 <div class="form-group Auditing Buyer Trader Factory">
-                    <label for="AddressLocal" class="col-sm-4 control-label">Address Local</label>
+                    <label for="VendorAddressLocal" class="col-sm-4 control-label">Address Local</label>
                     <div class="col-sm-8">
-                        @Html.EditorFor(m => m.AddressLocal)
-                        @Html.ValidationMessageFor(m => m.AddressLocal)
+                        @Html.EditorFor(m => m.VendorAddressLocal)
+                        @Html.ValidationMessageFor(m => m.VendorAddressLocal)
                     </div>
                 </div>
 
 
                 <div class="form-group Auditing Buyer Trader Factory">
-                    <label for="ContactPerson" class="col-sm-4 control-label">Contact Person ‘s Name/Title</label>
+                    <label for="VendorContactPerson" class="col-sm-4 control-label">Contact Person ‘s Name/Title</label>
                     <div class="col-sm-8">
-                        @Html.EditorFor(m => m.ContactPerson)
-                        @Html.ValidationMessageFor(m => m.ContactPerson)
+                        @Html.EditorFor(m => m.VendorContactPerson)
+                        @Html.ValidationMessageFor(m => m.VendorContactPerson)
                     </div>
                 </div>
                 <div class="form-group Auditing Buyer Trader Factory">
-                    <label for="TelephoneNumber" class="col-sm-4 control-label">Telephone Number</label>
+                    <label for="VendorTelephoneNumber" class="col-sm-4 control-label">Telephone Number</label>
                     <div class="col-sm-8">
-                        @Html.EditorFor(m => m.TelephoneNumber)
-                        @Html.ValidationMessageFor(m => m.TelephoneNumber)
+                        @Html.EditorFor(m => m.VendorTelephoneNumber)
+                        @Html.ValidationMessageFor(m => m.VendorTelephoneNumber)
                     </div>
                 </div>
             </div>
+
+
+            <div class="xxlb_tit ">
+                <h2>  Details of Physical Facility to be assessed</h2>
+            </div>
+
+            <div class="form-group Auditor Auditing Buyer Trader Factory">
+                <label for="Email " class="col-sm-4 control-label">Email Address</label>
+                <div class="col-sm-8">
+
+
+                    <input type="email"
+                           placeholder="@L("输入您常使用的邮箱地址")"
+                           id="Email"
+                           name="Email"
+                           class="form-control"
+                           data-val="true"
+                           data-val-required="@L("登录邮箱不能为空")"
+                           data-val-length="@L("邮箱的长度应小于200")"
+                           data-val-length-max="200"
+                           data-val-regex-pattern="@(Easy.Constant.RegularExpression.Email)"
+                           data-val-regex="@L("输入的邮件格式不正确")"
+                           value="" />
+                    @Html.ValidationMessageFor(m => m.Email)
+                </div>
+            </div>
+
+
+            <div class="form-group Auditing Buyer Trader Factory">
+                <label for="CompanyNameEnglish" class="col-sm-4 control-label">Company Name English</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.CompanyNameEnglish)
+                    @Html.ValidationMessageFor(m => m.CompanyNameEnglish)
+                </div>
+            </div>
+            <div class="form-group Auditing Buyer Trader Factory">
+                <label for="VendorCompanyNameLocal" class="col-sm-4 control-label">Company Name Local</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.CompanyNameLocal)
+                    @Html.ValidationMessageFor(m => m.CompanyNameLocal)
+                </div>
+            </div>
+            <div class="form-group Auditing Buyer Trader Factory">
+                <label for="VendorAddressEnglish" class="col-sm-4 control-label">Address English</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.AddressEnglish)
+                    @Html.ValidationMessageFor(m => m.AddressEnglish)
+                </div>
+            </div>
+            <div class="form-group Auditing Buyer Trader Factory">
+                <label for="VendorAddressLocal" class="col-sm-4 control-label">Address Local</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.AddressLocal)
+                    @Html.ValidationMessageFor(m => m.AddressLocal)
+                </div>
+            </div>
+
+
+            <div class="form-group Auditing Buyer Trader Factory">
+                <label for="VendorContactPerson" class="col-sm-4 control-label">Contact Person ‘s Name/Title</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.ContactPerson)
+                    @Html.ValidationMessageFor(m => m.ContactPerson)
+                </div>
+            </div>
+            <div class="form-group Auditing Buyer Trader Factory">
+                <label for="VendorTelephoneNumber" class="col-sm-4 control-label">Telephone Number</label>
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.TelephoneNumber)
+                    @Html.ValidationMessageFor(m => m.TelephoneNumber)
+                </div>
+            </div>
+     
+     
+   
             <div id="Factorydiv">
                 <div class="form-group Auditing Buyer Trader Factory">
                     <label for="YearofFacilityEstablished" class="col-sm-4 control-label">Year of Facility Established</label>
@@ -338,9 +422,7 @@
                     </div>
                 </div>
 
-                <div class="xxlb_tit Auditor">
-                    <h2> Employees</h2>
-                </div>
+
 
 
                 <div class="form-group Factory">
@@ -381,8 +463,8 @@
 
             </div>
             @*<div class="xxlb_tit ">
-                <h2>  Service Standard</h2>
-            </div>*@
+            <h2>  Service Standard</h2>
+        </div>*@
 
             <div class="form-group ">
                 <label for="ServiceStandard" class="col-sm-4 control-label">Service Standard</label>
@@ -391,7 +473,7 @@
                     @Html.ValidationMessageFor(m => m.ServiceStandard)
                 </div>
             </div>
-            <div class="form-group ">
+            <div class="form-group "  id="divClientProgram">
                 <label for="ClientProgram" class="col-sm-4 control-label">
                     Client Program (please specify client                    name and standard)
                 </label>
@@ -469,53 +551,71 @@
 
 
 @*<script>
-    var swiper = new Swiper('.banner .swiper-container');
-</script>*@
+        var swiper = new Swiper('.banner .swiper-container');
+    </script>*@
 <script language="javascript" type="text/javascript">
     $(document).ready(function () {
+             
+        $('#ServiceStandard').on('change', function () { });
+
+        $("#ServiceStandard").change(function () {
+           
+            var ssd = $("#ServiceStandard").val();
+
+            console.log(ssd);
+
+            if (ssd == "Client Program")
+
+                $("#divClientProgram").show();
+            else
+
+                $("#divClientProgram").hide();
+        })
+            $("#ServiceStandard").trigger("change");
+
         //$('#DesiredAuditdate').datetimepicker('setStartDate', '2012-01-01');
-        $("#li1").click(function () {
+        //$("#li1").click(function () {
 
-            $("li").removeClass("hover1");
+        //    $("li").removeClass("hover1");
 
-            $("#li1").addClass("hover1");
+        //    $("#li1").addClass("hover1");
 
-            $("#Userdiv").show();
-            $("#Vendordiv").hide();
-            $("#Factorydiv").hide();
+        //    $("#Userdiv").show();
+        //    $("#Vendordiv").hide();
+        //    $("#Factorydiv").hide();
 
-            $("#ApplyType").val("Information    of  Applican");
+        //    $("#ApplyType").val("Information    of  Applican");
 
-        });
+        //});
 
-        $("#li2").click(function () {
+        //$("#li2").click(function () {
 
-            $("li").removeClass("hover1");
-            $("#li2").addClass("hover1");
+        //    $("li").removeClass("hover1");
+        //    $("#li2").addClass("hover1");
 
-            $("#Userdiv").hide();
-            $("#Vendordiv").show();
-            $("#Factorydiv").hide();
-            $("#ApplyType").val("Information of Vendor (If applicable)");
-        });
+        //    $("#Userdiv").hide();
+        //    $("#Vendordiv").show();
+        //    $("#Factorydiv").hide();
+        //    $("#ApplyType").val("Information of Vendor (If applicable)");
+        //});
 
-        $("#li3").click(function () {
+        //$("#li3").click(function () {
 
-            $("li").removeClass("hover1");
+        //    $("li").removeClass("hover1");
 
-            $("#li3").addClass("hover1");
+        //    $("#li3").addClass("hover1");
 
-            $("#Userdiv").hide();
-            $("#Vendordiv").show();
-            $("#Factorydiv").show();
-            $("#ApplyType").val("Details of Physical Facility  to be assessed");
-        });
-
-
+        //    $("#Userdiv").hide();
+        //    $("#Vendordiv").show();
+        //    $("#Factorydiv").show();
+        //    $("#ApplyType").val("Details of Physical Facility  to be assessed");
+        //});
 
 
 
-        $("#li3").trigger("click");
+
+
+        //$("#li3").trigger("click");
 
 
 

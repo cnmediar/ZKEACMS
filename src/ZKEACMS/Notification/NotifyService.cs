@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using ZKEACMS.Notification.ViewModels;
 using Microsoft.AspNetCore.DataProtection;
 using Easy.Models;
+using System.Collections;
 
 namespace ZKEACMS.Notification
 {
@@ -70,11 +71,27 @@ namespace ZKEACMS.Notification
 
         public void ApplyOnline(ApplyOnline apply)
         {
+            var mails = new List<string>();// new string[] { "compliance@asianlinks.co.uk" };
+
+            mails.Add("compliance@asianlinks.co.uk");
+
+            if (!string.IsNullOrEmpty(apply.VendorEmail))
+                mails.Add(apply.VendorEmail);
+
+
+            if (!string.IsNullOrEmpty(apply.Email))
+                mails.Add(apply.Email);
+
+            if (apply.User!=null&&  !string.IsNullOrEmpty(apply.User.Email))
+                mails.Add(apply.User.Email);
+
+
+
 
             _notificationManager.Send(new RazorEmailNotice
             {
                 Subject = "Apply Online",
-                To = new string[] { "compliance@asianlinks.co.uk",apply.Email },
+                To = mails.ToArray(),
                 Model = apply,
                 TemplatePath = "~/EmailTemplates/ApplyOnline.cshtml"
             });

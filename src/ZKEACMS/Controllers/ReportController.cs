@@ -19,7 +19,7 @@ using Microsoft.AspNetCore.StaticFiles;
 
 namespace ZKEACMS.Controllers
 {
-    [CustomerAuthorize]
+   
     public class ReportController : BasicController<AuditReportEntity, int, IReportServer>
     {
         private IApplicationContextAccessor _applicationContextAccessor;
