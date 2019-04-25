@@ -9,17 +9,19 @@
 {
     @Html.AntiForgeryToken()
     <div class="login-panel forgotten">
-        <div class="login-panel-heading">
+        @*<div class="login-panel-heading">
             <p>
                 <a href="~/" target="_blank">
                     <img class="logo" src="~/images/logo_min.png" alt="ZKEACMS" />
                 </a>
             </p>
-        </div>
+        </div>*@
         <div class="login-panel-body">
             <div class="info-bar">
                 <p>
-                    @L("请输入您的用户信息以找回密码")
+                    Please enter your user information to retrieve your password
+
+
                 </p>
                 <img src="~/css/Images/picker_account_msa.svg" />
             </div>
@@ -45,7 +47,7 @@
                 </div>
             }
             <div class="form-input">
-                <input type="submit" class="btn-login" value="@L("找回密码")" />
+                <input type="submit" class="btn-login" value="@L("Retrieve password")" />
             </div>
         </div>
         <div class="login-panel-footer ">

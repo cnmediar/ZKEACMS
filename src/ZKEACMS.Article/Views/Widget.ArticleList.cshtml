@@ -232,18 +232,18 @@ img {
             @foreach (var item in Model.Articles)
             {
                 <li class="media">
-                    <div class="media-left">
+                    @*<div class="media-left">
                         <a target="_blank" href="@Url.PostUrl(Model.Widget.DetailPageUrl,item)">
                             <img class="media-object" src="@Url.ImageContent(item.ImageThumbUrl)" alt="@item.Title">
                         </a>
-                    </div>
+                    </div>*@
                     <div class="media-body">
                         <h4 class="media-heading">
                             <a target="_blank" href="@Url.PostUrl(Model.Widget.DetailPageUrl,item)">
                                 @item.Title
                             </a>
                         </h4>
-                        @item.Summary
+                        @*@item.Summary*@
                     </div>
                 </li>
             }

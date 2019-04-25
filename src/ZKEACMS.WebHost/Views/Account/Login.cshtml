@@ -10,11 +10,11 @@
 {
     @Html.AntiForgeryToken()
     <div class="login-panel">
-        <div class="login-panel-heading">
+        @*<div class="login-panel-heading">
             <a href="~/" target="_blank">
                 <img class="logo" src="~/images/logo_zkea.png" alt="ZKEACMS" />
             </a>
-        </div>
+        </div>*@
         <div class="login-panel-body">
             <h3 class="version text-center">@ZKEACMS.Version.CurrentVersion <small>@ZKEACMS.Version.Rank</small></h3>
             <p>@L("请输入您的用户信息以登录系统")</p>
