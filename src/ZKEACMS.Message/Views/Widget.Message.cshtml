@@ -7,7 +7,13 @@
 
     textarea,input.form-control {
         margin-top: 10px;
+        width:100%;
     }
+        textarea.form-control {
+            margin-top: 10px;
+            width: 700px;
+        }
+
 </style>
 <div class="message">
     @if (ViewContext.HttpContext.Request.Cookies.Any(key => key.Key == "Message"))
@@ -29,8 +35,15 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <span>Title</span>
-                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Your name" })
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Your Title" })
                     @Html.ValidationMessageFor(m => m.Title)
+                </div>
+            </div>       
+            <div class="col-md-6">
+                <div class="form-group">
+                    @*@Html.LabelFor(m => m.Name)*@ Name
+                    @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder = "Your Name" })
+                    @Html.ValidationMessageFor(m => m.Description)
                 </div>
             </div>
             <div class="col-md-6">
@@ -42,8 +55,12 @@
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    @*@Html.LabelFor(m => m.PostMessage)*@ Post  Message
+                    @*@Html.LabelFor(m => m.PostMessage)*@
+                    <span>Details</span>
+
                     @Html.TextAreaFor(m => m.PostMessage, new { @class = "form-control", rows = "10", placeholder = "Message..." })
+
+
                     @Html.ValidationMessageFor(m => m.PostMessage)
                 </div>
             </div>

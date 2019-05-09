@@ -63,8 +63,7 @@ em,i { font-style: normal; }
 
         .fistpagnew .text p {
             font-size: 16px;
-            line-height: 30px;
-            padding: 5px 0 5px 0;
+            line-height: 25px;     
         }
 
             .fistpagnew .text p:last-child {
@@ -73,7 +72,7 @@ em,i { font-style: normal; }
 
         .fistpagnew .text ul li {
             width: 100%;
-            line-height: 30px;
+            line-height: 25px;
             transition: 0.5s;
             list-style-type: circle
         }
@@ -85,18 +84,18 @@ em,i { font-style: normal; }
         float: left;
         width: 1200px;
     }
-.new .text p{ font-size: 20px; line-height: 30px;   padding:5px 0 5px 0;}
+.new .text p{ font-size: 16px; line-height: 25px;   padding:5px 0 0 0;}
 .new .text p:last-child{ padding: 0;}
 
 .new .text h2 {
-    font-size: 24px;
-    line-height: 70px;
+    font-size: 18px;
+    line-height: 30px;
     color: #88c337;
 }
 
         .new .text ul li {
             width: 100%;
-            line-height: 30px;
+            line-height: 25px;
             transition: 0.5s;
             font-size: 16px;
         }
@@ -111,15 +110,15 @@ em,i { font-style: normal; }
     }
 
 .article-detail p {
-    font-size: 20px;
-    line-height: 30px;
-    padding: 5px 0 5px 0;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 5px 0 0 0;
 }
 .new .list h2 span {
     display: inline-block;
     padding-bottom: 15px;
     border-bottom: 2px solid #88c337;
-    font-size: 24px;
+    font-size: 18px;
     color: #333;
 }
 .fistpagnew .list ul {
@@ -256,9 +255,17 @@ em,i { font-style: normal; }
 .banner2{background: url(../images/banner2.png) no-repeat center center ;height: 420px;}
 .service{ padding: 40px 0 50px 0;}
 .seic{overflow: hidden;padding: 40px 0;width:1200px; margin: 0 auto;}
-.seic_left{width:327px; height: 220px; overflow: hidden;float: left; margin-left: 110px;}
-.seic_left img{width:327px; height: 220px;}
-.seic_right{width:600px; float: right;padding: 20px 110px 0 0;}
+.seic_left {
+    height: 220px;
+    overflow: hidden;
+    float: left;
+    margin-left: 120px;
+    padding: 20px 0 0 0;
+    text-align: right;
+    vertical-align: middle;
+}
+.seic_left img{ height: 120px;}
+.seic_right{width:700px; float: right;padding: 20px 110px 0 0;}
 .seic_right p{line-height: 30px; color: #666; font-size: 20px;}
 .seic_right h2{font-size: 24px; line-height: 70px ;color: #88c337;}
 

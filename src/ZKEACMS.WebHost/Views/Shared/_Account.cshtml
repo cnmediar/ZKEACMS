@@ -23,8 +23,8 @@
     @*<link href="~/themes/flyingtop/css/swiper-3.4.2.min.css" rel="stylesheet" />*@
     <link href="~/themes/flyingtop/css/style.css" rel="stylesheet" />
 
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-
+    @*<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />*@
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <script src="~/themes/flyingtop/js/jquery-1.12.4.min.js"></script>
     @*<script src="~/themes/flyingtop/js/swiper-3.4.2.min.js"></script>*@
 
@@ -34,7 +34,7 @@
 
 
 
-   
+ 
  
     <script src="/js/admin.js?v=1d4e94f98b2b8df" type="text/javascript"></script>
  
@@ -62,8 +62,12 @@
                 </ul>
             </div>
             <div class="serach">
-                <input type="text" name="" id="" value="" />
-                <button>serach</button>
+                <form action="/report/search">
+
+                    <input type="text" name="" id="" value="" />
+                    <button>serach</button>
+
+                </form>
             </div>
         </div>
         <div class="nav">
@@ -130,7 +134,7 @@
         </ul>
         <p>© 2003-2019   All rights reserved.</p>
     </div>
-    @StyleAtFoot()
+    @*@StyleAtFoot()*@
     @ScriptAtFoot()
 </body>
 </html>

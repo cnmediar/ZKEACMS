@@ -34,21 +34,22 @@
     <meta name="description" content="@Model.Page.MetaDescription" />
     <meta name="author" content="ZKEASOFT" />
     <meta name="about" content="@ZKEACMS.Version.CurrentVersion" />
-    <meta name="website" content="http://www.zkea.net" />
+    <meta name="website" content="http://www.flyingtop.cn" />
 
     <link href="@Url.PathContent(Model.Page.Favicon)" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0" />
     @*@if (Model.CurrentTheme != null)
-    {
-        if (hostingEnvironment.IsDevelopment())
         {
-            <link type="text/css" async rel="stylesheet" href="@Url.Content(Model.CurrentTheme.UrlDebugger)" />
-        }
-        else
-        {
-            <link type="text/css" async rel="stylesheet" href="@Url.Content(Model.CurrentTheme.Url)" />
-        }
-    }*@
+            if (hostingEnvironment.IsDevelopment())
+            {
+                <link type="text/css" async rel="stylesheet" href="@Url.Content(Model.CurrentTheme.UrlDebugger)" />
+            }
+            else
+            {
+                <link type="text/css" async rel="stylesheet" href="@Url.Content(Model.CurrentTheme.Url)" />
+            }
+        }*@
+    @*<link href="~/css/bootstrap.min.css" rel="stylesheet" />*@
     <link href="/themes/flyingtop/css/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="/themes/flyingtop/css/swiper-3.4.2.min.css" type="text/css">
     <script src="~/themes/flyingtop/js/jquery-1.12.4.min.js"></script>

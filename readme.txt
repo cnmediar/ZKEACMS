@@ -3,3 +3,9 @@
 sudo vi /etc/systemd/system/zkeacms.service
 
 chown www.www -R ./
+
+
+sudo vi /etc/systemd/system/zkeacms.service
+
+
+systemctl restart   zkeacms.service

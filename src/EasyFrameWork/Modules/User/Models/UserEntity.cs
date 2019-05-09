@@ -124,7 +124,7 @@ namespace Easy.Modules.User.Models
             ViewConfig(p => p.Workexperience).AsTextArea();
             ViewConfig(p => p.ListTypeofIndustryExperience).AsTextArea();
 
-            ViewConfig(p => p.IDNumber).AsTextBox().ReadOnly();
+            ViewConfig(p => p.IDNumber).AsTextBox();
 
             ViewConfig(p => p.School).AsTextBox().ReadOnly();
 

@@ -9,7 +9,11 @@
 @section Mycss{
 
     <style>
-
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
 
         input.form-control {
             width: 378px;
@@ -112,14 +116,14 @@
         </div>*@
 
                     <div class="form-group Auditing Buyer Trader Factory">
-                        <label for="CompanyNameEnglish" class="col-sm-4 control-label">CompanyName English</label>
+                        <label for="CompanyNameEnglish" class="col-sm-4 control-label">Company Name English</label>
                         <div class="col-sm-8">
                             @Html.EditorFor(m => m.CompanyNameEnglish)
                             @Html.ValidationMessageFor(m => m.CompanyNameEnglish)
                         </div>
                     </div>
                     <div class="form-group Auditing Buyer Trader Factory">
-                        <label for="CompanyNameLocal" class="col-sm-4 control-label">CompanyName Local</label>
+                        <label for="CompanyNameLocal" class="col-sm-4 control-label">Company Name Local</label>
                         <div class="col-sm-8">
                             @Html.EditorFor(m => m.CompanyNameLocal)
                             @Html.ValidationMessageFor(m => m.CompanyNameLocal)
@@ -140,7 +144,7 @@
                         </div>
                     </div>
                     <div class="form-group Auditing Buyer Trader Factory">
-                        <label for="BusinessLicenseNumber" class="col-sm-4 control-label">Business LicenseNumber</label>
+                        <label for="BusinessLicenseNumber" class="col-sm-4 control-label">Business License Number</label>
                         <div class="col-sm-8">
                             @Html.EditorFor(m => m.BusinessLicenseNumber)
                             @Html.ValidationMessageFor(m => m.BusinessLicenseNumber)
@@ -154,7 +158,7 @@
                         </div>
                     </div>
                     <div class="form-group Auditing Buyer Trader Factory">
-                        <label for="ContactPerson" class="col-sm-4 control-label">Contact Person ‘s Name/Title</label>
+                        <label for="ContactPerson" class="col-sm-4 control-label">Contact Person's Name/Title</label>
                         <div class="col-sm-8">
                             @Html.EditorFor(m => m.ContactPerson)
                             @Html.ValidationMessageFor(m => m.ContactPerson)
@@ -218,6 +222,27 @@
                             @Html.ValidationMessageFor(m => m.Marriage)
                         </div>
                     </div>
+
+                    <div class="form-group Auditor">
+                        <label for="Photo" class="col-sm-4 control-label"> Photo</label>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(m => m.Photo)
+                            @Html.ValidationMessageFor(m => m.Photo)
+                            Upload work photos of the last six months
+                        </div>
+                    </div>
+
+                    <div class="sctp form-group Auditor">
+                        <div id="preview3">
+                            <img id="imghead2" border="0" src="~/themes/flyingtop/images/a38.png" width="115" height="115" onClick="$('#preview3Img').click();">
+                        </div>
+                        <input type="file" onChange="preview3Image(this)" style="display: none;" id="preview3Img">
+                        <input type="button" name="button3" id="button3" value="Upload" class="btn3" />
+                    </div>
+
+
+
+
                     <div class="form-group Auditor">
                         <label for="AuditFirm" class="col-sm-4 control-label">Audit</label>
                         <div class="col-sm-8">
@@ -225,6 +250,15 @@
                             @Html.ValidationMessageFor(m => m.AuditFirm)
                         </div>
                     </div>
+
+                    <div class="form-group Auditor" id="DIVIndependentAuditor">
+                        <label for="IndependentAuditor" class="col-sm-4 control-label">Independent Auditor</label>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(m => m.IndependentAuditor)
+                            @Html.ValidationMessageFor(m => m.IndependentAuditor)
+                        </div>
+                    </div>
+
                     <div class="form-group Auditor">
                         <label for="JobTitle" class="col-sm-4 control-label">Job Title</label>
                         <div class="col-sm-8">
@@ -324,10 +358,11 @@
                         </div>
                     </div>
                     <div class="form-group Auditor">
-                        <label for="IDNumber" class="col-sm-4 control-label">IDNumber</label>
+                        <label for="IDNumber" class="col-sm-4 control-label">ID Number</label>
                         <div class="col-sm-8">
                             @Html.EditorFor(m => m.IDNumber)
                             @Html.ValidationMessageFor(m => m.IDNumber)
+                            Please upload a valid government document to prove your identity
                         </div>
                     </div>
 
@@ -449,74 +484,90 @@
                         <h2>Vocational Training</h2>
                     </div>
 
-                    <div class="form-group  Auditor ">
-                        <label for="Birthday" class="col-sm-4 control-label">Date</label>
-                        <div class="col-sm-8">
-                            @Html.EditorFor(m => m.Birthday)
-                            @Html.ValidationMessageFor(m => m.Birthday)
-                        </div>
-                    </div>
-                    <div class="form-group  Auditor ">
-                        <label for="Birthplace" class="col-sm-4 control-label">Training body</label>
-                        <div class="col-sm-8">
-                            @Html.EditorFor(m => m.Birthplace)
-                            @Html.ValidationMessageFor(m => m.Birthplace)
-                        </div>
-                    </div>
+                    @*<table id="myTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Training body</th>
+                                <th>Certificate</th>
+                                <th>操作</th>
 
-                    <div class="form-group  Auditor ">
-                        <label for="School" class="col-sm-4 control-label">Certificate</label>
-                        <div class="col-sm-8">
-                            @Html.EditorFor(m => m.School)
-                         
-                        </div>
-                    </div>
+                            </tr>
+                        </thead>
+                        <tbody id="myTb"></tbody>
+                    </table>*@
+                    <div id="myTb">
 
-                    <div class="sctp form-group Auditor">
-
-                        <div id="preview1">
-                            <img id="imghead1" border="0" src="~/themes/flyingtop/images/a38.png" width="115" height="115" onClick="$('#preview1Img').click();">
-                        </div>
-                        @*<form id="uploadForm1" action="Upload" method="post" enctype="multipart/form-data">*@
-                            <input type="file" onChange="preview1Image(this)" style="display: none;" id="preview1Img" name="preview1Img">
-                            <input type="button" name="" id="button1" value="Upload" class="btn3" />
-                        @*</form>*@
-                    </div>
-
-
-
-
-                        <div class="xxlb_tit Auditor">
-                            <h2>Education Background</h2>
-                        </div>
-                        <div class="form-group Auditor">
-                            <label for="LevelofEducation" class="col-sm-4 control-label">Level of Education(List Specific Course Level(s), Major and Year of Graduation)</label>
+                        <div class="form-group  Auditor ">
+                            <label for="Birthday" class="col-sm-4 control-label">Date</label>
                             <div class="col-sm-8">
-                                @Html.EditorFor(m => m.LevelofEducation)
-                                @Html.ValidationMessageFor(m => m.LevelofEducation)
+                                @Html.EditorFor(m => m.Birthday)
+                                @Html.ValidationMessageFor(m => m.Birthday)
                             </div>
                         </div>
                         <div class="form-group  Auditor ">
-                            <label for="YearofGraduation" class="col-sm-4 control-label">Year of Graduation</label>
+                            <label for="Birthplace" class="col-sm-4 control-label">Training body</label>
                             <div class="col-sm-8">
-                                @Html.EditorFor(m => m.YearofGraduation)
-                                @Html.ValidationMessageFor(m => m.YearofGraduation)
+                                @Html.EditorFor(m => m.Birthplace)
+                                @Html.ValidationMessageFor(m => m.Birthplace)
                             </div>
                         </div>
 
-
-
-
-
-                        <div class="form-group  Auditor Auditing Buyer Trader Factory">
-
+                        <div class="form-group  Auditor ">
+                            <label for="School" class="col-sm-4 control-label">Certificate</label>
                             <div class="col-sm-8">
+                                @Html.EditorFor(m => m.School)
 
-
-                                <input type="submit" class="btn4" name="" id="" value="Submit" />
                             </div>
+                        </div>
+
+                        <div class="sctp form-group Auditor">
+
+                            <div id="preview1">
+                                <img id="imghead1" border="0" src="~/themes/flyingtop/images/a38.png" width="115" height="115" onClick="$('#preview1Img').click();">
+                            </div>
+                            @*<form id="uploadForm1" action="Upload" method="post" enctype="multipart/form-data">*@
+                            <input type="file" onChange="preview1Image(this)" style="display: none;" id="preview1Img" name="preview1Img">
+                            <input type="button" name="" id="button1" value="Upload" class="btn3" />
+
+                            <input type="button" name="" id="button1" value="Add" class="btn3" />
+                            @*</form>*@
                         </div>
                     </div>
+                    <input type="button" name="" id="AddCertificate" value="Upload" class="btn3" />
+
+
+                    <div class="xxlb_tit Auditor">
+                        <h2>Education Background</h2>
+                    </div>
+                    <div class="form-group Auditor">
+                        <label for="LevelofEducation" class="col-sm-4 control-label">Level of Education(List Specific Course Level(s), Major and Year of Graduation)</label>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(m => m.LevelofEducation)
+                            @Html.ValidationMessageFor(m => m.LevelofEducation)
+                        </div>
+                    </div>
+                    <div class="form-group  Auditor ">
+                        <label for="YearofGraduation" class="col-sm-4 control-label">Year of Graduation</label>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(m => m.YearofGraduation)
+                            @Html.ValidationMessageFor(m => m.YearofGraduation)
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="form-group  Auditor Auditing Buyer Trader Factory">
+
+                        <div class="col-sm-8">
+
+
+                            <input type="submit" class="btn4" name="" id="" value="Submit" />
+                        </div>
+                    </div>
+                </div>
 
                     <div class="login-panel-footer ">
                         @L("已有账号？") <a href="@Url.Action("SignIn", new { ReturnUrl = returnUrl })">@L("立即登录")</a>
@@ -536,6 +587,21 @@
 
     <script language="javascript" type="text/javascript">
         $(document).ready(function () {
+
+          
+
+            $("#Add").click(function () {
+
+                var trTemp = $("<tr id='tr" + groupId + "'></tr>");
+                trTemp.append("<td>" + groupName + "</td>");
+                trTemp.append("<td>" + isNull(fullName) + "</td>");
+                trTemp.append("<td>" + isNull(groupLeader) + "</td>");
+                trTemp.append("<td><button onclick='addGroupMember(" + groupId + ")'>添加组员</button><button onclick='addGroupLeader(" + groupId + ")'>添加组长</button><button style='background:red;' onclick='clearData(" + groupId + ")'>清除</button></td>");
+                trTemp.appendTo("#myTb");
+
+
+            });
+
             $('#MembershipType').change(function () {
 
                 var p1 = $(this).children('option:selected').val();//这就是selected的值
@@ -566,6 +632,20 @@
 
 
             $("#MembershipType").trigger("change");
+
+
+            $('#AuditFirm').change(function () {
+
+                var p1 = $(this).children('option:selected').val();//这就是selected的值             
+                console.log(p1);
+                if (p1 == "Audit Firm")
+                    $("#DIVIndependentAuditor").show();
+                else 
+                    $("#DIVIndependentAuditor").hide();
+           
+            });
+
+            $("#AuditFirm").trigger("change");
 
 
 
