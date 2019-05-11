@@ -26,7 +26,7 @@ em,i { font-style: normal; }
 .herder{ width: 1200px; margin: 0 auto; padding-top: 20px;}
 .herder_top{ overflow: hidden;}
 .herder_top .logo{ float: left;}
-.herder_top .serach{ float: right; width: 300px; height: 40px; border-radius:3px; float: right; overflow: hidden; border: 1px solid #ed692f; margin-top: 5px;}
+.herder_top .serach{ float: right; /*width: 300px;*/ height: 40px; border-radius:3px; float: right; overflow: hidden; border: 1px solid #ed692f; margin-top: 5px;}
     .herder_top .serach input {
         float: left;
         height: 40px;
