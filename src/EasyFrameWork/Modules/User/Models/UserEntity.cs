@@ -43,6 +43,9 @@ namespace Easy.Modules.User.Models
 
         public string ApiLoginToken { get; set; }
 
+    
+        
+
         [NotMapped]        
         public virtual List<UserRoleRelation> Roles { get; set; }
 
@@ -122,13 +125,23 @@ namespace Easy.Modules.User.Models
             ViewConfig(p => p.ClientsProgram3).AsTextBox().Classes.Add("formcontrol1");
 
             ViewConfig(p => p.Workexperience).AsTextArea();
+            ViewConfig(p => p.Workexperience2).AsTextArea();
+            ViewConfig(p => p.Workexperience3).AsTextArea();
             ViewConfig(p => p.ListTypeofIndustryExperience).AsTextArea();
 
             ViewConfig(p => p.IDNumber).AsTextBox();
 
+            ViewConfig(p => p.IDNumberPhoto).AsTextBox().ReadOnly();
+
+            ViewConfig(p => p.Outside).AsTextBox().ReadOnly();
+            ViewConfig(p => p.ShowroomorMainproducts).AsTextBox().ReadOnly();
+
+            ViewConfig(p => p.ProductionAreas).AsTextBox().ReadOnly();
+ 
+
             ViewConfig(p => p.School).AsTextBox().ReadOnly();
 
-
+           ViewConfig(p => p.VocationalTraining).AsHidden();
         }
     }
 }

@@ -114,6 +114,8 @@ namespace Easy.Models
         public string Country { get; set; }
         public string City { get; set; }
         public string IDNumber { get; set; }
+
+        public string IDNumberPhoto { get; set; }
         public bool BSCI { get; set; }
         public bool ICS { get; set; }
         public bool Sedex { get; set; }
@@ -137,6 +139,8 @@ namespace Easy.Models
   public string ListTypeofIndustryExperience { get; set; }
 
         public string Workexperience { get; set; }
+        public string Workexperience2 { get; set; }
+        public string Workexperience3 { get; set; }
         public string ListWrittenLanguageofAuditor { get; set; }
         public string LevelofProficiencywiththisWritten { get; set; }
         public string ListofLanguageSpokenbyAuditor { get; set; }
@@ -145,6 +149,9 @@ namespace Easy.Models
         public string YearofGraduation { get; set; }
 
         public string MembershipType { get; set; }
+
+
+        public string VocationalTraining { get; set; }
 
 
 

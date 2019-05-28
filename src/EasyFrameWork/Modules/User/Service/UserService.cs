@@ -70,11 +70,11 @@ namespace Easy.Modules.User.Service
             }
             if (Get(item.UserID) != null)
             {
-                throw new Exception($"用户 {item.UserID} 已存在");
+                throw new Exception($"user {item.UserID} exist");
             }
             if (item.Email.IsNotNullAndWhiteSpace() && Count(m => m.Email == item.Email && m.UserTypeCD == item.UserTypeCD) > 0)
             {
-                throw new Exception($"邮件地址 {item.Email} 已被使用");
+                throw new Exception($"Email  {item.Email} used");
             }
             var result = base.Add(item);
             if (!result.HasViolation)

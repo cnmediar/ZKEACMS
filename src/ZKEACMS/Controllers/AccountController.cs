@@ -193,8 +193,10 @@ namespace ZKEACMS.Controllers
                     user.PassWord = str;
                     user.Status = (int)RecordStatus.InActive;
                     user.UserTypeCD = (int)UserType.Customer;
+                    //user.VocationalTraining = System.Web.HttpUtility.UrlEncode(user.VocationalTraining);
                     _userService.Add(user);
 
+                  
 
                     _notifyService.NewPassword(user, str);
 

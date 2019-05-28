@@ -293,7 +293,7 @@ em,i { font-style: normal; }
 .scwb_nr i{font-size: 18px; color: #333; padding-right: 30px;}
 .scwb_nr p{padding-left: 458px;}
 .sctp{padding-left: 458px; overflow: hidden;}
-#preview2{width:115px; height: 115px; float: left; border: 1px dashed #ddd;}
+.preview{width:115px; height: 115px; float: left; border: 1px dashed #ddd;}
 
 .xxlb{width:1200px; margin: 0 auto;}
 .xxlb_tit h2{font-size: 20px; text-align: center; background: url(../images/a15.png) no-repeat center center; color: #88c337; line-height: 62px; }

@@ -75,8 +75,10 @@ namespace Easy.Models
         string Country { get; set; }
         string City { get; set; }
         string IDNumber { get; set; }
+        string IDNumberPhoto { get; set; }
 
-         bool BSCI { get; set; }
+
+        bool BSCI { get; set; }
          bool ICS { get; set; }
          bool Sedex { get; set; }
          bool ICTI { get; set; }
@@ -97,13 +99,18 @@ namespace Easy.Models
 
         string ListTypeofIndustryExperience { get; set; }
         string Workexperience { get; set; }
-         string ListWrittenLanguageofAuditor { get; set; }
+
+          string Workexperience2 { get; set; }
+          string Workexperience3 { get; set; }
+        string ListWrittenLanguageofAuditor { get; set; }
          string LevelofProficiencywiththisWritten { get; set; }
          string ListofLanguageSpokenbyAuditor { get; set; }
          string ListAuditorsSpecialSkills { get; set; }
          string LevelofEducation { get; set; }
          string YearofGraduation { get; set; }
          string MembershipType { get; set; }
+
+          string VocationalTraining { get; set; }
 
     }
 }
