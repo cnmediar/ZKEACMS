@@ -133,7 +133,7 @@ namespace ZKEACMS.Controllers
                 _userService.Update(logOnUser);
                 return RedirectToAction("SignOut", new { returnurl = "~/Account/SignIn" });
             }
-            ViewBag.Message = "原密码错误";
+            ViewBag.Message = "Error in original password";
             return View();
         }
         public ActionResult SignIn(string ReturnUrl)
@@ -145,7 +145,11 @@ namespace ZKEACMS.Controllers
         public async Task<ActionResult> SignIn(string email, string password, string ReturnUrl)
         {
             var user = _userService.Login(email, password, UserType.Customer, Request.HttpContext.Connection.RemoteIpAddress.ToString());
-            if (user != null)
+            if (user == null)
+            {
+                ViewBag.Errormessage = "Logon failed, username password incorrect";
+            }
+            else if (user != null && user.Status == (int)RecordStatus.Active)
             {
                 user.AuthenticationType = CustomerAuthorizeAttribute.CustomerAuthenticationScheme;
                 var identity = new ClaimsIdentity(user);
@@ -158,8 +162,12 @@ namespace ZKEACMS.Controllers
                 }
                 return Redirect(ReturnUrl);
             }
-            ViewBag.Errormessage = "登录失败，用户名密码不正确";
-            ViewBag.ReturnUrl = ReturnUrl;
+            else if (user != null && user.Status != (int)RecordStatus.Active)
+            {
+                ViewBag.Errormessage = "Logon failed, user not activated";
+            }
+
+                ViewBag.ReturnUrl = ReturnUrl;
             return View();
         }
 
@@ -372,13 +380,13 @@ namespace ZKEACMS.Controllers
                 var dataProtector = _dataProtectionProvider.CreateProtector("ResetPassword");
                 if (pt.IsNullOrWhiteSpace() || dataProtector.Unprotect(pt) != token)
                 {
-                    ViewBag.Errormessage = "访问的重置链接无效，请重新申请";
+                    ViewBag.Errormessage = "The access reset link is invalid. Please reapply.";
                 }
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.ToString());
-                ViewBag.Errormessage = "访问的重置链接无效，请重新申请";
+                ViewBag.Errormessage = "The access reset link is invalid. Please reapply.";
             }
             return View(new ResetViewModel { ResetToken = token, Protect = pt });
         }
@@ -400,7 +408,7 @@ namespace ZKEACMS.Controllers
             {
                 _logger.LogError(ex.ToString());
             }
-            ViewBag.Errormessage = "重置密码失败";
+            ViewBag.Errormessage = "Failed to reset password";
             return View(user);
         }
         #endregion

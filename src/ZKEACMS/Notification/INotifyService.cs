@@ -17,5 +17,7 @@ namespace ZKEACMS.Notification
         void NewPassword(UserEntity user, string password);
 
         void ApplyOnline(ApplyOnline apply);
+
+        void Activateuser(UserEntity user);
     }
 }

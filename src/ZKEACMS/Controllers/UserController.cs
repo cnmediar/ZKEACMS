@@ -13,6 +13,7 @@ using Easy.Mvc.Attribute;
 using Easy.Mvc.Authorize;
 using Easy.Mvc.Controllers;
 using Easy.Mvc.Extend;
+using Easy.Notification;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -23,11 +24,14 @@ namespace ZKEACMS.Controllers
     [DefaultAuthorize]
     public class UserController : BasicController<UserEntity, string, IUserService>
     {
+        private readonly ZKEACMS.Notification.INotifyService _notifyService;
         private IApplicationContextAccessor _applicationContextAccessor;
         private ILocalize _localize;
-        public UserController(IUserService userService, IApplicationContextAccessor applicationContextAccessor, ILocalize localize)
+        public UserController(IUserService userService, IApplicationContextAccessor applicationContextAccessor, ILocalize localize,
+              ZKEACMS.Notification.INotifyService notifyService)
             : base(userService)
         {
+            _notifyService = notifyService;
             _applicationContextAccessor = applicationContextAccessor;
             _localize = localize;
         }
@@ -68,6 +72,9 @@ namespace ZKEACMS.Controllers
                 {
                     entity.PhotoUrl = url;
                 }
+
+                _notifyService.Activateuser(entity);
+
                 return base.Edit(entity);
             }
             catch (Exception ex)

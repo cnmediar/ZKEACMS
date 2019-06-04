@@ -132,7 +132,11 @@ namespace Easy.Modules.User.Service
         public UserEntity Login(string userID, string passWord, UserType userType, string ip)
         {
             if (userID.IsNullOrWhiteSpace() || passWord.IsNullOrWhiteSpace()) return null;
-            var result = Get(m => (m.UserID == userID || m.Email == userID) && m.UserTypeCD == (int)userType && m.Status == (int)RecordStatus.Active && m.PassWord == ProtectPassWord(passWord)).FirstOrDefault();
+
+            var user=Get(m => (m.UserID == userID || m.Email == userID));
+            var pw = ProtectPassWord(passWord);
+
+            var result = Get(m => (m.UserID == userID || m.Email == userID)  && m.PassWord == ProtectPassWord(passWord)).FirstOrDefault();
             if (result != null)
             {
                 result.LastLoginDate = DateTime.Now;

@@ -69,6 +69,19 @@ namespace ZKEACMS.Notification
             });
         }
 
+
+        public void Activateuser(UserEntity user)
+        {
+
+            _notificationManager.Send(new RazorEmailNotice
+            {
+                Subject = "Activate User",
+                To = new string[] { user.Email },
+              
+                TemplatePath = "~/EmailTemplates/ActiveUser.cshtml"
+            });
+        }
+
         public void ApplyOnline(ApplyOnline apply)
         {
             var mails = new List<string>();// new string[] { "compliance@asianlinks.co.uk" };

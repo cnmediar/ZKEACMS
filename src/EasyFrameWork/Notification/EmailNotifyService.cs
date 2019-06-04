@@ -66,7 +66,17 @@ namespace Easy.Notification
             mailMessage.From = new MailAddress(email.From, email.DisplayName ?? email.From);
             client.SendCompleted += Client_SendCompleted;
 
-            client.SendAsync(mailMessage, email);
+            try
+            {
+              //  client.SendAsync(mailMessage, email);
+                client.Send(mailMessage);
+            }
+            catch (Exception e)
+            {
+
+                _logger.LogError(e, "EmailNotifyService");
+            }
+
 
 
         }

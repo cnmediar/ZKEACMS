@@ -15,7 +15,7 @@
 <form action="@Url.Action("Edit","Account")" method="post" enctype="multipart/form-data">
     @Html.AntiForgeryToken()
     @Html.HiddenFor(m => m.UserID)
-    @Html.HiddenFor(m => m.PassWord)
+    @*@Html.HiddenFor(m => m.PassWord)*@
     @Html.HiddenFor(m => m.ApiLoginToken)
     @Html.HiddenFor(m => m.LastLoginDate)
     @Html.HiddenFor(m => m.LoginIP)
@@ -25,12 +25,12 @@
     @Html.HiddenFor(m => m.Age)
     @Html.HiddenFor(m => m.Birthplace)
     @Html.HiddenFor(m => m.EnglishName)
-    @Html.HiddenFor(m => m.FirstName)
-    @Html.HiddenFor(m => m.LastName)
+    @*@Html.HiddenFor(m => m.FirstName)
+    @Html.HiddenFor(m => m.LastName)*@
     @Html.HiddenFor(m => m.Birthday)
     @Html.HiddenFor(m => m.MaritalStatus)
-    @Html.HiddenFor(m => m.NickName)
-    @Html.HiddenFor(m => m.Profession)
+    @*@Html.HiddenFor(m => m.NickName)
+    @Html.HiddenFor(m => m.Profession)*@
     @Html.HiddenFor(m => m.School)
     @Html.HiddenFor(m => m.Status)
     <div class="panel panel-default user-info">
