@@ -192,6 +192,12 @@ namespace ZKEACMS.Controllers
             {
                 try
                 {
+                 var ou=   _userService.Count(n => n.Email == user.Email);
+
+                    if (ou >0)
+                        throw new Exception("This email address has been registered. Please fill in the other email address	");
+
+
                     //调用---------------   
                     string str = GenerateRandom(6);
 

@@ -1,4 +1,4 @@
-@using ZKEACMS.Account
+﻿@using ZKEACMS.Account
 @{
     Style.Reqiured("Customer").AtHead();
     Style.Reqiured("Easy").AtHead();
@@ -55,7 +55,13 @@
                                         <a target="_self" href="@Url.PathContent(item.Url)">@L(item.Title)</a>
                                     </li>
                                 }
+                                <li>
+                                    <a target="_self" href="/Account/password">   Change Password</a>
+                                </li>
+                             
                             </ul>
+
+
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="">
                                     <a target="_self" href="@Url.Action("SignOut","Account")" title="@L("安全退出")">

@@ -1,4 +1,4 @@
-﻿@model ZKEACMS.Notification.ViewModels.ResetPasswordViewModel
+﻿@model Easy.Modules.User.Models.UserEntity
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +17,18 @@
 
     </h3>
     <p>
-        Your account has been activated.
+      
 
+
+        @if (Model.Status == 1)
+        {
+             <div>   Your account has been activated.</div> 
+
+        }
+        else 
+        {  
+            <div> The registration information is incomplete or inaccurate, please check it again</div>
+        }
 
     </p>
   

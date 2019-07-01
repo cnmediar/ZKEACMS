@@ -77,7 +77,9 @@ namespace ZKEACMS.Notification
             {
                 Subject = "Activate User",
                 To = new string[] { user.Email },
-              
+                Model=user,
+
+
                 TemplatePath = "~/EmailTemplates/ActiveUser.cshtml"
             });
         }
@@ -88,15 +90,15 @@ namespace ZKEACMS.Notification
 
             mails.Add("compliance@asianlinks.co.uk");
 
-            if (!string.IsNullOrEmpty(apply.VendorEmail))
-                mails.Add(apply.VendorEmail);
+            //if (!string.IsNullOrEmpty(apply.VendorEmail))
+            //    mails.Add(apply.VendorEmail);
 
 
             if (!string.IsNullOrEmpty(apply.Email))
                 mails.Add(apply.Email);
 
-            if (apply.User!=null&&  !string.IsNullOrEmpty(apply.User.Email))
-                mails.Add(apply.User.Email);
+            //if (apply.User!=null&&  !string.IsNullOrEmpty(apply.User.Email))
+            //    mails.Add(apply.User.Email);
 
 
 
