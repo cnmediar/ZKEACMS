@@ -30,7 +30,7 @@ namespace ZKEACMS.Notification
             var dataProtector = _dataProtectionProvider.CreateProtector("ResetPassword");
             _notificationManager.Send(new RazorEmailNotice
             {
-                Subject = "重置密码",
+                Subject = "reset password",
                 To = new string[] { user.Email },
                 Model = new ResetPasswordViewModel
                 {

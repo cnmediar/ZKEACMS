@@ -78,7 +78,7 @@ namespace Easy.Modules.User.Models
             //ViewConfig(p => p.LastName).AsTextBox();
             //ViewConfig(p => p.FirstName).AsTextBox();
             ViewConfig(p => p.Birthday).AsTextBox().FormatAsDate();
-            ViewConfig(p => p.Birthplace).AsTextBox().MaxLength(200);
+            ViewConfig(p => p.Birthplace).AsTextArea();
             ViewConfig(p => p.Address).AsTextBox().MaxLength(200);
             //ViewConfig(p => p.ZipCode).AsTextBox().RegularExpression(RegularExpression.ZipCode);
             //ViewConfig(p => p.School).AsTextBox().MaxLength(100);

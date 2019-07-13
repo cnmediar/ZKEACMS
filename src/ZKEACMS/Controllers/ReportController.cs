@@ -170,18 +170,29 @@ namespace ZKEACMS.Controllers
                     pagin.OrderBy = order;
                 }
             }
-            var entities = Service.Get(expression, pagin)
-                .Where(n =>
-                      (  n.UserId == _applicationContextAccessor.Current.CurrentCustomer.UserID
-                        || n.AllowUserRead == _applicationContextAccessor.Current.CurrentCustomer.UserID
-                            || n.AllowGroupRead == _applicationContextAccessor.Current.CurrentCustomer.MembershipType)
-                            &&n.Status==1
-            )   ;
-            //  return Json(new TableData(entities, pagin.RecordCount, query.Draw));
 
-            //  viewModel = new ReportListViewModel();                                  
+            try
+            {
+                var entities = Service.Get(expression, pagin)
+               .Where(n =>
+                     (n.UserId == _applicationContextAccessor.Current.CurrentCustomer.UserID
+                       || n.AllowUserRead == _applicationContextAccessor.Current.CurrentCustomer.UserID
+                           || n.AllowGroupRead == _applicationContextAccessor.Current.CurrentCustomer.MembershipType)
+                           && n.Status == 1
+           );
+                //  return Json(new TableData(entities, pagin.RecordCount, query.Draw));
 
-            rm.Reports = entities.ToList();
+                //  viewModel = new ReportListViewModel();                                  
+
+                rm.Reports = entities.ToList();
+            }
+            catch (System.Exception)
+            {
+                rm.Reports = new List<AuditReportEntity>();
+
+
+            }
+           
 
             return View(rm);
 

@@ -59,7 +59,15 @@ namespace Easy.Models
     {
         protected override void ViewConfigure()
         {
-            ViewConfig(p => p.FactoryName).AsTextBox();
+            ViewConfig(p => p.FactoryName).AsTextBox().Required();
+
+            ViewConfig(p => p.FactoryAdd).AsTextBox().Required();
+
+            ViewConfig(p => p.AuditStandard).AsTextBox().Required();
+
+
+
+
             //ViewConfig(p => p.Email).AsTextBox().Email();
             ViewConfig(p => p.AuditDate).AsTextBox().FormatAsDate();
             //  ViewConfig(p => p.ServiceStandard).AsDropDownList().DataSource(SourceType.Dictionary);

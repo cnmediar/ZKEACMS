@@ -22,7 +22,9 @@
         <div class="login-panel-body">
             <div class="info-bar">
                 <p>
-                    @L("请输入您的新密码")
+                    Please enter your new password
+
+
                 </p>
                 <img src="~/css/Images/picker_account_msa.svg" />
             </div>
@@ -48,7 +50,7 @@
                        class="form-control"
                        data-val="true"
                        data-val-required="@L("请确认密码")"
-                       data-val-equalto="@L("密码不一致")"
+                       data-val-equalto="Inconsistent passwords"
                        data-val-equalto-other="PassWord"
                        data-val-length="@L("密码的长度应小于20")"
                        data-val-length-max="20" />
@@ -61,10 +63,15 @@
                 </div>
             }
             <div class="form-input">
-                <input type="submit" class="btn-login" value="@L("重置密码")" />
+                <input type="submit" class="btn-login" value="Reset password" />
             </div>
             <div class="login-panel-footer">
-                @L("重置失败？") <a href="@Url.Action("Forgotten")">@L("申请重置密码")</a>
+                Reset failure
+
+                <a href="@Url.Action("Forgotten")">
+                    Apply for a password reset
+
+                </a>
             </div>
         </div>
     </div>

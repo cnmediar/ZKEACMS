@@ -149,7 +149,7 @@ namespace Easy.Modules.User.Service
 
         public UserEntity SetResetToken(string userID, UserType userType)
         {
-            var user = Get(m => (m.UserID == userID || m.Email == userID) && m.UserTypeCD == (int)userType).FirstOrDefault();
+            var user = Get(m => (m.UserID == userID || m.Email == userID) ).FirstOrDefault();
             if (user != null)
             {
                 user.ResetToken = Guid.NewGuid().ToString("N");
@@ -161,7 +161,7 @@ namespace Easy.Modules.User.Service
 
         public bool ResetPassWord(string token, string newPassword)
         {
-            var user = Get(m => m.ResetToken == token && m.UserTypeCD == (int)UserType.Customer).FirstOrDefault();
+            var user = Get(m => m.ResetToken == token ).FirstOrDefault();
             if (user != null)
             {
                 if (user.ResetTokenDate.HasValue && (DateTime.Now - user.ResetTokenDate.Value).TotalHours < 24)
