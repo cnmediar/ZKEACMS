@@ -7,7 +7,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
         <style>
             * {
                 -webkit-box-sizing: border-box;
@@ -15,160 +14,54 @@
                 box-sizing: border-box;
             }
 
-            BODY {
-                margin: 0px;
-                padding: 0px;
-                font-size: 12px;
-                font-family: "微软雅黑", "黑体";
-                color: #898989;
-                line-height: 1;
-                background: #FFF;
-                min-width: 1200px;
-            }
-
-            BODY {
+            body {
                 margin: 0;
             }
 
-            HTML {
+            html {
                 font-family: sans-serif;
                 -webkit-text-size-adjust: 100%;
                 -ms-text-size-adjust: 100%;
             }
 
-            FORM {
+            ul, li, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, ol, form, input {
                 margin: 0px;
                 padding: 0px;
             }
 
-            INPUT {
-                margin: 0px;
-                padding: 0px;
-            }
-
-            INPUT {
+            input, textarea {
                 font-family: "微软雅黑";
                 border: none;
                 outline: none;
                 background: none;
             }
 
-            INPUT {
+            button, input, optgroup, select, textarea {
                 margin: 0;
                 font: inherit;
                 color: inherit;
             }
 
-            INPUT {
+            input {
                 line-height: normal;
             }
 
-            UL {
-                margin: 0px;
-                padding: 0px;
-            }
-
-            UL {
-                list-style: none;
-            }
-
-            LI {
-                margin: 0px;
-                padding: 0px;
-            }
-
-            LI {
-                list-style: none;
-            }
-
-            A {
-                color: #5c5c5c;
-                text-decoration: none;
-            }
-
-            A {
-                background-color: transparent;
-            }
-
-            P {
-                margin: 0px;
-                padding: 0px;
-            }
-
-            IMG {
-                border: 0px;
-                padding: 0px;
-                display: block;
-            }
-
-            IMG {
+            img {
                 border: 0;
             }
 
-            SELECT {
-                margin: 0;
-                font: inherit;
-                color: inherit;
-            }
-
-            SELECT {
+            button, select {
                 text-transform: none;
             }
 
-            H2 {
-                margin: 0px;
-                padding: 0px;
-            }
-
-            H2 {
+            h2, h3, h4, b, strong {
                 font-weight: normal;
             }
 
-            BUTTON {
-                -webkit-appearance: button;
-                cursor: pointer;
-            }
-
-            :after {
+            ::after, ::before {
                 -webkit-box-sizing: border-box;
                 -moz-box-sizing: border-box;
                 box-sizing: border-box;
-            }
-
-            :before {
-                -webkit-box-sizing: border-box;
-                -moz-box-sizing: border-box;
-                box-sizing: border-box;
-            }
-
-            BODY {
-                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-                font-size: 14px;
-                line-height: 1.4285;
-                color: #333;
-                background-color: #fff;
-            }
-
-            HTML {
-                font-size: 10px;
-                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-            }
-
-            .top {
-                width: 100%;
-                height: 48px;
-                border-bottom: 1px solid #ddd;
-            }
-
-            .herder {
-                width: 1200px;
-                margin: 0 auto;
-                padding-top: 20px;
-            }
-
-            .scwb {
-                border-top: 2px solid #ec6023;
-                padding-top: 30px;
             }
 
             .container {
@@ -177,152 +70,26 @@
                 margin-right: auto;
                 margin-left: auto;
             }
-
-                .container:after {
-                    display: table;
-                    content: " ";
-                }
-
-                .container:before {
-                    display: table;
-                    content: " ";
-                }
-
-                .container:after {
-                    clear: both;
-                }
-
-            .ie8.ie .container {
-                width: 960px;
-                margin: 0 auto;
+            /* @media all and (min-width:768px) */
+            .container {
+                width: 750px;
             }
-
-            INPUT {
-                font-family: inherit;
-                font-size: inherit;
-                line-height: inherit;
+            /* @media all and (min-width:992px) */
+            .container {
+                width: 970px;
             }
-
-            .wby1 {
-                height: 38px;
-                width: 378px;
-                padding-left: 20px;
-                line-height: 38px;
-                color: #999;
-                font-size: 16px;
-                border: 1px solid #aaaaaa;
-            }
-
-            UL {
-                margin-top: 0px;
-                margin-bottom: 10px;
-            }
-
-            .bdsr_tot UL {
-                text-align: center;
-                padding: 30px 0 30px 0;
-            }
-
-            .bdsr_tot LI {
-                display: inline-block;
-                *display: inline:;
-                padding: 0 16px;
-            }
-
-            A {
-                color: #337ab7;
-                text-decoration: none;
-            }
-
-            .bdsr_tot A {
-                display: inline-block;
-                *display: inline:;
-                width: 240px;
-                height: 58px;
-                text-align: center;
-                background: #f3f3f3;
-                border: 1px solid #dadddd;
-                font-size: 16px;
-            }
-
-            .bdsr_tot .hover1 A {
-                background: #88c337;
-                border: 1px solid #88c337;
-                color: #fff;
-            }
-
-            .bdsr_tot SPAN {
-                display: inline-block;
-                *display: inline:;
-                padding-top: 11px;
+            /* @media all and (min-width:1200px) */
+            .container {
+                width: 1170px;
             }
 
             .panel-body {
                 padding: 15px;
             }
 
-                .panel-body:after {
-                    display: table;
-                    content: " ";
-                }
-
-                .panel-body:before {
-                    display: table;
-                    content: " ";
-                }
-
-                .panel-body:after {
-                    clear: both;
-                }
-
-            .tao1 {
-                height: 95px;
-            }
-
-            .footer {
-                width: 100%;
-                border-top: 2px solid #ec6023;
-                background: #363f46;
-            }
-
-                .footer .footer_list {
-                    text-align: center;
-                    padding: 30px 0;
-                }
-
-                .footer .footer_nav {
-                    text-align: center;
-                }
-
-            P {
-                margin: 0 0 10px;
-            }
-
-            .footer P {
-                padding: 35px 0;
-                text-align: center;
-                font-size: 16px;
-                color: #fff;
-            }
-
-            .footer .footer_nav LI {
-                display: inline-block;
-                font-size: 16px;
-                color: #fff;
-            }
-
-                .footer .footer_nav LI A {
-                    font-size: 16px;
-                    color: #fff;
-                }
-
-            .footer .footer_list LI {
-                display: inline-block;
-                margin: 0 13px;
-            }
-
-            IMG {
-                vertical-align: middle;
+            .sctp {
+                padding-left: 458px;
+                overflow: hidden;
             }
 
             .form-group {
@@ -334,25 +101,70 @@
                 margin-left: -15px;
             }
 
-                .form-horizontal .form-group:after {
+                .btn-group-vertical > .btn-group::after, .btn-group-vertical > .btn-group::before, .btn-toolbar::after, .btn-toolbar::before, .clearfix::after, .clearfix::before, .container-fluid::after, .container-fluid::before, .container::after, .container::before, .dl-horizontal dd::after, .dl-horizontal dd::before, .form-horizontal .form-group::after, .form-horizontal .form-group::before, .modal-footer::after, .modal-footer::before, .modal-header::after, .modal-header::before, .nav::after, .nav::before, .navbar-collapse::after, .navbar-collapse::before, .navbar-header::after, .navbar-header::before, .navbar::after, .navbar::before, .pager::after, .pager::before, .panel-body::after, .panel-body::before, .row::after, .row::before {
                     display: table;
                     content: " ";
                 }
 
-                .form-horizontal .form-group:before {
-                    display: table;
-                    content: " ";
-                }
-
-                .form-horizontal .form-group:after {
+                .btn-group-vertical > .btn-group::after, .btn-toolbar::after, .clearfix::after, .container-fluid::after, .container::after, .dl-horizontal dd::after, .form-horizontal .form-group::after, .modal-footer::after, .modal-header::after, .nav::after, .navbar-collapse::after, .navbar-header::after, .navbar::after, .pager::after, .panel-body::after, .row::after {
                     clear: both;
                 }
 
-            .col-sm-8 {
+            .scwb {
+                border-top: 2px solid #ec6023;
+                padding-top: 30px;
+            }
+
+            body {
+                margin: 0px;
+                padding: 0px;
+                font-size: 16px;
+                font-family: "微软雅黑","黑体";
+                color: #898989;
+                line-height: 1;
+                background: #FFF;
+                min-width: 1200px;
+            }
+
+            body {
+                font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-size: 14px;
+                line-height: 1.4285;
+                color: #333;
+                background-color: #fff;
+            }
+
+            html {
+                font-size: 10px;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+
+            button, input, select, textarea {
+                font-family: inherit;
+                font-size: inherit;
+                line-height: inherit;
+            }
+
+            label {
+                display: inline-block;
+                max-width: 100%;
+                margin-bottom: 5px;
+                font-weight: 700;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
                 position: relative;
                 min-height: 1px;
                 padding-right: 15px;
                 padding-left: 15px;
+            }
+            /* @media all and (min-width:768px) */
+            .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9 {
+                float: left;
+            }
+            /* @media all and (min-width:768px) */
+            .col-sm-8 {
+                width: 66.66%;
             }
 
             .btn4 {
@@ -368,37 +180,61 @@
                 margin: 40px 0 0 450px;
             }
 
-            INPUT[type=submit] {
+            .btn3 {
+                width: 120px;
+                height: 47px;
+                color: #fff;
+                background: #88c337;
+                font-size: 18px;
+                border: none;
+                outline: none;
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                outline: none;
+                vertical-align: middle;
+                -moz-border-radius: 6px;
+                -webkit-border-radius: 6px;
+                border-radius: 6px;
+                float: left;
+                margin: 35px 0 0 40px;
+            }
+
+            button, html input[type=button], input[type=reset], input[type=submit] {
                 -webkit-appearance: button;
                 cursor: pointer;
             }
 
-            LABEL {
-                display: inline-block;
-                max-width: 100%;
-                margin-bottom: 5px;
-                font-weight: 700;
+            input[type=file] {
+                display: block;
             }
 
+            img {
+                border: 0px;
+                padding: 0px;
+                display: block;
+            }
+
+            img {
+                vertical-align: middle;
+            }
+            /* @media all and (min-width:768px) */
             .col-sm-4 {
-                position: relative;
-                min-height: 1px;
-                padding-right: 15px;
-                padding-left: 15px;
+                width: 33.33%;
             }
 
-            .form-group LABEL {
+            .form-group label {
                 display: inline-block;
                 padding-right: 15px;
                 font-size: 18px;
                 color: #333;
                 font-weight: 100;
             }
-
-            SELECT {
-                font-family: inherit;
-                font-size: inherit;
-                line-height: inherit;
+            /* @media all and (min-width:768px) */
+            .form-horizontal .control-label {
+                padding-top: 7px;
+                margin-bottom: 0px;
+                text-align: right;
             }
 
             .form-control {
@@ -414,13 +250,13 @@
                 border: 1px solid #ccc;
                 border-radius: 4px;
                 -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-                box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+                box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075);
                 -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
                 -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
                 transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
             }
 
-            INPUT.form-control {
+            input.form-control {
                 width: 378px;
                 padding-left: 20px;
                 line-height: 38px;
@@ -430,7 +266,11 @@
                 vertical-align: middle;
             }
 
-            SELECT.form-control {
+            select[multiple], select[size] {
+                height: auto;
+            }
+
+            select.form-control {
                 width: 378px;
                 padding-left: 20px;
                 line-height: 38px;
@@ -440,513 +280,391 @@
                 vertical-align: middle;
             }
 
-            H2 {
+            select[multiple] {
+                height: 100px;
+            }
+
+            .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
                 font-family: inherit;
                 font-weight: 500;
                 line-height: 1.1;
                 color: inherit;
             }
 
-            H2 {
+            .h1, .h2, .h3, h1, h2, h3 {
                 margin-top: 20px;
                 margin-bottom: 10px;
             }
 
-            H2 {
+            .h2, h2 {
                 font-size: 30px;
             }
 
-            .xxlb_tit H2 {
+            .xxlb_tit h2 {
                 font-size: 20px;
                 text-align: center;
                 background: url(../images/a15.png) no-repeat center center;
                 color: #88c337;
                 line-height: 62px;
             }
-
-            .herder_top {
-                overflow: hidden;
-            }
-
-            .nav {
-                width: 100%;
-                overflow: hidden;
-            }
-
-            .nav {
-                padding-left: 0px;
-                margin-bottom: 0px;
-                list-style: none;
-            }
-
-                .nav:after {
-                    display: table;
-                    content: " ";
-                }
-
-                .nav:before {
-                    display: table;
-                    content: " ";
-                }
-
-                .nav:after {
-                    clear: both;
-                }
-
-                .nav UL {
-                    overflow: hidden;
-                    height: 55px;
-                    line-height: 55px;
-                }
-
-                    .nav UL LI {
-                        float: left;
-                        padding-right: 107px;
-                    }
-
-                        .nav UL LI A {
-                            font-size: 16px;
-                            color: #333;
-                        }
-
-                    .nav UL .on A {
-                        color: #88c337;
-                    }
-
-            .herder_top .logo {
-                float: left;
-            }
-
-            .herder_top .serach {
-                float: right;
-                width: 300px;
-                height: 40px;
-                border-radius: 3px;
-                float: right;
-                overflow: hidden;
-                border: 1px solid #ed692f;
-                margin-top: 30px;
-            }
-
-                .herder_top .serach INPUT {
-                    float: left;
-                    height: 100%;
-                    display: block;
-                    border: none;
-                    width: 240px;
-                    text-indent: 38px;
-                    background: url(../images/a6.png) 9px center no-repeat;
-                }
-
-            BUTTON {
-                margin: 0;
-                font: inherit;
-                color: inherit;
-            }
-
-            BUTTON {
-                overflow: visible;
-            }
-
-            BUTTON {
-                text-transform: none;
-            }
-
-            BUTTON {
-                font-family: inherit;
-                font-size: inherit;
-                line-height: inherit;
-            }
-
-            .herder_top .serach BUTTON {
-                width: 60px;
-                float: right;
-                height: 100%;
-                line-height: 40px;
-                text-align: center;
-                border: none;
-                outline: none;
-                background: #ed692f;
-                color: #fff;
-            }
-
-            .top_box {
-                width: 1200px;
-                margin: 0 auto;
-                overflow: hidden;
-            }
-
-                .top_box UL {
-                    float: right;
-                    overflow: hidden;
-                }
-
-                    .top_box UL LI {
-                        float: right;
-                        line-height: 48px;
-                        padding-left: 35px;
-                        font-size: 16px;
-                        color: #b0b0b0;
-                    }
-
-                        .top_box UL LI A {
-                            font-size: 14px;
-                            color: #b0b0b0;
-                        }
         </style>
     </head>
     <body>
         <h3>
             You are welcome to apply for audit through Esha's Integrity Supplier Program. Your application form has been received and relevant customer representatives will contact you as soon as possible.
         </h3>
-       
-        <p>
-            <div class="form-group Auditor Auditing Buyer Trader Factory">
-                <label class="col-sm-4 control-label">Apply ID:</label>
-                <div class="col-sm-8">
-                    @Model.Id
-                </div>
-            </div>
-
-            <div class="form-group ">
-                <label for="Payer" class="col-sm-4 control-label">Payer:</label>
-                <div class="col-sm-8">
-                    @Html.EditorFor(m => m.Payer)
-                </div>
-            </div>
-
-
-            <div class="xxlb_tit ">
-                <h2>  Information of Applicant</h2>
-            </div>
-            @if (Model.User != null)
-            {
-                var user = Model.User ;
-                <div class="form-group Auditor Auditing Buyer Trader Factory">
-                    <label class="col-sm-4 control-label">Email Address:</label>
-                    <div class="col-sm-8">
-                        <input type="text" readonly="readonly" class="wby1" value="" />@user.Email
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <p>
+                    <div class="form-group Auditor Auditing Buyer Trader Factory">
+                        <label class="col-sm-4 control-label">Apply ID:</label>
+                        <div class="col-sm-8">
+                            @Model.Id
+                        </div>
                     </div>
-                </div>
-                <div class="form-group Auditor Auditing Buyer Trader Factory">
-                    <label for="Email " class="col-sm-4 control-label">Company Name English:</label>
-                    <div class="col-sm-8">
 
-                        <input type="text" readonly="readonly" class="wby1" value="" />@user.CompanyNameEnglish
+                    <div class="form-group ">
+                        <label for="Payer" class="col-sm-4 control-label">Payer:</label>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(m => m.Payer)
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="CompanyNameLocal" class="col-sm-4 control-label">Company Name Local: </label>
-                    <div class="col-sm-8">
 
-                        <input type="text" readonly="readonly" class="wby1" value="" />@user.CompanyNameLocal
+                    <div class="xxlb_tit ">
+                        <h2>  Information of Applicant</h2>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="AddressEnglish" class="col-sm-4 control-label">Address English: </label>
-                    <div class="col-sm-8">
-
-                        <input type="text" readonly="readonly" class="wby1" value="" />@user.AddressEnglish
+                    @if (Model.User != null)
+                    {
+                    var user = Model.User ;
+                    <div class="form-group Auditor Auditing Buyer Trader Factory">
+                        <label class="col-sm-4 control-label">Email Address:</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly="readonly" class="wby1" value="" />@user.Email
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="AddressLocal" class="col-sm-4 control-label">Address Local: </label>
-                    <div class="col-sm-8">
+                    <div class="form-group Auditor Auditing Buyer Trader Factory">
+                        <label for="Email " class="col-sm-4 control-label">Company Name English:</label>
+                        <div class="col-sm-8">
 
-                        <input type="text" readonly="readonly" class="wby1" value="" />@user.AddressLocal
+                            <input type="text" readonly="readonly" class="wby1" value="" />@user.CompanyNameEnglish
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="BusinessLicenseNumber" class="col-sm-4 control-label">Business License Number: </label>
-                    <div class="col-sm-8">
 
-                        <input type="text" readonly="readonly" class="wby1" value="" />@user.BusinessLicenseNumber
+                    <div class="form-group">
+                        <label for="CompanyNameLocal" class="col-sm-4 control-label">Company Name Local: </label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@user.CompanyNameLocal
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="YearofFacilityEstablished" class="col-sm-4 control-label"> Year of Facility Established:</label>
-                    <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="AddressEnglish" class="col-sm-4 control-label">Address English: </label>
+                        <div class="col-sm-8">
 
-                        <input type="text" readonly="readonly" class="wby1" value="" />@user.YearofFacilityEstablished
+                            <input type="text" readonly="readonly" class="wby1" value="" />@user.AddressEnglish
+                        </div>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="AddressLocal" class="col-sm-4 control-label">Address Local: </label>
+                        <div class="col-sm-8">
 
-                <div class="form-group">
-                    <label for="TelephoneNumber" class="col-sm-4 control-label"> Telephone Number:</label>
-                    <div class="col-sm-8">
-
-                        <input type="text" readonly="readonly" class="wby1" value="" />@user.TelephoneNumber
+                            <input type="text" readonly="readonly" class="wby1" value="" />@user.AddressLocal
+                        </div>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="BusinessLicenseNumber" class="col-sm-4 control-label">Business License Number: </label>
+                        <div class="col-sm-8">
 
-                <div class="form-group Auditing Buyer Trader Factory">
-                    <label for="ContactPerson" class="col-sm-4 control-label">Contact Person ‘s Name/Title:</label>
-                    <div class="col-sm-8">
-                        <input type="text" readonly="readonly" class="wby1" value="" />@user.ContactPerson
+                            <input type="text" readonly="readonly" class="wby1" value="" />@user.BusinessLicenseNumber
+                        </div>
                     </div>
-                </div>
-            }
+                    <div class="form-group">
+                        <label for="YearofFacilityEstablished" class="col-sm-4 control-label"> Year of Facility Established:</label>
+                        <div class="col-sm-8">
 
-            <div class="xxlb_tit ">
-                <h2>  Information of Vendor (If applicable)</h2>
-            </div>
-
-
-
-
-            <div id="Vendordiv">
-
-                <div class="form-group Auditor Auditing Buyer Trader Factory">
-                    <label for="Email " class="col-sm-4 control-label">Email Address:</label>
-                    <div class="col-sm-8">
-
-                        @Html.EditorFor(m => m.VendorEmail)
-
+                            <input type="text" readonly="readonly" class="wby1" value="" />@user.YearofFacilityEstablished
+                        </div>
                     </div>
-                </div>
 
+                    <div class="form-group">
+                        <label for="TelephoneNumber" class="col-sm-4 control-label"> Telephone Number:</label>
+                        <div class="col-sm-8">
 
-                <div class="form-group Auditing Buyer Trader Factory">
-                    <label for="CompanyNameEnglish" class="col-sm-4 control-label">Company Name English:</label>
-                    <div class="col-sm-8">
-                        @Html.EditorFor(m => m.VendorCompanyNameEnglish)
-
+                            <input type="text" readonly="readonly" class="wby1" value="" />@user.TelephoneNumber
+                        </div>
                     </div>
-                </div>
-                <div class="form-group Auditing Buyer Trader Factory">
-                    <label for="VendorCompanyNameLocal" class="col-sm-4 control-label">Company Name Local:</label>
-                    <div class="col-sm-8">
-                        @Html.EditorFor(m => m.VendorCompanyNameLocal)
 
+                    <div class="form-group Auditing Buyer Trader Factory">
+                        <label for="ContactPerson" class="col-sm-4 control-label">Contact Person ‘s Name/Title:</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly="readonly" class="wby1" value="" />@user.ContactPerson
+                        </div>
                     </div>
-                </div>
-                <div class="form-group Auditing Buyer Trader Factory">
-                    <label for="VendorAddressEnglish" class="col-sm-4 control-label">Address English:</label>
-                    <div class="col-sm-8">
-                        @Html.EditorFor(m => m.VendorAddressEnglish)
+                    }
 
+                    <div class="xxlb_tit ">
+                        <h2>  Information of Vendor (If applicable)</h2>
                     </div>
-                </div>
-                <div class="form-group Auditing Buyer Trader Factory">
-                    <label for="VendorAddressLocal" class="col-sm-4 control-label">Address Local:</label>
-                    <div class="col-sm-8">
-                        @Html.EditorFor(m => m.VendorAddressLocal)
 
+
+
+
+                    <div id="Vendordiv">
+
+                        <div class="form-group Auditor Auditing Buyer Trader Factory">
+                            <label for="Email " class="col-sm-4 control-label">Email Address:</label>
+                            <div class="col-sm-8">
+
+                                @Html.EditorFor(m => m.VendorEmail)
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group Auditing Buyer Trader Factory">
+                            <label for="CompanyNameEnglish" class="col-sm-4 control-label">Company Name English:</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.VendorCompanyNameEnglish)
+
+                            </div>
+                        </div>
+                        <div class="form-group Auditing Buyer Trader Factory">
+                            <label for="VendorCompanyNameLocal" class="col-sm-4 control-label">Company Name Local:</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.VendorCompanyNameLocal)
+
+                            </div>
+                        </div>
+                        <div class="form-group Auditing Buyer Trader Factory">
+                            <label for="VendorAddressEnglish" class="col-sm-4 control-label">Address English:</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.VendorAddressEnglish)
+
+                            </div>
+                        </div>
+                        <div class="form-group Auditing Buyer Trader Factory">
+                            <label for="VendorAddressLocal" class="col-sm-4 control-label">Address Local:</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.VendorAddressLocal)
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group Auditing Buyer Trader Factory">
+                            <label for="VendorContactPerson" class="col-sm-4 control-label">Contact Person's Name/Title:</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.VendorContactPerson)
+
+                            </div>
+                        </div>
+                        <div class="form-group Auditing Buyer Trader Factory">
+                            <label for="VendorTelephoneNumber" class="col-sm-4 control-label">Telephone Number:</label>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(m => m.VendorTelephoneNumber)
+
+                            </div>
+                        </div>
                     </div>
-                </div>
 
 
-                <div class="form-group Auditing Buyer Trader Factory">
-                    <label for="VendorContactPerson" class="col-sm-4 control-label">Contact Person's Name/Title:</label>
-                    <div class="col-sm-8">
-                        @Html.EditorFor(m => m.VendorContactPerson)
-
+                    <div class="xxlb_tit ">
+                        <h2>  Details of Physical Facility to be assessed</h2>
                     </div>
-                </div>
-                <div class="form-group Auditing Buyer Trader Factory">
-                    <label for="VendorTelephoneNumber" class="col-sm-4 control-label">Telephone Number:</label>
-                    <div class="col-sm-8">
-                        @Html.EditorFor(m => m.VendorTelephoneNumber)
 
+                    <div class="form-group Auditor Auditing Buyer Trader Factory">
+                        <label class="col-sm-4 control-label">Email  Address:</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.Email
+                        </div>
                     </div>
-                </div>
+                    <div class="form-group Auditor Auditing Buyer Trader Factory">
+                        <label for="Email " class="col-sm-4 control-label">Company Name English:</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.CompanyNameEnglish
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="CompanyNameLocal" class="col-sm-4 control-label">Company Name Local: </label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.CompanyNameLocal
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="AddressEnglish" class="col-sm-4 control-label">Address English" </label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.AddressEnglish
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="AddressLocal" class="col-sm-4 control-label">Address Local: </label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.AddressLocal
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="BusinessLicenseNumber" class="col-sm-4 control-label">Business License Number: </label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.BusinessLicenseNumber
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="YearofFacilityEstablished" class="col-sm-4 control-label"> Year of Facility Established:</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.YearofFacilityEstablished
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ContactPerson" class="col-sm-4 control-label"> ContactPerson:</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.ContactPerson
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="TelephoneNumber" class="col-sm-4 control-label"> Telephone Number:</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.TelephoneNumber
+                        </div>
+                    </div>
+
+                    <div class="form-group Auditing Buyer Trader Factory">
+                        <label for="ContactPerson" class="col-sm-4 control-label">Contact Person's Name/Title:</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.ContactPerson
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group Auditing Buyer Trader Factory">
+                        <label for="YearofFacilityEstablished" class="col-sm-4 control-label">Year of Facility Established:</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.YearofFacilityEstablished
+
+                        </div>
+                    </div>
+
+                    <div class="form-group Auditing Buyer Trader Factory">
+                        <label for="MainLanguageofemployees" class="col-sm-4 control-label">Main Language of employees:</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.MainLanguageofemployees
+                        </div>
+                    </div>
+
+
+                    <div class="form-group Buyer Trader Factory">
+                        <label for="ProductsbyCategory" class="col-sm-4 control-label">Products by Category:</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.ProductsbyCategory
+                        </div>
+                    </div>
+                    <div class="form-group Buyer Trader Factory">
+                        <label for="SpecificProduct" class="col-sm-4 control-label">Specific Product:</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.SpecificProduct
+                        </div>
+                    </div>
+
+                    <div class="xxlb_tit Auditor">
+                        <h2> Employees</h2>
+                    </div>
+                    <div class="form-group Factory">
+                        <label for="ProductionWorkers" class="col-sm-4 control-label">Production Workers:</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.ProductionWorkers
+                        </div>
+                    </div>
+                    <div class="form-group Factory">
+                        <label for="ManagementStaff" class="col-sm-4 control-label">Management Staff:</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.ManagementStaff
+                        </div>
+                    </div>
+                    <div class="form-group Factory">
+                        <label for="Male" class="col-sm-4 control-label">Male:</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.Male
+                        </div>
+                    </div>
+                    <div class="form-group Factory">
+                        <label for="Female" class="col-sm-4 control-label">Female:</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.Female
+                        </div>
+                    </div>
+                    <div class="form-group Factory">
+                        <label for="TotalFacilityFloorSize" class="col-sm-4 control-label">Total Facility Floor Size:</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.TotalFacilityFloorSize
+                        </div>
+                    </div>
+
+
+                    <div class="form-group Factory">
+                        <label for="ServiceStandard" class="col-sm-4 control-label">Service Standard:</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.ServiceStandard
+
+                            Client Program:@Model.TotalFacilityFloorSize
+                        </div>
+                    </div>
+
+                    <div class="form-group Factory">
+                        <label for="ServiceRequest" class="col-sm-4 control-label">Service Request:</label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.ServiceRequest
+                        </div>
+                    </div>
+
+                    <div class="form-group Factory">
+                        <label for="AuditType" class="col-sm-4 control-label">Audit Type: </label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.AuditType
+                        </div>
+                    </div>
+
+
+                    <div class="form-group Factory">
+                        <label for="AuditMethod" class="col-sm-4 control-label">Audit Method: </label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value=" " />@Model.AuditMethod
+                        </div>
+                    </div>
+
+
+                    <div class="form-group Factory">
+                        <label for="DesiredAuditdate" class="col-sm-4 control-label">Desired Audit date : </label>
+                        <div class="col-sm-8">
+
+                            <input type="text" readonly="readonly" class="wby1" value="" />@Model.DesiredAuditdate
+                        </div>
+                    </div>
+
+                </p>
+
             </div>
-
-
-            <div class="xxlb_tit ">
-                <h2>  Details of Physical Facility to be assessed</h2>
-            </div>
-
-            <div class="form-group Auditor Auditing Buyer Trader Factory">
-                <label class="col-sm-4 control-label">Email  Address:</label>
-                <div class="col-sm-8">
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.Email
-                </div>
-            </div>
-            <div class="form-group Auditor Auditing Buyer Trader Factory">
-                <label for="Email " class="col-sm-4 control-label">Company Name English:</label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.CompanyNameEnglish
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="CompanyNameLocal" class="col-sm-4 control-label">Company Name Local: </label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.CompanyNameLocal
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="AddressEnglish" class="col-sm-4 control-label">Address English" </label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.AddressEnglish
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="AddressLocal" class="col-sm-4 control-label">Address Local: </label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.AddressLocal
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="BusinessLicenseNumber" class="col-sm-4 control-label">Business License Number: </label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.BusinessLicenseNumber
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="YearofFacilityEstablished" class="col-sm-4 control-label"> Year of Facility Established:</label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.YearofFacilityEstablished
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="ContactPerson" class="col-sm-4 control-label"> ContactPerson:</label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.ContactPerson
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="TelephoneNumber" class="col-sm-4 control-label"> Telephone Number:</label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.TelephoneNumber
-                </div>
-            </div>
-
-            <div class="form-group Auditing Buyer Trader Factory">
-                <label for="ContactPerson" class="col-sm-4 control-label">Contact Person's Name/Title:</label>
-                <div class="col-sm-8">
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.ContactPerson
-                </div>
-            </div>
-
-
-
-            <div class="form-group Auditing Buyer Trader Factory">
-                <label for="YearofFacilityEstablished" class="col-sm-4 control-label">Year of Facility Established:</label>
-                <div class="col-sm-8">
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.YearofFacilityEstablished
-
-                </div>
-            </div>
-
-            <div class="form-group Auditing Buyer Trader Factory">
-                <label for="MainLanguageofemployees" class="col-sm-4 control-label">Main Language of employees:</label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.MainLanguageofemployees
-                </div>
-            </div>
-
-
-            <div class="form-group Buyer Trader Factory">
-                <label for="ProductsbyCategory" class="col-sm-4 control-label">Products by Category:</label>
-                <div class="col-sm-8">
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.ProductsbyCategory
-                </div>
-            </div>
-            <div class="form-group Buyer Trader Factory">
-                <label for="SpecificProduct" class="col-sm-4 control-label">Specific Product:</label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.SpecificProduct
-                </div>
-            </div>
-
-            <div class="xxlb_tit Auditor">
-                <h2> Employees</h2>
-            </div>
-            <div class="form-group Factory">
-                <label for="ProductionWorkers" class="col-sm-4 control-label">Production Workers:</label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.ProductionWorkers
-                </div>
-            </div>
-            <div class="form-group Factory">
-                <label for="ManagementStaff" class="col-sm-4 control-label">Management Staff:</label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.ManagementStaff
-                </div>
-            </div>
-            <div class="form-group Factory">
-                <label for="Male" class="col-sm-4 control-label">Male:</label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.Male
-                </div>
-            </div>
-            <div class="form-group Factory">
-                <label for="Female" class="col-sm-4 control-label">Female:</label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.Female
-                </div>
-            </div>
-            <div class="form-group Factory">
-                <label for="TotalFacilityFloorSize" class="col-sm-4 control-label">Total Facility Floor Size:</label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.TotalFacilityFloorSize
-                </div>
-            </div>
-
-
-            <div class="form-group Factory">
-                <label for="ServiceStandard" class="col-sm-4 control-label">Service Standard:</label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.ServiceStandard
-
-                    Client Program:@Model.TotalFacilityFloorSize
-                </div>
-            </div>
-
-            <div class="form-group Factory">
-                <label for="ServiceRequest" class="col-sm-4 control-label">Service Request:</label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.ServiceRequest
-                </div>
-            </div>
-
-            <div class="form-group Factory">
-                <label for="AuditType" class="col-sm-4 control-label">Audit Type: </label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.AuditType
-                </div>
-            </div>
-
-
-            <div class="form-group Factory">
-                <label for="AuditMethod" class="col-sm-4 control-label">Audit Method: </label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value=" "/>@Model.AuditMethod
-                </div>
-            </div>
-
-
-            <div class="form-group Factory">
-                <label for="DesiredAuditdate" class="col-sm-4 control-label">Desired Audit date : </label>
-                <div class="col-sm-8">
-
-                    <input type="text" readonly="readonly" class="wby1" value="" />@Model.DesiredAuditdate
-                </div>
-            </div>
-
-        </p>
+        </div>
 
     </body>
 </html>

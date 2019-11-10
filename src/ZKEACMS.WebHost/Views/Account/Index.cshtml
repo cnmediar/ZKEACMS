@@ -1,467 +1,475 @@
+@model Easy.Modules.User.Models.UserEntity
 @{
     ViewBag.Title = L("个人中心");
-    Layout = Layouts.CustomerCenter;
+    //Layout = Layouts.CustomerCenter;
+    Layout = Layouts.Account;
+    Script.Reqiured("validate").AtFoot();
 }
-@*<link href="~/themes/flyingtop/css/style.css" rel="stylesheet" />*@
-<div class="panel panel-default user-info">
-    <div class="panel-heading clearfix">
-        <div class="pull-left">@L("基本信息")</div>
-        @*<div class="pull-right">
-            <a href="@Url.Action("Edit","Account")">@L("编辑")</a>
-        </div>*@
+
+<link href="~/themes/flyingtop/css/swiper-3.4.2.min.css" rel="stylesheet" />
+<link href="~/themes/flyingtop/css/style.css" rel="stylesheet" />
+
+
+
+<script src="~/themes/flyingtop/js/jquery-1.12.4.min.js"></script>
+<script src="~/themes/flyingtop/js/swiper-3.4.2.min.js"></script>
+
+@if (ViewBag.Errormessage != null)
+{
+    <div class="text-center alert alert-danger">
+        @ViewBag.Errormessage
     </div>
-    <div class="panel-body">
-
-        @if (ApplicationContext.CurrentCustomer.MembershipType == "Auditing Company"
-|| ApplicationContext.CurrentCustomer.MembershipType == "Certificate Body"
-|| ApplicationContext.CurrentCustomer.MembershipType == "Testing & Calibration"
-|| ApplicationContext.CurrentCustomer.MembershipType == "Consultant"
-|| ApplicationContext.CurrentCustomer.MembershipType == "Others"
-)
-        {
-
-            <p>
-                <label>Company Name English</label>
-                @ApplicationContext.CurrentCustomer.CompanyNameEnglish
-            </p>
-            <p>
-                <label>Company Name Local</label>
-                @ApplicationContext.CurrentCustomer.CompanyNameLocal
-            </p>
-            <p>
-                <label>Address English</label>
-                @ApplicationContext.CurrentCustomer.AddressEnglish
-            </p>
-            <p>
-                <label>Address Local</label>
-                @ApplicationContext.CurrentCustomer.AddressLocal
-            </p>
-            <p>
-                <label>Business License Number</label>
-                @ApplicationContext.CurrentCustomer.BusinessLicenseNumber
-            </p>
-            <p>
-                <label>Year of Facility Established</label>
-                @ApplicationContext.CurrentCustomer.YearofFacilityEstablished
-            </p>
-            <p>
-                <label>Contact Person ‘s Name/ Title</label>
-                @ApplicationContext.CurrentCustomer.ContactPerson
-            </p>
-            <p>
-                <label>Telephone Number</label>
-                @ApplicationContext.CurrentCustomer.TelephoneNumber
-            </p>
-            <p>
-                <label>Mobile Number</label>
-                @ApplicationContext.CurrentCustomer.MobilePhone
-            </p>
-            <p>
-                <label>E-mail address</label>
-                @ApplicationContext.CurrentCustomer.Email
-            </p>
-            <p>
-                <label>Main Language of employees</label>
-                @ApplicationContext.CurrentCustomer.MainLanguageofemployees
-            </p>
-            <p>
-                <label>Main services</label>
-                @ApplicationContext.CurrentCustomer.Mainservices
-            </p>
-        }
-
-        @if (ApplicationContext.CurrentCustomer.MembershipType == "Auditor")
-        {
-
-
-            <p>
-                <label>Local Name</label>
-                @ApplicationContext.CurrentCustomer.LocalName
-            </p>
-            <p>
-                <label>English Name</label>
-                @ApplicationContext.CurrentCustomer.EnglishName
-            </p>
-
-            <p>
-                <label>Gender</label>
-                @ApplicationContext.CurrentCustomer.Gender
-            </p>
-
-
-            <p>
-                <label>Marriage</label>
-                @ApplicationContext.CurrentCustomer.Marriage
-            </p>
-            <p>
-                <label>Photo</label>
-                @ApplicationContext.CurrentCustomer.Photo
-            </p>
-            <p>
-                <label>Audit</label>
-                @ApplicationContext.CurrentCustomer.AuditFirm
-            </p>
-            <p>
-                <label>Job Title</label>
-                @ApplicationContext.CurrentCustomer.JobTitle
-            </p>
-            <p>
-                <label>Email Address</label>
-                @ApplicationContext.CurrentCustomer.Email
-            </p>
-            <p>
-                <label>Mobile Number</label>
-                @ApplicationContext.CurrentCustomer.MobilePhone
-            </p>
-            <p>
-                <label>Home Address</label>
-                @ApplicationContext.CurrentCustomer.Address
-            </p>
-            <p>
-                <label>City</label>
-                @ApplicationContext.CurrentCustomer.City
-            </p>
-            <p>
-                <label>Country</label>
-                @ApplicationContext.CurrentCustomer.Country
-            </p>
-            <p>
-                <label>IDNumber</label>
-                @ApplicationContext.CurrentCustomer.IDNumber
-            </p>
-
-            <h2>List Auditing Experience</h2>
-
-
-
-
-
-
-            <p>
-                <label>CSR</label>
-                @ApplicationContext.CurrentCustomer.GMP
-            </p>
-            <p>
-                <label>QMS</label>
-                @ApplicationContext.CurrentCustomer.GMP
-            </p>
-            <p>
-                <label>Security</label>
-                @ApplicationContext.CurrentCustomer.GMP
-            </p>
-            <p>
-                <label>System Certification</label>
-                @ApplicationContext.CurrentCustomer.SystemCertification
-            </p>
-            <p>
-                <label>Others</label>
-                @ApplicationContext.CurrentCustomer.Others
-            </p>
-
-            <p>
-                <label>List Type of Industry Experience</label>
-                @ApplicationContext.CurrentCustomer.Workexperience
-            </p>
-
-            <h2>Education Background</h2>
-            <p>
-                <label> Level of Education(List Specific Course Level(s), Major and Year of Graduation)</label>
-                @ApplicationContext.CurrentCustomer.LevelofEducation
-            </p>
-            <p>
-                <label>Year of Graduation</label>
-                @ApplicationContext.CurrentCustomer.YearofGraduation
-            </p>
-
-
-
-
-            <h2>Language</h2>
-
-
-            <p>
-                <label> List Written Language(s) of Auditor</label>
-                @ApplicationContext.CurrentCustomer.ListWrittenLanguageofAuditor
-            </p>
-
-            <p>
-                <label>        Level of Proficiency with this Written Language(s)</label>
-                @ApplicationContext.CurrentCustomer.LevelofProficiencywiththisWritten
-            </p>
-
-
-            <p>
-                <label>
-                    List of Language(s) Spoken by Auditor
-                </label>
-                @ApplicationContext.CurrentCustomer.ListofLanguageSpokenbyAuditor
-            </p>
-
-
-            <p>
-                <label>List Auditor's Special Skills </label>
-                @ApplicationContext.CurrentCustomer.ListAuditorsSpecialSkills
-            </p>
-
-
-            <p>
-                <label>Work experience</label>
-                @ApplicationContext.CurrentCustomer.Workexperience
-            </p>
-
-
-
-
-
-
-
-
-
-
-
-        }
-
-        @if (ApplicationContext.CurrentCustomer.MembershipType == "Trader")
-        {
-            <p>
-                <label>Company Name English</label>
-                @ApplicationContext.CurrentCustomer.CompanyNameEnglish
-            </p>
-            <p>
-                <label>Company Name Local</label>
-                @ApplicationContext.CurrentCustomer.CompanyNameLocal
-            </p>
-            <p>
-                <label>Address English</label>
-                @ApplicationContext.CurrentCustomer.AddressEnglish
-            </p>
-            <p>
-                <label>Address Local</label>
-                @ApplicationContext.CurrentCustomer.AddressLocal
-            </p>
-            <p>
-                <label>Business License Number</label>
-                @ApplicationContext.CurrentCustomer.BusinessLicenseNumber
-            </p>
-            <p>
-                <label>Year of Facility Established</label>
-                @ApplicationContext.CurrentCustomer.YearofFacilityEstablished
-            </p>
-
-            <p>
-                <label>   Outside(Pleas include Front Entrance & Name of Company)</label>
-                @ApplicationContext.CurrentCustomer.Outside
-            </p>
-            <p>
-                <label>Showroom or Main products</label>
-                @ApplicationContext.CurrentCustomer.ShowroomorMainproducts
-            </p>
-
-
-
-            <p>
-                <label>Contact Person ‘s Name/ Title</label>
-                @ApplicationContext.CurrentCustomer.ContactPerson
-            </p>
-            <p>
-                <label>Telephone Number</label>
-                @ApplicationContext.CurrentCustomer.TelephoneNumber
-            </p>
-            <p>
-                <label>Mobile Number</label>
-                @ApplicationContext.CurrentCustomer.MobilePhone
-            </p>
-            <p>
-                <label>E-mail address</label>
-                @ApplicationContext.CurrentCustomer.Email
-            </p>
-            <p>
-                <label>Main Language of employees</label>
-                @ApplicationContext.CurrentCustomer.MainLanguageofemployees
-            </p>
-            <p>
-                <label>Employees</label>
-                @ApplicationContext.CurrentCustomer.Employees
-            </p>
-
-        }
-
-        @if (ApplicationContext.CurrentCustomer.MembershipType == "Factory")
-        {
-
-            <p>
-                <label>Company Name English</label>
-                @ApplicationContext.CurrentCustomer.CompanyNameEnglish
-            </p>
-            <p>
-                <label>Company Name Local</label>
-                @ApplicationContext.CurrentCustomer.CompanyNameLocal
-            </p>
-            <p>
-                <label>Address English</label>
-                @ApplicationContext.CurrentCustomer.AddressEnglish
-            </p>
-            <p>
-                <label>Address Local</label>
-                @ApplicationContext.CurrentCustomer.AddressLocal
-            </p>
-            <p>
-                <label>Business License Number</label>
-                @ApplicationContext.CurrentCustomer.BusinessLicenseNumber
-            </p>
-            <p>
-                <label>Year of Facility Established</label>
-                @ApplicationContext.CurrentCustomer.YearofFacilityEstablished
-            </p>
-
-            <p>
-                <label>   Outside(Pleas include Front Entrance & Name of Company)</label>
-                @ApplicationContext.CurrentCustomer.Outside
-            </p>
-
-
-            <p>
-                <label>
-                    Production Areas (Please include all key production areas)
-                </label>
-                @ApplicationContext.CurrentCustomer.ProductionAreas
-            </p>
-
-            <p>
-                <label>Showroom or Main products</label>
-                @ApplicationContext.CurrentCustomer.ShowroomorMainproducts
-            </p>
-
-
-
-            <p>
-                <label>Contact Person ‘s Name/ Title</label>
-                @ApplicationContext.CurrentCustomer.ContactPerson
-            </p>
-            <p>
-                <label>Telephone Number</label>
-                @ApplicationContext.CurrentCustomer.TelephoneNumber
-            </p>
-            <p>
-                <label>Mobile Number</label>
-                @ApplicationContext.CurrentCustomer.MobilePhone
-            </p>
-            <p>
-                <label>E-mail address</label>
-                @ApplicationContext.CurrentCustomer.Email
-            </p>
-
-            <p>
-                <label>  Products by Category</label>
-                @ApplicationContext.CurrentCustomer.ProductsbyCategory
-            </p> <p>
-                <label>Specific Product(s)</label>
-                @ApplicationContext.CurrentCustomer.SpecificProduct
-            </p>
-
-
-
-
-
-
-            <p>
-                <label>Main Language of employees</label>
-                @ApplicationContext.CurrentCustomer.MainLanguageofemployees
-            </p>
-            <p>
-                <label>Employees</label>
-                Production Workers:  @ApplicationContext.CurrentCustomer.ProductionWorkers <br />
-                Management Staff:  @ApplicationContext.CurrentCustomer.ManagementStaff <br />
-                Male:  @ApplicationContext.CurrentCustomer.Male <br />
-                Female:@ApplicationContext.CurrentCustomer.Female
-
-            </p>
-
-
-
-        }
-        @if (ApplicationContext.CurrentCustomer.MembershipType == "Buyer")
-        {
-            <p>
-                <label>Company Name English</label>
-                @ApplicationContext.CurrentCustomer.CompanyNameEnglish
-            </p>
-            <p>
-                <label>Company Name Local</label>
-                @ApplicationContext.CurrentCustomer.CompanyNameLocal
-            </p>
-            <p>
-                <label>Address English</label>
-                @ApplicationContext.CurrentCustomer.AddressEnglish
-            </p>
-            <p>
-                <label>Address Local</label>
-                @ApplicationContext.CurrentCustomer.AddressLocal
-            </p>
-            <p>
-                <label>Business License Number</label>
-                @ApplicationContext.CurrentCustomer.BusinessLicenseNumber
-            </p>
-            <p>
-                <label>Year of Facility Established</label>
-                @ApplicationContext.CurrentCustomer.YearofFacilityEstablished
-            </p>
-            <p>
-                <label>Contact Person ‘s Name/ Title</label>
-                @ApplicationContext.CurrentCustomer.ContactPerson
-            </p>
-            <p>
-                <label>Telephone Number</label>
-                @ApplicationContext.CurrentCustomer.TelephoneNumber
-            </p>
-            <p>
-                <label>Mobile Number</label>
-                @ApplicationContext.CurrentCustomer.MobilePhone
-            </p>
-            <p>
-                <label>E-mail address</label>
-                @ApplicationContext.CurrentCustomer.Email
-            </p>
-
-            <p>
-                <label>  Products by Category</label>
-                @ApplicationContext.CurrentCustomer.ProductsbyCategory
-            </p> <p>
-                <label>Specific Product(s)</label>
-                @ApplicationContext.CurrentCustomer.SpecificProduct
-            </p>
-
-            <p>
-                <label>Main Language of employees</label>
-                @ApplicationContext.CurrentCustomer.MainLanguageofemployees
-            </p>
-            <p>
-                <label>Employees</label>
-                @ApplicationContext.CurrentCustomer.Employees
-            </p>
-        }
-        @*<p>
-            <label>@L("姓名")</label>
-            @ApplicationContext.CurrentCustomer.UserName
-        </p>*@
-        @*<p>
-            <label>@L("邮箱")</label>
-            @ApplicationContext.CurrentCustomer.Email
-        </p>*@
-        @*<p>
-            <label>@L("电话")</label>
-            @ApplicationContext.CurrentCustomer.Telephone
-        </p>
-        <p>
-            <label>@L("手机")</label>
-            @ApplicationContext.CurrentCustomer.MobilePhone
-        </p>
-      
-      
-        <p>
-            <label>@L("收货地址")</label>
-            @ApplicationContext.CurrentCustomer.Address
-        </p>*@
-       
+}
+
+
+<form action="@Url.Action("Edit","Account")" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.UserID)
+    @*@Html.HiddenFor(m => m.PassWord)*@
+    @Html.HiddenFor(m => m.ApiLoginToken)
+    @Html.HiddenFor(m => m.LastLoginDate)
+    @Html.HiddenFor(m => m.LoginIP)
+    @Html.HiddenFor(m => m.PhotoUrl)
+    @Html.HiddenFor(m => m.Timestamp)
+    @Html.HiddenFor(m => m.Email)
+    @Html.HiddenFor(m => m.Age)
+    @Html.HiddenFor(m => m.Birthplace)
+    @Html.HiddenFor(m => m.EnglishName)
+    @*@Html.HiddenFor(m => m.FirstName)
+        @Html.HiddenFor(m => m.LastName)*@
+    @Html.HiddenFor(m => m.Birthday)
+    @Html.HiddenFor(m => m.MaritalStatus)
+    @*@Html.HiddenFor(m => m.NickName)
+        @Html.HiddenFor(m => m.Profession)*@
+    @Html.HiddenFor(m => m.School)
+    @Html.HiddenFor(m => m.Status)
+    <div class="panel panel-default user-info">
+        <div class="panel-heading clearfix">
+            <div class="pull-left">@L("修改基本信息")</div>
+            <div class="pull-right">
+                <a href="@Url.Action("PassWord")">@L("修改密码")</a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="form-group Auditor Auditing Buyer Trader Factory">
+                    <label for="Email " class="col-sm-4 control-label">@L("邮箱")</label>
+                    <div class="col-sm-8">
+                        <input type="text" readonly disabled value="@Model.Email" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group Auditor Auditing Buyer Trader Factory">
+                    <label for="MembershipType  " class="col-sm-4 control-label ">Membership Type</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.MembershipType)
+                        @Html.ValidationMessageFor(m => m.MembershipType)
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                        <label for="UserName" class="col-sm-4 control-label">@L("姓名")</label>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(m => m.UserName)
+                            @Html.ValidationMessageFor(m => m.UserName)
+                        </div>
+                    </div>*@
+
+                @*<div class="form-group">
+                        <label for="Telephone" class="col-sm-4 control-label">@L("头像")</label>
+                        <div class="col-sm-8">
+                            <input type="file" name="file" class="form-control" accept="image/*" />
+                        </div>
+                    </div>*@
+                @*<div class="form-group">
+                        <label for="Telephone" class="col-sm-4 control-label">@L("电话")</label>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(m => m.Telephone)
+                            @Html.ValidationMessageFor(m => m.Telephone)
+                        </div>
+                    </div>*@
+
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="CompanyNameEnglish" class="col-sm-4 control-label">CompanyName English</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.CompanyNameEnglish)
+                        @Html.ValidationMessageFor(m => m.CompanyNameEnglish)
+                    </div>
+                </div>
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="CompanyNameLocal" class="col-sm-4 control-label">CompanyName Local</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.CompanyNameLocal)
+                        @Html.ValidationMessageFor(m => m.CompanyNameLocal)
+                    </div>
+                </div>
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="AddressEnglish" class="col-sm-4 control-label">Address English</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.AddressEnglish)
+                        @Html.ValidationMessageFor(m => m.AddressEnglish)
+                    </div>
+                </div>
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="AddressLocal" class="col-sm-4 control-label">Address Local</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.AddressLocal)
+                        @Html.ValidationMessageFor(m => m.AddressLocal)
+                    </div>
+                </div>
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="BusinessLicenseNumber" class="col-sm-4 control-label">Business LicenseNumber</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.BusinessLicenseNumber)
+                        @Html.ValidationMessageFor(m => m.BusinessLicenseNumber)
+                    </div>
+                </div>
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="YearofFacilityEstablished" class="col-sm-4 control-label">Year of Facility Established</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.YearofFacilityEstablished)
+                        @Html.ValidationMessageFor(m => m.YearofFacilityEstablished)
+                    </div>
+                </div>
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="ContactPerson" class="col-sm-4 control-label">Contact Person ‘s Name/Title</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.ContactPerson)
+                        @Html.ValidationMessageFor(m => m.ContactPerson)
+                    </div>
+                </div>
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="TelephoneNumber" class="col-sm-4 control-label">Telephone Number</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.TelephoneNumber)
+                        @Html.ValidationMessageFor(m => m.TelephoneNumber)
+                    </div>
+                </div>
+                <div class="form-group Auditing Auditor Buyer Trader Factory">
+                    <label for="MobilePhone" class="col-sm-4 control-label">Mobile Phone</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.MobilePhone)
+                        @Html.ValidationMessageFor(m => m.MobilePhone)
+                    </div>
+                </div>
+
+                <div class="form-group Auditing Buyer Trader Factory">
+                    <label for="MainLanguageofemployees" class="col-sm-4 control-label">Main Language of employees</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.MainLanguageofemployees)
+                        @Html.ValidationMessageFor(m => m.MainLanguageofemployees)
+                    </div>
+                </div>
+                <div class="form-group Auditing">
+                    <label for="Mainservices" class="col-sm-4 control-label">Main services</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.Mainservices)
+                        @Html.ValidationMessageFor(m => m.Mainservices)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="LocalName" class="col-sm-4 control-label">Local Name</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.LocalName)
+                        @Html.ValidationMessageFor(m => m.LocalName)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="EnglishName" class="col-sm-4 control-label">English  Name</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.EnglishName)
+                        @Html.ValidationMessageFor(m => m.EnglishName)
+                    </div>
+                </div>
+
+                <div class="form-group Auditor">
+                    <label for="Sex" class="col-sm-4 control-label">Gender</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.Sex)
+                        @Html.ValidationMessageFor(m => m.Sex)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="Marriage" class="col-sm-4 control-label">Marriage</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.Marriage)
+                        @Html.ValidationMessageFor(m => m.Marriage)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="AuditFirm" class="col-sm-4 control-label">Audit</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.AuditFirm)
+                        @Html.ValidationMessageFor(m => m.AuditFirm)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="JobTitle" class="col-sm-4 control-label">Job Title</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.JobTitle)
+                        @Html.ValidationMessageFor(m => m.JobTitle)
+                    </div>
+                </div>
+                <div class="form-group Buyer Trader Factory">
+                    <label for="ProductsbyCategory" class="col-sm-4 control-label">Products by Category</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.ProductsbyCategory)
+                        @Html.ValidationMessageFor(m => m.ProductsbyCategory)
+                    </div>
+                </div>
+                <div class="form-group Buyer Trader Factory">
+                    <label for="SpecificProduct" class="col-sm-4 control-label">Specific Product</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.SpecificProduct)
+                        @Html.ValidationMessageFor(m => m.SpecificProduct)
+                    </div>
+                </div>
+                <div class="form-group Buyer Trader">
+                    <label for="Employees" class="col-sm-4 control-label">Employees</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.Employees)
+                        @Html.ValidationMessageFor(m => m.Employees)
+                    </div>
+                </div>
+                <div class="form-group Factory">
+                    <label for="Outside" class="col-sm-4 control-label">Outside (Pleas include Front Entrance & Name of Company)</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.Outside)
+                        @Html.ValidationMessageFor(m => m.Outside)
+                    </div>
+                </div>
+                <div class="form-group Factory">
+                    <label for="ShowroomorMainproducts" class="col-sm-4 control-label">Showroomor Main products</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.ShowroomorMainproducts)
+                        @Html.ValidationMessageFor(m => m.ShowroomorMainproducts)
+                    </div>
+                </div>
+                <div class="form-group Factory">
+                    <label for="ProductionAreas" class="col-sm-4 control-label">Production Areas</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.ProductionAreas)
+                        @Html.ValidationMessageFor(m => m.ProductionAreas)
+                    </div>
+                </div>
+                <div class="form-group Factory">
+                    <label for="ProductionWorkers" class="col-sm-4 control-label">Production Workers</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.ProductionWorkers)
+                        @Html.ValidationMessageFor(m => m.ProductionWorkers)
+                    </div>
+                </div>
+                <div class="form-group Factory">
+                    <label for="ManagementStaff" class="col-sm-4 control-label">Management Staff</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.ManagementStaff)
+                        @Html.ValidationMessageFor(m => m.ManagementStaff)
+                    </div>
+                </div>
+                <div class="form-group Factory">
+                    <label for="Male" class="col-sm-4 control-label">Male</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.Male)
+                        @Html.ValidationMessageFor(m => m.Male)
+                    </div>
+                </div>
+                <div class="form-group Factory">
+                    <label for="Female" class="col-sm-4 control-label">Female</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.Female)
+                        @Html.ValidationMessageFor(m => m.Female)
+                    </div>
+                </div>
+                <div class="form-group Factory">
+                    <label for="TotalFacilityFloorSize" class="col-sm-4 control-label">Total Facility Floor Size</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.TotalFacilityFloorSize)
+                        @Html.ValidationMessageFor(m => m.TotalFacilityFloorSize)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="Country" class="col-sm-4 control-label">Country</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.Country)
+                        @Html.ValidationMessageFor(m => m.Country)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="City" class="col-sm-4 control-label">City</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.City)
+                        @Html.ValidationMessageFor(m => m.City)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="IDNumber" class="col-sm-4 control-label">IDNumber</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.IDNumber)
+                        @Html.ValidationMessageFor(m => m.IDNumber)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="BSCI" class="col-sm-4 control-label">CSR</label>
+                    <div class="col-sm-8">
+                        BSCI    @Html.EditorFor(m => m.BSCI)
+                        ICS @Html.EditorFor(m => m.ICS)
+                        Sedex @Html.EditorFor(m => m.Sedex)
+                        ICTI @Html.EditorFor(m => m.ICTI)
+                        RBA  @Html.EditorFor(m => m.RBA)
+                        Client's Program
+
+                        @Html.EditorFor(m => m.ClientsProgram1)
+
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="CTPAT" class="col-sm-4 control-label">Security</label>
+                    <div class="col-sm-8">
+                        CTPAT   @Html.EditorFor(m => m.CTPAT)
+                        SCS @Html.EditorFor(m => m.SCS)
+                        SCAN  @Html.EditorFor(m => m.SCAN)
+                        GSV @Html.EditorFor(m => m.GSV)
+
+                        Client's Program
+
+                        @Html.EditorFor(m => m.ClientsProgram2)
+
+
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="FCCA" class="col-sm-4 control-label">QMS</label>
+                    <div class="col-sm-8">
+                        FCCA @Html.EditorFor(m => m.FCCA)
+                        SQP @Html.EditorFor(m => m.SQP)
+                        QMS @Html.EditorFor(m => m.QMS)
+                        GMP @Html.EditorFor(m => m.GMP)
+
+
+                        Client's Program  @Html.EditorFor(m => m.ClientsProgram3)
+
+
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="SystemCertification" class="col-sm-4 control-label">System Certification</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.SystemCertification)
+                        @Html.ValidationMessageFor(m => m.SystemCertification)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="Others" class="col-sm-4 control-label">Others</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.Others)
+                        @Html.ValidationMessageFor(m => m.Others)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="ListTypeofIndustryExperience" class="col-sm-4 control-label">List Type of Industry Experience</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.ListTypeofIndustryExperience)
+                        @Html.ValidationMessageFor(m => m.ListTypeofIndustryExperience)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="ListWrittenLanguageofAuditor" class="col-sm-4 control-label">List Written Language(s) of Auditor</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.ListWrittenLanguageofAuditor)
+                        @Html.ValidationMessageFor(m => m.ListWrittenLanguageofAuditor)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="LevelofProficiencywiththisWritten" class="col-sm-4 control-label">Level of Proficiency with this Written Language(s)</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.LevelofProficiencywiththisWritten)
+                        @Html.ValidationMessageFor(m => m.LevelofProficiencywiththisWritten)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="ListofLanguageSpokenbyAuditor" class="col-sm-4 control-label">List of Language(s) Spoken by Auditor  </label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.ListofLanguageSpokenbyAuditor)
+                        @Html.ValidationMessageFor(m => m.ListofLanguageSpokenbyAuditor)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="ListAuditorsSpecialSkills" class="col-sm-4 control-label">List Auditor's Special Skills </label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.ListAuditorsSpecialSkills)
+                        @Html.ValidationMessageFor(m => m.ListAuditorsSpecialSkills)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="Workexperience" class="col-sm-4 control-label">Workexperience</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.Workexperience)
+                        @Html.ValidationMessageFor(m => m.Workexperience)
+                    </div>
+                </div>
+                <div class="form-group Auditor">
+                    <label for="LevelofEducation" class="col-sm-4 control-label">Level of Education(List Specific Course Level(s), Major and Year of Graduation)</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.LevelofEducation)
+                        @Html.ValidationMessageFor(m => m.LevelofEducation)
+                    </div>
+                </div>
+                <div class="form-group  Auditor ">
+                    <label for="YearofGraduation" class="col-sm-4 control-label">Year of Graduation</label>
+                    <div class="col-sm-8">
+                        @Html.EditorFor(m => m.YearofGraduation)
+                        @Html.ValidationMessageFor(m => m.YearofGraduation)
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="form-group  Auditor Auditing Buyer Trader Factory">
+
+                    <div class="col-sm-8">
+                        <input type="submit" value="@L("保存修改")" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
+</form>
+
+
+
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        $('#MembershipType').change(function () {
+
+            var p1 = $(this).children('option:selected').val();//这就是selected的值
+            $(".form-group").hide();
+
+            console.log(p1);
+
+            if (p1 == "Auditing Company")
+                $(".Auditing").show();
+            if (p1 == "Certificate Body")
+                $(".Auditing").show();
+            if (p1 == "Testing & Calibration")
+                $(".Auditing").show();
+            if (p1 == "Consultant")
+                $(".Auditing").show();
+            if (p1 == "Others")
+                $(".Auditing").show();
+
+            if (p1 == "Auditor")
+                $(".Auditor").show();
+            if (p1 == "Buyer")
+                $(".Buyer").show();
+            if (p1 == "Trader")
+                $(".Trader").show();
+            if (p1 == "Factory")
+                $(".Factory").show();
+        });
+
+         $("#MembershipType").trigger("change");
+
+    })
+</script>

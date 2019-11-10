@@ -1,9 +1,19 @@
 @model Easy.Modules.User.Models.UserEntity
 @{
     ViewBag.Title = L("个人中心");
-    Layout = Layouts.CustomerCenter;
+    //Layout = Layouts.CustomerCenter;
+    Layout = Layouts.Account;
     Script.Reqiured("validate").AtFoot();
 }
+
+<link href="~/themes/flyingtop/css/swiper-3.4.2.min.css" rel="stylesheet" />
+<link href="~/themes/flyingtop/css/style.css" rel="stylesheet" />
+
+
+
+<script src="~/themes/flyingtop/js/jquery-1.12.4.min.js"></script>
+<script src="~/themes/flyingtop/js/swiper-3.4.2.min.js"></script>
+
 @if (ViewBag.Errormessage != null)
 {
     <div class="text-center alert alert-danger">
@@ -26,11 +36,11 @@
     @Html.HiddenFor(m => m.Birthplace)
     @Html.HiddenFor(m => m.EnglishName)
     @*@Html.HiddenFor(m => m.FirstName)
-    @Html.HiddenFor(m => m.LastName)*@
+        @Html.HiddenFor(m => m.LastName)*@
     @Html.HiddenFor(m => m.Birthday)
     @Html.HiddenFor(m => m.MaritalStatus)
     @*@Html.HiddenFor(m => m.NickName)
-    @Html.HiddenFor(m => m.Profession)*@
+        @Html.HiddenFor(m => m.Profession)*@
     @Html.HiddenFor(m => m.School)
     @Html.HiddenFor(m => m.Status)
     <div class="panel panel-default user-info">
@@ -57,26 +67,26 @@
                 </div>
 
                 @*<div class="form-group">
-            <label for="UserName" class="col-sm-4 control-label">@L("姓名")</label>
-            <div class="col-sm-8">
-                @Html.EditorFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName)
-            </div>
-        </div>*@
+                        <label for="UserName" class="col-sm-4 control-label">@L("姓名")</label>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(m => m.UserName)
+                            @Html.ValidationMessageFor(m => m.UserName)
+                        </div>
+                    </div>*@
 
                 @*<div class="form-group">
-            <label for="Telephone" class="col-sm-4 control-label">@L("头像")</label>
-            <div class="col-sm-8">
-                <input type="file" name="file" class="form-control" accept="image/*" />
-            </div>
-        </div>*@
+                        <label for="Telephone" class="col-sm-4 control-label">@L("头像")</label>
+                        <div class="col-sm-8">
+                            <input type="file" name="file" class="form-control" accept="image/*" />
+                        </div>
+                    </div>*@
                 @*<div class="form-group">
-            <label for="Telephone" class="col-sm-4 control-label">@L("电话")</label>
-            <div class="col-sm-8">
-                @Html.EditorFor(m => m.Telephone)
-                @Html.ValidationMessageFor(m => m.Telephone)
-            </div>
-        </div>*@
+                        <label for="Telephone" class="col-sm-4 control-label">@L("电话")</label>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(m => m.Telephone)
+                            @Html.ValidationMessageFor(m => m.Telephone)
+                        </div>
+                    </div>*@
 
                 <div class="form-group Auditing Buyer Trader Factory">
                     <label for="CompanyNameEnglish" class="col-sm-4 control-label">CompanyName English</label>
@@ -416,7 +426,7 @@
 
 
                 <div class="form-group  Auditor Auditing Buyer Trader Factory">
-               
+
                     <div class="col-sm-8">
                         <input type="submit" value="@L("保存修改")" class="btn btn-primary" />
                     </div>
@@ -433,7 +443,7 @@
     $(document).ready(function () {
         $('#MembershipType').change(function () {
 
-            var p1 = $(this).children('option:selected').val();//这就是selected的值      
+            var p1 = $(this).children('option:selected').val();//这就是selected的值
             $(".form-group").hide();
 
             console.log(p1);
@@ -459,7 +469,7 @@
                 $(".Factory").show();
         });
 
-         
-    
+
+
     })
 </script>

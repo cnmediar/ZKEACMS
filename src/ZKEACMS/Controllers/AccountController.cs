@@ -84,6 +84,7 @@ namespace ZKEACMS.Controllers
         [CustomerAuthorize]
         public ActionResult Index()
         {
+            return View(_applicationContextAccessor.Current.CurrentCustomer);
             return View();
         }
         [CustomerAuthorize]
@@ -289,7 +290,7 @@ namespace ZKEACMS.Controllers
                         no += 1;
                        _cacheManager.Add(date, no);
                     }
-                    apply.Id = $"AL" + DateTime.Now.Year.ToString().Substring(2) + month + DateTime.Now.ToString("dd")+no.ToString();
+                    apply.Id = $"AL" + DateTime.Now.Year.ToString().Substring(2) + month + DateTime.Now.ToString("dd")+no.ToString().PadLeft(2,'0');
 
                     apply.User = _applicationContextAccessor.Current.CurrentCustomer;
 
