@@ -100,15 +100,23 @@ namespace ZKEACMS.Controllers
                 user.UserTypeCD = (int)UserType.Customer;
                 var newPhoto = Request.SaveFile();
 
-
+  var d= _userService.Get(user.UserID);
                 if (newPhoto.IsNotNullAndWhiteSpace())
                 {
                     user.PhotoUrl = newPhoto;
                 }
-                
+                else
+                    user.PhotoUrl = d.PhotoUrl;
+
+
+
 
                 try
                 {
+                 
+                    user.PassWord = d.PassWord;
+                     
+
                     _userService.Update(user);
                 }
                 catch (Exception ex)

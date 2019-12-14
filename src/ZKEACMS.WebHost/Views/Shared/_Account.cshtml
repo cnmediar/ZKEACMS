@@ -66,7 +66,7 @@
                             <a href="/Account/">
 
 
-                                @User.Identity.Name
+                                @*@User.Identity.Name*@
 
                                 @(ApplicationContext.CurrentCustomer == null ? "" : ApplicationContext.CurrentCustomer.UserID)
 
